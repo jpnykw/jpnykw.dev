@@ -1,8 +1,4 @@
 window.onload = function() {
-	// Set the number of years
-	let year_text = document.getElementById('year').innerText, date = new Date();
-	document.getElementById('year').innerText = year_text.replace('YY', `${my_year(date.getFullYear(), date.getMonth(), date.getDate())}`);
-
 	document.getElementById('back-btn').addEventListener('click', () => { scroll_page(0) });
 	Array.from(document.getElementsByTagName('button')).map((dom, index) => {
 		dom.addEventListener('click', () => {
@@ -11,12 +7,8 @@ window.onload = function() {
 	});
 };
 
-function my_year(year, month, date) {
-	return year - 2002 - (month < 3 || (month > 2 && date < 5));
-}
-
 function scroll_page(id) {
-	let scroll_to = [0, 1640, 2165, 3620][id],
+	let scroll_to = [0, 1305, 1825, 3970][id],
 		now_scroll = window.pageYOffset,
 		speed = 13;
 	
