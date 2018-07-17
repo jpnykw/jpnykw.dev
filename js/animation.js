@@ -16,7 +16,7 @@ function my_year(year, month, date) {
 }
 
 function scroll_page(id) {
-	let scroll_to = [0, 1640, 2095, 3550][id],
+	let scroll_to = [0, 1640, 2165, 3620][id],
 		now_scroll = window.pageYOffset,
 		speed = 13;
 	
