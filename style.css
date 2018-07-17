@@ -132,9 +132,6 @@ a {
 }
 
 .top-2 {
-	/*
-	background: #8BC34A;
-	*/
 	position: relative;
 	top: 0;
 	
@@ -145,7 +142,6 @@ a {
 }
 
 .top-3 {
-	background: #4CAF50;
 	position: relative;
 	color: #1c1c1c;
 	top: 0;
