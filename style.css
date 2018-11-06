@@ -53,6 +53,13 @@
 
 .body .works {
       display: inline-block;
+
+      margin-top: 200px;
+      width: 100%;
+}
+
+.body .works .title {
+      margin-top: 0;
 }
 
 .body .works .projects-container .project {
@@ -132,7 +139,7 @@ a {
 body {
       margin: 0px;
       color: #F2F2F2;
-      background: #131313;
+      background: repeating-linear-gradient(90deg, #131313, #131313 10px, #111 0, #111 20px);
 
       text-align: center;
 }
@@ -151,4 +158,30 @@ body {
 
 .small-line {
       width: 500px;
+}
+
+.go-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+
+      width: 50px;
+      height: 50px;
+
+      background: #F2F2F2;
+      border-radius: 50px;
+}
+
+.go-top .triangle {
+      border-bottom: 25px solid #131313;
+      border-right: 15px solid transparent;
+      border-left: 15px solid transparent; 
+
+      position: fixed;
+      bottom: 40px;
+      right: 35px;
+}
+
+.go-top:hover {
+      cursor: pointer;
 }
