@@ -1,3 +1,7 @@
+body {
+      font-family: 'Poiret One', cursive;
+}
+
 .header {
       width: 100%;
       height: 700px;
@@ -20,6 +24,7 @@
       margin: 0px;
       font-size: 90px;
       text-align: center;
+      font-family: 'Poiret One', cursive;
 
       position: relative;
       top: 20px;
@@ -136,6 +141,10 @@ a {
       color: #FFF;
 }
 
+p {
+      font-family: 'Roboto Mono', monospace;
+}
+
 body {
       margin: 0px;
       color: #F2F2F2;
@@ -154,6 +163,10 @@ body {
       border-bottom: solid 1px #F2F2F2;
       margin: 30px auto;
       width: 1200px;
+}
+
+.hide {
+      display: none;
 }
 
 .small-line {
@@ -175,7 +188,7 @@ body {
 .go-top .triangle {
       border-bottom: 25px solid #131313;
       border-right: 15px solid transparent;
-      border-left: 15px solid transparent; 
+      border-left: 15px solid transparent;
 
       position: fixed;
       bottom: 40px;
@@ -184,4 +197,17 @@ body {
 
 .go-top:hover {
       cursor: pointer;
+}
+
+.notice {
+      font-family: 'Comfortaa', cursive;
+      letter-spacing: 2px;
+
+      background: #087ca3;
+      height: 50px;
+}
+
+.notice p {
+      position: relative;
+      top: 15px;
 }
