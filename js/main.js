@@ -18,6 +18,11 @@
                               if (value === 'true') {
                                     // console.log('AR-Mode');
                                     document.getElementsByClassName('ar-mode')[0].classList.remove('hide');
+                                    setTimeout(() => {
+                                          if (confirm('Thanks get business card and load QR code. Do you want use AR-Mode?')) {
+                                                open('https://jpnykw.github.io/Xmas2018/');
+                                          }
+                                    }, 500);
                               }
                               break;
                   }
