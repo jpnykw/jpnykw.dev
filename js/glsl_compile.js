@@ -18,14 +18,12 @@ vertexShaderXhr.onload = () => {
 		const program = createProgram(createShader(vertexShader, 'v'), createShader(fragmentShader, 'f'));
 
 		const uniform = [
-            ctx.getUniformLocation(program, 'time'),
-            ctx.getUniformLocation(program, 'resolution')
-        ];
+			ctx.getUniformLocation(program, 'time'),
+			ctx.getUniformLocation(program, 'resolution')
+		];
 
-        const position = [
-            -1.0, 1.0, 0.0,
-			1.0, 1.0, 0.0,
-            -1.0, -1.0, 0.0,
+		const position = [-1.0, 1.0, 0.0,
+			1.0, 1.0, 0.0, -1.0, -1.0, 0.0,
 			1.0, -1.0, 0.0
 		];
 
@@ -44,7 +42,7 @@ vertexShaderXhr.onload = () => {
 		ctx.bindBuffer(ctx.ELEMENT_ARRAY_BUFFER, vbo_Index);
 		ctx.clearColor(0.0, 0.0, 0.0, 1.0);
 
-        // start
+		// start
 		let time = null;
 		setTimeout(() => {
 			if (status.vjmode) {
@@ -121,4 +119,3 @@ vertexShaderXhr.onload = () => {
 };
 
 vertexShaderXhr.send(null);
-
