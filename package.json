@@ -15,6 +15,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.3",
     "@material-ui/icons": "^4.9.1",
+    "animejs": "^3.1.0",
     "file-loader": "^5.1.0",
     "material-icons": "^0.3.1",
     "react": "^16.12.0",
