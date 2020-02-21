@@ -1,36 +1,50 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import {
   Avatar,
   Card,
+  CardActions,
+  CardActionArea,
+  CardContent,
   CardHeader,
   CardMedia,
-  CardContent,
-  CardActionArea,
   Chip,
+  Collapse,
+  IconButton,
   Typography
 } from '@material-ui/core';
-import {
-  TwitterIcon
-} from '@material-ui/icons';
+
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const StyledCard = styled(Card)`
-  max-width: 350;
+  ${props => props['alia-expanded'] ? 'max-height: 500' : ''};
+  max-width: 300;
   margin: 10;
 `;
 
 const StyledCardMedia = styled(CardMedia)`
   max-height: 200;
+  max-width: 300;
 `;
 
 const StyledChip = styled(Chip)`
-  margin: 5 2;
+  margin: 15 2;
+`;
+
+const StyledIconButton = styled(IconButton)`
+  transform: rotate(${props => props['aria-expanded'] ? 180 : 0}deg);
 `;
 
 const About = (props) => {
+  const [expanded, setExpanded] = React.useState(false);
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
   return (
     <StyledCard>
-      <CardActionArea>
+      <CardActionArea onClick={() => open(props.link)}>
         <StyledCardMedia
           component="img"
           image={props.thumbnail}
@@ -54,10 +68,28 @@ const About = (props) => {
           }
 
           <Typography variant="body1" color="textSecondary" component="p">
-            {props.description}
+            {props.description.about}
           </Typography>
         </CardContent>
       </CardActionArea>
+
+      <CardActions disableSpacing>
+        <StyledIconButton
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </StyledIconButton>
+      </CardActions>
+
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>
+            {props.description.detail}
+          </Typography>
+        </CardContent>
+      </Collapse>
     </StyledCard>
   );
 };
