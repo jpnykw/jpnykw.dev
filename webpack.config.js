@@ -5,11 +5,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 const DEV_PORT = process.env.PORT || 3000;
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: { presets: ['@babel/env'] },
@@ -26,6 +26,13 @@ module.exports = {
             name: '[path][name].[ext]'
           }
         }]
+      },
+      {
+        test: /\.json$/,
+        type: "javascript/auto",
+        use: {
+          loader: "json-loader",
+        },
       },
     ],
   },
