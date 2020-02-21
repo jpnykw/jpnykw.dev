@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { Box } from '@material-ui/core'
+/* @material-ui components */
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+/* original components */
 import Project from './components/Project';
-
+/* resources */
 import Icon from './assets/images/icon.png';
 import RustReversi from './assets/images/t_rust_reversi.png';
 import ShaderEditor from './assets/images/t_shader_editor.png';
@@ -11,24 +13,12 @@ import ShaderEditor from './assets/images/t_shader_editor.png';
 const App = () => {
   return (
     <div>
-      <Box display="flex" flexDirection="row" p={1} m={1}>
-        {/*
-        <Box p={1}>
-          <Project
-            link='https://github.com/jpnykw'
-            thumbnail={Icon}
-            title='Haruto Hirakawa'
-            date='Mar 5, 2002'
-            languages={['Neko']}
-            description={{
-              about: 'I love cats and not love humans. cats are save the world.',
-              detail: 'meow meow meow meow meow meow meow'
-            }}
-          ></Project>
-        </Box>
-        */}
+      <Typography component="h2" variant="h2" align="center" color="textPrimary">
+        projects
+      </Typography>
 
-        <Box p={1}>
+      <Grid container alignItems="center" justify="center" spacing={4}>
+        <Grid item key={1}>
           <Project
             link='https://github.com/jpnykw/rust-reversi'
             thumbnail={RustReversi}
@@ -40,9 +30,9 @@ const App = () => {
               detail: 'This is the first project of using Rust. Graphics by piston.'
             }}
           ></Project>
-        </Box>
+        </Grid>
 
-        <Box p={1}>
+        <Grid item key={2}>
           <Project
             link='https://github.com/jpnykw/glsl-editor'
             thumbnail={ShaderEditor}
@@ -54,8 +44,22 @@ const App = () => {
               detail: 'This is the first project of using Rust. Graphics by piston.'
             }}
           ></Project>
-        </Box>
-      </Box>
+        </Grid>
+
+        <Grid item key={3}>
+          <Project
+            link='https://github.com/jpnykw/rust-reversi'
+            thumbnail={RustReversi}
+            title='Reversi in Rust'
+            date='Nov 18, 2019'
+            languages={['Rust']}
+            description={{
+              about: 'The reversi game for player versus computer.',
+              detail: 'This is the first project of using Rust. Graphics by piston.'
+            }}
+          ></Project>
+        </Grid>
+      </Grid>
     </div>
   );
 }

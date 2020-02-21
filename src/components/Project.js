@@ -1,20 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import {
-  Avatar,
-  Card,
-  CardActions,
-  CardActionArea,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Chip,
-  Collapse,
-  IconButton,
-  Typography
-} from '@material-ui/core';
-
+/* material-ui components */
+import Avatar from '@material-ui/core/Avatar';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import Chip from '@material-ui/core/Chip';
+import Collapse from '@material-ui/core/Collapse';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+/* material-ui icons */
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const StyledCard = styled(Card)`
@@ -36,7 +34,7 @@ const StyledIconButton = styled(IconButton)`
   transform: rotate(${props => props['aria-expanded'] ? 180 : 0}deg);
 `;
 
-const About = (props) => {
+const Project = (props) => {
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -67,7 +65,7 @@ const About = (props) => {
             })
           }
 
-          <Typography variant="body1" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p">
             {props.description.about}
           </Typography>
         </CardContent>
@@ -94,5 +92,5 @@ const About = (props) => {
   );
 };
 
-export default About;
+export default Project;
 
