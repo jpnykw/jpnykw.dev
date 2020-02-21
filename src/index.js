@@ -44,7 +44,7 @@ const App = () => {
 
         <Box p={1}>
           <Project
-            link='https://github.com/jpnykw/rust-reversi'
+            link='https://github.com/jpnykw/glsl-editor'
             thumbnail={ShaderEditor}
             title='WebGL Shader Editor'
             date='Dec 14, 2019'
