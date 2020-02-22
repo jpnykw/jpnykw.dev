@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 /* @material-ui components */
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -12,6 +13,9 @@ import RustReversi from './assets/images/t_rust_reversi.png';
 import ShaderEditor from './assets/images/t_shader_editor.png';
 import Ccbc from './assets/images/t_ccbc.png';
 import Aura from './assets/images/t_aura.png';
+import SmartVJ from './assets/images/t_smart_vj.jpg';
+import EChat from './assets/images/t_e_chat.png';
+import Plat from './assets/images/t_plat.png';
 
 const GetThumbnail = type => {
   switch (type) {
@@ -23,13 +27,23 @@ const GetThumbnail = type => {
       return Ccbc;
     case 'aura':
       return Aura;
+    case 'smart_vj':
+      return SmartVJ;
+    case 'e_chat':
+      return EChat;
+    case 'plat':
+      return Plat;
   }
 }
+
+const StyledGrid = styled(Grid)`
+  padding-top: 20;
+`;
 
 const App = () => {
   return (
     <div>
-      <Grid container alignItems="center" justify="center" spacing={4}>
+      <StyledGrid container alignItems="center" justify="center" spacing={4}>
         {Object.keys(Projects).map(key => (
           <Grid item key={key}>
             <ProjectCard
@@ -42,7 +56,7 @@ const App = () => {
             ></ProjectCard>
           </Grid>
         ))}
-      </Grid>
+      </StyledGrid>
     </div>
   );
 }

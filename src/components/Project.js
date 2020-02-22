@@ -24,8 +24,13 @@ const StyledCard = styled(Card)`
 `;
 
 const StyledCardMedia = styled(CardMedia)`
+  /*
   max-height: 200;
   max-width: 300;
+  */
+
+  height: 170;
+  width: 300;
 `;
 
 const StyledChip = styled(Chip)`
@@ -37,16 +42,26 @@ const StyledIconButton = styled(IconButton)`
 `;
 
 const StyledDiv = styled.div`
+  background: #666;
+  color: #f0f0f0;
+
   width: 900;
 
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  text-align: center;
 `;
 
 const StyledImg = styled.img`
-  width: 100%;
+  margin: 15 0;
+  width: 96%;
+`;
+
+const StyledTypography = styled(Typography)`
+  padding-bottom: 15;
 `;
 
 const Project = (props) => {
@@ -126,6 +141,9 @@ const Project = (props) => {
           <p id="simple-modal-description">dog</p>
           */}
           <StyledImg src={props.thumbnail} />
+          <StyledTypography variant="body2" component="p">
+            {props.description.detail}
+          </StyledTypography>
         </StyledDiv>
       </Modal>
     </StyledCard>
