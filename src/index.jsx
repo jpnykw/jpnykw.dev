@@ -4,64 +4,44 @@ import ReactDOM from 'react-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 /* original components */
-import Project from './components/Project';
+import ProjectCard from './components/Project';
 /* resources */
-import Json from './assets/json/projects.json';
+import Projects from './assets/json/projects.json';
 import Icon from './assets/images/icon.png';
 import RustReversi from './assets/images/t_rust_reversi.png';
 import ShaderEditor from './assets/images/t_shader_editor.png';
+import Ccbc from './assets/images/t_ccbc.png';
+import Aura from './assets/images/t_aura.png';
 
-console.log('json:', Json);
+const GetThumbnail = type => {
+  switch (type) {
+    case 'rust_reversi':
+      return RustReversi;
+    case 'shader_editor':
+      return ShaderEditor;
+    case 'ccbc':
+      return Ccbc;
+    case 'aura':
+      return Aura;
+  }
+}
 
 const App = () => {
   return (
     <div>
-      <Typography component="h2" variant="h2" align="center" color="textPrimary">
-        Projects
-      </Typography>
-
       <Grid container alignItems="center" justify="center" spacing={4}>
-        <Grid item key={1}>
-          <Project
-            link='https://github.com/jpnykw/rust-reversi'
-            thumbnail={RustReversi}
-            title='Reversi in Rust'
-            date='Nov 18, 2019'
-            languages={['Rust']}
-            description={{
-              about: 'The reversi game for player versus computer.',
-              detail: 'This is the first project of using Rust. Graphics by piston.'
-            }}
-          ></Project>
-        </Grid>
-
-        <Grid item key={2}>
-          <Project
-            link='https://github.com/jpnykw/glsl-editor'
-            thumbnail={ShaderEditor}
-            title='WebGL Shader Editor'
-            date='Dec 14, 2019'
-            languages={['JavaScript', 'GLSL']}
-            description={{
-              about: 'The editor on Web for GLSL. to use test fragment shader of WebGL.',
-              detail: 'This is the first project of using Rust. Graphics by piston.'
-            }}
-          ></Project>
-        </Grid>
-
-        <Grid item key={3}>
-          <Project
-            link='https://github.com/jpnykw/rust-reversi'
-            thumbnail={RustReversi}
-            title='Reversi in Rust'
-            date='Nov 18, 2019'
-            languages={['Rust']}
-            description={{
-              about: 'The reversi game for player versus computer.',
-              detail: 'This is the first project of using Rust. Graphics by piston.'
-            }}
-          ></Project>
-        </Grid>
+        {Object.keys(Projects).map(key => (
+          <Grid item key={key}>
+            <ProjectCard
+              link={Projects[key].link}
+              thumbnail={GetThumbnail(Projects[key].thumbnail)}
+              title={Projects[key].title}
+              date={Projects[key].date}
+              languages={Projects[key].languages}
+              description={Projects[key].description}
+            ></ProjectCard>
+          </Grid>
+        ))}
       </Grid>
     </div>
   );

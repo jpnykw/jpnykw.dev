@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-/* material-ui components */
+/* @material-ui components */
 import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -10,10 +11,11 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Chip from '@material-ui/core/Chip';
 import Collapse from '@material-ui/core/Collapse';
+import Modal from '@material-ui/core/Modal';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-/* material-ui icons */
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+/* @material-ui icons */
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const StyledCard = styled(Card)`
   ${props => props['alia-expanded'] ? 'max-height: 500' : ''};
@@ -34,15 +36,34 @@ const StyledIconButton = styled(IconButton)`
   transform: rotate(${props => props['aria-expanded'] ? 180 : 0}deg);
 `;
 
+const StyledDiv = styled.div`
+  width: 900;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const StyledImg = styled.img`
+  width: 100%;
+`;
+
 const Project = (props) => {
-  const [expanded, setExpanded] = React.useState(false);
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const [isOpen, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
     <StyledCard>
-      <CardActionArea onClick={() => open(props.link)}>
+    {/*<CardActionArea onClick={() => open(props.link)}>*/}
+      <CardActionArea onClick={handleOpen}>
         <StyledCardMedia
           component="img"
           image={props.thumbnail}
@@ -71,23 +92,42 @@ const Project = (props) => {
         </CardContent>
       </CardActionArea>
 
-      <CardActions disableSpacing>
-        <StyledIconButton
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </StyledIconButton>
+      {/*
+      <CardActions>
+        <Button size="small">
+          <GitHubIcon />
+        </Button>
+      </CardActions>
+      */}
+
+      <CardActions onClick={() => open(props.link)}>
+        <Button size="small" color="primary">
+          ソースコード
+        </Button>
       </CardActions>
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
-            {props.description.detail}
-          </Typography>
-        </CardContent>
-      </Collapse>
+      {/*
+      <CardActions onClick={handleOpen}>
+        <Button size="small" color="primary">
+          詳細
+        </Button>
+      </CardActions>
+      */}
+
+      <Modal
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        open={isOpen}
+        onClose={handleClose}
+      >
+        <StyledDiv>
+          {/*
+          <h2 id="simple-modal-title">Neko is</h2>
+          <p id="simple-modal-description">dog</p>
+          */}
+          <StyledImg src={props.thumbnail} />
+        </StyledDiv>
+      </Modal>
     </StyledCard>
   );
 };
