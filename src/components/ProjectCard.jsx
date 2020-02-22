@@ -64,7 +64,7 @@ const StyledTypography = styled(Typography)`
   padding-bottom: 15;
 `;
 
-const Project = (props) => {
+const ProjectCard = (props) => {
   const [isOpen, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -141,7 +141,7 @@ const Project = (props) => {
           <p id="simple-modal-description">dog</p>
           */}
           <StyledImg src={props.thumbnail} />
-          <StyledTypography variant="body2" component="p">
+          <StyledTypography variant="body1" component="p">
             {props.description.detail}
           </StyledTypography>
         </StyledDiv>
@@ -150,5 +150,5 @@ const Project = (props) => {
   );
 };
 
-export default Project;
+export default ProjectCard;
 

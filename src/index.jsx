@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 /* original components */
-import ProjectCard from './components/Project';
+import AboutMe from './components/AboutMe.jsx';
+import ProjectCard from './components/ProjectCard.jsx';
 /* resources */
 import Projects from './assets/json/projects.json';
 import Icon from './assets/images/icon.png';
@@ -43,6 +44,9 @@ const StyledGrid = styled(Grid)`
 const App = () => {
   return (
     <div>
+      <Grid container alignItems="center" justify="center" spacing={4}>
+        <AboutMe />
+      </Grid>
       <StyledGrid container alignItems="center" justify="center" spacing={4}>
         {Object.keys(Projects).map(key => (
           <Grid item key={key}>
