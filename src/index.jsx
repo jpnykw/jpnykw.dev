@@ -52,6 +52,7 @@ const App = () => {
           <Grid item key={key}>
             <ProjectCard
               link={Projects[key].link}
+              demo={Projects[key].demo }
               thumbnail={GetThumbnail(Projects[key].thumbnail)}
               title={Projects[key].title}
               date={Projects[key].date}

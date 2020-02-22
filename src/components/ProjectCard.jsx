@@ -17,20 +17,37 @@ import Typography from '@material-ui/core/Typography';
 /* @material-ui icons */
 import GitHubIcon from '@material-ui/icons/GitHub';
 
+/* Card Styling */
 const StyledCard = styled(Card)`
   ${props => props['alia-expanded'] ? 'max-height: 500' : ''};
   max-width: 300;
   margin: 10;
 `;
 
-const StyledCardMedia = styled(CardMedia)`
-  /*
-  max-height: 200;
-  max-width: 300;
-  */
+const StyledModalCard = styled(Card)`
+  background: #666;
+  color: #f0f0f0;
 
+  height: 900;
+  width: 700;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+`;
+
+/* CardMedia Styling */
+const StyledCardMedia = styled(CardMedia)`
   height: 170;
   width: 300;
+`;
+
+const StyledModalCardMedia = styled(CardMedia)`
+  height: 400;
+  width: 700;
 `;
 
 const StyledChip = styled(Chip)`
@@ -42,17 +59,6 @@ const StyledIconButton = styled(IconButton)`
 `;
 
 const StyledDiv = styled.div`
-  background: #666;
-  color: #f0f0f0;
-
-  width: 900;
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  text-align: center;
 `;
 
 const StyledImg = styled.img`
@@ -135,16 +141,18 @@ const ProjectCard = (props) => {
         open={isOpen}
         onClose={handleClose}
       >
-        <StyledDiv>
-          {/*
-          <h2 id="simple-modal-title">Neko is</h2>
-          <p id="simple-modal-description">dog</p>
-          */}
-          <StyledImg src={props.thumbnail} />
-          <StyledTypography variant="body1" component="p">
-            {props.description.detail}
-          </StyledTypography>
-        </StyledDiv>
+        <StyledModalCard>
+          <StyledModalCardMedia
+            component="iframe"
+            image={props.demo}
+          />
+
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {props.description.detail}
+            </Typography>
+          </CardContent>
+        </StyledModalCard>
       </Modal>
     </StyledCard>
   );

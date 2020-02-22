@@ -1,18 +1,20 @@
 {
   "1": {
     "link": "https://github.com/jpnykw/rust-reversi",
+    "demo": "https://www.youtube.com/embed/NsZ7l8pOmAo",
     "thumbnail": "rust_reversi",
     "title": "Reversi in Rust",
     "date": "Nov 18, 2019",
     "languages": ["Rust"],
     "description": {
       "about": "Rustで作成したオセロAIです. GUIにはpistonを使用しています.",
-      "detail": "Rustという言語を学ぶために初めて作ったプロジェクトです. 最初はCUIのPVPオセロを開発し, GUI化, PVC化をしました. グラフィックはpistonというcrateを用いています. ファイルを分割する手法, 所有権まわりのRustに関する知見, 達成感など多くのものを得ました."
+      "detail": "Rustという言語を学ぶために初めて作ったプロジェクトです.\n最初はCUIのPVPオセロを開発し, GUI化, PVC化をしました. グラフィックはpistonというcrateを用いています.\nファイルを分割する手法, 所有権まわりのRustに関する知見, 達成感など多くのものを得ました."
     }
   },
 
   "2": {
     "link": "https://github.com/jpnykw/glsl-editor",
+    "demo": "",
     "thumbnail": "shader_editor",
     "title": "WebGL Shader Editor",
     "date": "Dec 14, 2019",
@@ -25,6 +27,7 @@
 
   "3": {
     "link": "https://github.com/jpnykw/ccbc",
+    "demo": "",
     "thumbnail": "ccbc",
     "title": "C Compiler By C",
     "date": "Jan 28, 2020",
@@ -37,6 +40,7 @@
 
   "4": {
     "link": "https://github.com/jpnykw/aura",
+    "demo": "",
     "thumbnail": "aura",
     "title": "AURA",
     "date": "Apr 19, 2019",
@@ -49,6 +53,7 @@
 
   "5": {
     "link": "https://github.com/jpnykw/smart-vj",
+    "demo": "https://www.youtube.com/embed/dJmAGQYTa9U",
     "thumbnail": "smart_vj",
     "title": "Smart VJ",
     "date": "Dec 13, 2019",
@@ -61,6 +66,7 @@
 
   "6": {
     "link": "https://github.com/jpnykw/eChat",
+    "demo": "",
     "thumbnail": "e_chat",
     "title": "eChat",
     "date": "May 23, 2019",
@@ -73,6 +79,7 @@
 
   "7": {
     "link": "https://github.com/jpnykw/plat",
+    "demo": "",
     "thumbnail": "plat",
     "title": "Playthings",
     "date": "Dec 23, 2019",
