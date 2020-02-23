@@ -14,7 +14,7 @@
 
   "2": {
     "link": "https://github.com/jpnykw/glsl-editor",
-    "demo": "",
+    "demo": "https://www.youtube.com/embed/QmkfcLJc-mU",
     "thumbnail": "shader_editor",
     "title": "WebGL Shader Editor",
     "date": "Dec 14, 2019",
@@ -27,7 +27,7 @@
 
   "3": {
     "link": "https://github.com/jpnykw/ccbc",
-    "demo": "",
+    "demo": "https://www.youtube.com/embed/My5JGNh3snA",
     "thumbnail": "ccbc",
     "title": "C Compiler By C",
     "date": "Jan 28, 2020",
@@ -40,7 +40,7 @@
 
   "4": {
     "link": "https://github.com/jpnykw/aura",
-    "demo": "",
+    "demo": "https://www.youtube.com/embed/ZyIZtu4is-4",
     "thumbnail": "aura",
     "title": "AURA",
     "date": "Apr 19, 2019",
@@ -66,7 +66,7 @@
 
   "6": {
     "link": "https://github.com/jpnykw/eChat",
-    "demo": "",
+    "demo": "https://www.youtube.com/embed/p3sKLrD2Te0",
     "thumbnail": "e_chat",
     "title": "eChat",
     "date": "May 23, 2019",
