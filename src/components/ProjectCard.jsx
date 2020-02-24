@@ -28,8 +28,8 @@ const StyledModalCard = styled(Card)`
   background: #666;
   color: #f0f0f0;
 
-  height: 900;
-  width: 700;
+  height: 80%;
+  width: 60%;
 
   position: absolute;
   left: 50%;
@@ -46,8 +46,8 @@ const StyledCardMedia = styled(CardMedia)`
 `;
 
 const StyledModalCardMedia = styled(CardMedia)`
-  height: 400;
-  width: 700;
+  height: 40%;
+  width: 100%;
 `;
 
 const StyledChip = styled(Chip)`
