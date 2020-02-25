@@ -8,8 +8,8 @@ import { Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 /* original components */
-import AboutMe from './components/AboutMe.tsx';
-import ProjectCard from './components/ProjectCard.tsx';
+import AboutMe from './components/AboutMe';
+import ProjectCard from './components/ProjectCard';
 /* resources */
 import Projects from './assets/json/projects.json';
 import Icon from './assets/images/icon.png';
