@@ -19,7 +19,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 
 /* Card Styling */
 const StyledCard = styled(Card)`
-  ${props => props['alia-expanded'] ? 'max-height: 500' : ''};
+  ${props => props['aria-expanded'] ? 'max-height: 500' : ''};
   max-width: 300;
   margin: 10;
 `;
@@ -40,17 +40,17 @@ const StyledModalCard = styled(Card)`
 `;
 
 /* CardMedia Styling */
-const StyledCardMedia = styled(CardMedia)`
+const StyledCardMedia: typeof CardMedia = styled(CardMedia)`
   height: 170;
   width: 300;
 `;
 
-const StyledModalCardMedia = styled(CardMedia)`
+const StyledModalCardMedia: typeof CardMedia = styled(CardMedia)`
   height: 40%;
   width: 100%;
 `;
 
-const StyledChip = styled(Chip)`
+const StyledChip: typeof Chip = styled(Chip)`
   margin: 15 2;
 `;
 
@@ -70,7 +70,20 @@ const StyledTypography = styled(Typography)`
   padding-bottom: 15;
 `;
 
-const ProjectCard = (props) => {
+interface ProjectCardProps {
+  thumbnail: string;
+  title: string;
+  date: string;
+  demo: string;
+  link: string;
+  languages: string[];
+  description: {
+    about: string;
+    detail: string;
+  };
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = (props) => {
   const [isOpen, setOpen] = React.useState(false);
 
   const handleOpen = () => {

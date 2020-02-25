@@ -16,10 +16,10 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react"
   },
   "include": [
+    "typings/**/*.ts",
     "src"
   ]
 }

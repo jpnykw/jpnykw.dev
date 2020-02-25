@@ -31,7 +31,7 @@ const StyledAvatar = styled(Avatar)`
   width: 120 !important;
 `;
 
-const AboutMe = (props) => {
+const AboutMe: React.FC<{}> = (props) => {
   return (
     <StyledDiv>
       <Card>
