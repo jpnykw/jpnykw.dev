@@ -1,18 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
-
 const DEV_PORT = process.env.PORT || 3000;
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: { presets: ['@babel/env'] },
+        use: 'ts-loader',
       },
       {
         test: /\.css$/,
@@ -39,6 +37,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build/'),
     filename: 'bundle.js',
+  },
+  resolve: {
+    extensions: ['ts', 'tsx']
   },
   devServer: {
     contentBase: path.join(__dirname, 'build/'),

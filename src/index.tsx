@@ -1,12 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import styled from 'styled-components';
 /* @material-ui components */
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+// import Grid from '@material-ui/core/Grid';
+// import Typography from '@material-ui/core/Typography';
+import { Grid } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+
 /* original components */
-import AboutMe from './components/AboutMe.jsx';
-import ProjectCard from './components/ProjectCard.jsx';
+import AboutMe from './components/AboutMe.tsx';
+import ProjectCard from './components/ProjectCard.tsx';
 /* resources */
 import Projects from './assets/json/projects.json';
 import Icon from './assets/images/icon.png';
@@ -18,7 +21,7 @@ import SmartVJ from './assets/images/t_smart_vj.jpg';
 import EChat from './assets/images/t_e_chat.png';
 import Plat from './assets/images/t_plat.png';
 
-const GetThumbnail = type => {
+const GetThumbnail = (type: any) => {
   switch (type) {
     case 'rust_reversi':
       return RustReversi;
@@ -37,9 +40,12 @@ const GetThumbnail = type => {
   }
 }
 
+console.log('styled', styled);
+
 const StyledGrid = styled(Grid)`
   padding-top: 20;
 `;
+
 
 const App = () => {
   return (
@@ -67,4 +73,3 @@ const App = () => {
 }
 
 ReactDOM.render(<App />, document.querySelector('#root'));
-
