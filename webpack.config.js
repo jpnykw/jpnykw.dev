@@ -9,6 +9,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+      },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
@@ -35,6 +39,10 @@ module.exports = {
         },
       },
     ],
+  },
+  resolve: {
+    modules: ['node_modules'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   output: {
     path: path.resolve(__dirname, 'build/'),
