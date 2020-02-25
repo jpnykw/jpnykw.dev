@@ -13,6 +13,12 @@ module.exports = {
         use: 'ts-loader',
       },
       {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: { presets: ['@babel/env'] },
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
@@ -39,7 +45,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['ts', 'tsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   devServer: {
     contentBase: path.join(__dirname, 'build/'),
