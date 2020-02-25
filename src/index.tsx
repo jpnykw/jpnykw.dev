@@ -21,7 +21,7 @@ import SmartVJ from './assets/images/t_smart_vj.jpg';
 import EChat from './assets/images/t_e_chat.png';
 import Plat from './assets/images/t_plat.png';
 
-const GetThumbnail = (type: any) => {
+const GetThumbnail = (type: string) => {
   switch (type) {
     case 'rust_reversi':
       return RustReversi;
@@ -38,6 +38,8 @@ const GetThumbnail = (type: any) => {
     case 'plat':
       return Plat;
   }
+  // By throwing exception, return type of `GetThumbnail` is fixed to `string`.
+  throw new Error(`undefined type: ${type}`)
 }
 
 console.log('styled', styled);
@@ -54,16 +56,16 @@ const App: React.FC<{}> = () => {
         <AboutMe />
       </Grid>
       <StyledGrid container alignItems="center" justify="center" spacing={4}>
-        {Object.keys(Projects).map(key => (
+        {Object.entries(Projects).map(([key, project]) => (
           <Grid item key={key}>
             <ProjectCard
-              link={Projects[key].link}
-              demo={Projects[key].demo }
-              thumbnail={GetThumbnail(Projects[key].thumbnail)}
-              title={Projects[key].title}
-              date={Projects[key].date}
-              languages={Projects[key].languages}
-              description={Projects[key].description}
+              link={project.link}
+              demo={project.demo }
+              thumbnail={GetThumbnail(project.thumbnail)}
+              title={project.title}
+              date={project.date}
+              languages={project.languages}
+              description={project.description}
             ></ProjectCard>
           </Grid>
         ))}
