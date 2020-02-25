@@ -19,7 +19,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 
 /* Card Styling */
 const StyledCard = styled(Card)`
-  ${props => props['alia-expanded'] ? 'max-height: 500' : ''};
+  ${props => props['aria-expanded'] ? 'max-height: 500' : ''};
   max-width: 300;
   margin: 10;
 `;
