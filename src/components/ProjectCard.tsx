@@ -70,7 +70,20 @@ const StyledTypography = styled(Typography)`
   padding-bottom: 15;
 `;
 
-const ProjectCard = (props) => {
+interface ProjectCardProps {
+  thumbnail: string;
+  title: string;
+  date: string;
+  demo: string;
+  link: string;
+  languages: string[];
+  description: {
+    about: string;
+    detail: string;
+  };
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = (props) => {
   const [isOpen, setOpen] = React.useState(false);
 
   const handleOpen = () => {

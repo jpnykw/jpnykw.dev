@@ -47,7 +47,7 @@ const StyledGrid = styled(Grid)`
 `;
 
 
-const App = () => {
+const App: React.FC<{}> = () => {
   return (
     <div>
       <Grid container alignItems="center" justify="center" spacing={4}>
