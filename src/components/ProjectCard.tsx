@@ -40,17 +40,17 @@ const StyledModalCard = styled(Card)`
 `;
 
 /* CardMedia Styling */
-const StyledCardMedia = styled(CardMedia)`
+const StyledCardMedia: typeof CardMedia = styled(CardMedia)`
   height: 170;
   width: 300;
 `;
 
-const StyledModalCardMedia = styled(CardMedia)`
+const StyledModalCardMedia: typeof CardMedia = styled(CardMedia)`
   height: 40%;
   width: 100%;
 `;
 
-const StyledChip = styled(Chip)`
+const StyledChip: typeof Chip = styled(Chip)`
   margin: 15 2;
 `;
 
