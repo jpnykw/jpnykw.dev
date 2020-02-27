@@ -12,15 +12,126 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Chip from '@material-ui/core/Chip';
 import Collapse from '@material-ui/core/Collapse';
 import Modal from '@material-ui/core/Modal';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 /* @material-ui icons */
 import GitHubIcon from '@material-ui/icons/GitHub';
 
+interface ProjectCardProps {
+  thumbnail: string;
+  title: string;
+  date: string;
+  demo: string;
+  link: string;
+  tags: string[];
+  description: {
+    about: string;
+    detail: string;
+  };
+}
+
+const GetTagColor = (type: string) => {
+  switch (type) {
+    /*
+    default:
+      return 'red';
+    */
+
+    default:
+      return 'primary';
+  }
+
+  throw new Error(`undefined type: ${type}`)
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = (props) => {
+  const detail = props.description.detail.split('\n');
+
+  const [isOpen, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <StyledCard>
+      <CardActionArea onClick={handleOpen}>
+        <StyledCardMedia
+          component="img"
+          image={props.thumbnail}
+        />
+
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {props.title}
+          </Typography>
+
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.date}
+          </Typography>
+
+          {
+            props.tags.map(tag => {
+              return (
+                <StyledChip
+                  key={tag}
+                  label={tag}
+                  color={'primary'}
+                  size="small"
+                />
+              );
+            })
+          }
+
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.description.about}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+
+      <CardActions onClick={() => open(props.link)}>
+        <Button size="small" color="primary">
+          ソースコード
+        </Button>
+      </CardActions>
+
+      <Modal
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        open={isOpen}
+        onClose={handleClose}
+      >
+        <StyledModalCard>
+          <StyledModalCardMedia
+            component="iframe"
+            image={props.demo}
+          />
+          <CardContent>
+            {
+              detail.map((text, id) => {
+                return (
+                  <Typography gutterBottom key={id} variant="h5" component="h2">
+                    {text}
+                  </Typography>
+                );
+              })
+            }
+          </CardContent>
+        </StyledModalCard>
+      </Modal>
+    </StyledCard>
+  );
+};
+
+export default ProjectCard;
+
 /* Card Styling */
 const StyledCard = styled(Card)`
-  ${props => props['aria-expanded'] ? 'max-height: 500' : ''};
-  max-width: 300;
+  height: 400;
+  width: 300;
   margin: 10;
 `;
 
@@ -39,7 +150,6 @@ const StyledModalCard = styled(Card)`
   text-align: center;
 `;
 
-/* CardMedia Styling */
 const StyledCardMedia: typeof CardMedia = styled(CardMedia)`
   height: 170;
   width: 300;
@@ -47,18 +157,10 @@ const StyledCardMedia: typeof CardMedia = styled(CardMedia)`
 
 const StyledModalCardMedia: typeof CardMedia = styled(CardMedia)`
   height: 40%;
-  width: 100%;
 `;
 
 const StyledChip: typeof Chip = styled(Chip)`
   margin: 15 2;
-`;
-
-const StyledIconButton = styled(IconButton)`
-  transform: rotate(${props => props['aria-expanded'] ? 180 : 0}deg);
-`;
-
-const StyledDiv = styled.div`
 `;
 
 const StyledImg = styled.img`
@@ -69,107 +171,4 @@ const StyledImg = styled.img`
 const StyledTypography = styled(Typography)`
   padding-bottom: 15;
 `;
-
-interface ProjectCardProps {
-  thumbnail: string;
-  title: string;
-  date: string;
-  demo: string;
-  link: string;
-  languages: string[];
-  description: {
-    about: string;
-    detail: string;
-  };
-}
-
-const ProjectCard: React.FC<ProjectCardProps> = (props) => {
-  const [isOpen, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <StyledCard>
-    {/*<CardActionArea onClick={() => open(props.link)}>*/}
-      <CardActionArea onClick={handleOpen}>
-        <StyledCardMedia
-          component="img"
-          image={props.thumbnail}
-        />
-
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.title}
-          </Typography>
-
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.date}
-          </Typography>
-
-          {
-            props.languages.map(lang => {
-              return (
-                <StyledChip key={lang} label={lang} color="primary" size="small" />
-              );
-            })
-          }
-
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.description.about}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-
-      {/*
-      <CardActions>
-        <Button size="small">
-          <GitHubIcon />
-        </Button>
-      </CardActions>
-      */}
-
-      <CardActions onClick={() => open(props.link)}>
-        <Button size="small" color="primary">
-          ソースコード
-        </Button>
-      </CardActions>
-
-      {/*
-      <CardActions onClick={handleOpen}>
-        <Button size="small" color="primary">
-          詳細
-        </Button>
-      </CardActions>
-      */}
-
-      <Modal
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        open={isOpen}
-        onClose={handleClose}
-      >
-        <StyledModalCard>
-          <StyledModalCardMedia
-            component="iframe"
-            image={props.demo}
-          />
-
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {props.description.detail}
-            </Typography>
-          </CardContent>
-        </StyledModalCard>
-      </Modal>
-    </StyledCard>
-  );
-};
-
-export default ProjectCard;
 

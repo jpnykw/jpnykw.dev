@@ -5,7 +5,7 @@
     "thumbnail": "rust_reversi",
     "title": "Reversi in Rust",
     "date": "Nov 18, 2019",
-    "languages": ["Rust"],
+    "tags": ["Rust"],
     "description": {
       "about": "Rustで作成したオセロAIです. GUIにはpistonを使用しています.",
       "detail": "Rustという言語を学ぶために初めて作ったプロジェクトです.\n最初はCUIのPVPオセロを開発し, GUI化, PVC化をしました. グラフィックはpistonというcrateを用いています.\nファイルを分割する手法, 所有権まわりのRustに関する知見, 達成感など多くのものを得ました."
@@ -18,10 +18,10 @@
     "thumbnail": "shader_editor",
     "title": "WebGL Shader Editor",
     "date": "Dec 14, 2019",
-    "languages": ["JavaScript", "GLSL"],
+    "tags": ["JavaScript", "GLSL"],
     "description": {
       "about": "実行が面倒なGLSLを簡単に試せるWebで動くエディタです.",
-      "detail": "シェーダー芸と呼ばれるGLSLのFragmentshadeだけを用いて絵を出力するパフォーマンスの練習用に, 気軽にWebGL(GLSL)を試せるエディタを作りました. シェーダーのコンパイラはJavaScriptでフルスクラッチで書いています."
+      "detail": "GLSLでFragment Shaderだけを用いて絵を出力する\nシェーダー芸を気軽に試して練習用できるように,\n 簡単に実行できるエディタを作りました. \nシェーダーのコンパイラはJavaScriptで\nフルスクラッチで書いています."
     }
   },
 
@@ -31,7 +31,7 @@
     "thumbnail": "ccbc",
     "title": "C Compiler By C",
     "date": "Jan 28, 2020",
-    "languages": ["C", "Shell", "Assembly"],
+    "tags": ["C", "Shell", "Assembly"],
     "description": {
       "about": "C言語で作成したCコンパイラです. x86アセンブリを吐きます.",
       "detail": "LLVM(コンパイラ基盤)を用いずに作るフルスクラッチコンパイラの勉強で開発を始めたC言語コンパイラです. 背景には42 TokyoのpiscineでC言語を使用するということだったので, C言語を作ってしまおうという魂胆から, C言語でC言語のコンパイラを作りました."
@@ -44,7 +44,7 @@
     "thumbnail": "aura",
     "title": "AURA",
     "date": "Apr 19, 2019",
-    "languages": ["HTML5", "JavaScript"],
+    "tags": ["HTML5", "JavaScript"],
     "description": {
       "about": "HTML5で作成した2Dシューティングゲームです. グラフィックに拘っています.",
       "detail": "JavaScriptとHTML5のcanvasを覚えたての頃に, 練習を兼ねて製作した2Dシューティングゲームです. WebGLではなくContext2Dの機能だけでグラフィックを実装しており, glitch等のエフェクトを自前で用意しました."
@@ -57,7 +57,7 @@
     "thumbnail": "smart_vj",
     "title": "Smart VJ",
     "date": "Dec 13, 2019",
-    "languages": ["HTML5", "JavaScript", "GLSL"],
+    "tags": ["HTML5", "JavaScript", "GLSL"],
     "description": {
       "about": "未踏Jrで開発していたスマホで体験できるVJサービスです.",
       "detail": "QRコードを読み取るだけでスマホがVJのコントローラーになり, 誰もが直感的にスマホを動かすだけで映像や音楽にエフェクトをかけることができるWebアプリです."
@@ -70,7 +70,7 @@
     "thumbnail": "e_chat",
     "title": "eChat",
     "date": "May 23, 2019",
-    "languages": ["HTML5", "JavaScript"],
+    "tags": ["HTML5", "JavaScript"],
     "description": {
       "about": "N高学内のWebページコンテスト用に製作したチャットです.",
       "detail": "Node.jsを使うという前提があったので, Node,js, Socket.io, Express等を用いてチャットサービスを作りました. 特徴として, 発言内容に応じた派手なエフェクトや演出がチャット参加者全員に送られる機能などがついてます. これによって感情をより伝えやすくなると考えています."
@@ -83,7 +83,7 @@
     "thumbnail": "plat",
     "title": "Playthings",
     "date": "Dec 23, 2019",
-    "languages": ["Rust", "LLVM"],
+    "tags": ["Rust", "LLVM"],
     "description": {
       "about": "RustとLLVMを用いて作ったおもちゃ自作言語platです.",
       "detail": "言語処理系に興味があって初めて作った自作言語です. Rustを覚えたかったことで開発はRustを採用し, LLVMと呼ばれるコンパイラ基盤を用いて開発しました. LLVMを用いることで様々なアーキテクチャのアセンブリへの変換を行ってくれるので, 自作言語をLLVM IRという中間言語にコンパイルしてやれば実行できるようになります. 字句解析器やASTなど, 言語処理系のノウハウを覚えることができました."
