@@ -128,7 +128,7 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
 
 export default ProjectCard;
 
-/* Card Styling */
+/* Styling */
 const StyledCard = styled(Card)`
   height: 400;
   width: 300;

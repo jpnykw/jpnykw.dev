@@ -3,14 +3,16 @@ import * as ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive'
 /* @material-ui components */
+import { Avatar } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { Container } from '@material-ui/core';
 /* original components */
 import AboutMe from './components/AboutMe';
 import ProjectCard from './components/ProjectCard';
-/* resources */
+/* resources (json) */
 import Projects from './assets/json/projects.json';
+/* resources (img) */
 import Icon from './assets/images/icon.png';
 import RustReversi from './assets/images/t_rust_reversi.png';
 import ShaderEditor from './assets/images/t_shader_editor.png';
@@ -48,13 +50,24 @@ const GetThumbnail = (type: string) => {
   throw new Error(`undefined type: ${type}`)
 }
 
-const StyledGridParent = styled(Grid)`
-  padding-top: 20;
-`;
-
 const App: React.FC<{}> = () => {
   return (
     <div>
+      <Container maxWidth="sm">
+        <Typography component="h1" variant="h2" align="center">
+          About Me
+        </Typography>
+        <Typography component="h1" variant="h5" align="center">
+          Haruto Hirakawa
+        </Typography>
+      </Container>
+
+      <Container maxWidth="sm">
+        <Typography component="h1" variant="h2" align="center">
+          Projects
+        </Typography>
+      </Container>
+
       <Container maxWidth="md">
         <StyledGridParent container alignItems="center" justify="center" spacing={4}>
           {Object.entries(Projects).map(([key, project]) => (
@@ -76,5 +89,11 @@ const App: React.FC<{}> = () => {
   );
 }
 
+/* Styling */
+const StyledGridParent = styled(Grid)`
+  padding-top: 20;
+`;
+
+/* Rendering */
 ReactDOM.render(<App />, document.querySelector('#root'));
 

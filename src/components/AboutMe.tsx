@@ -18,19 +18,6 @@ import IconRust from 'simple-icons/icons/rust'
 /* resources */
 import Icon from '../assets/images/icon.png';
 
-const StyledDiv = styled.div`
-  margin-top: 30;
-`;
-
-const StyledChip = styled(Chip)`
-  margin: 15 2;
-`;
-
-const StyledAvatar = styled(Avatar)`
-  height: 120 !important;
-  width: 120 !important;
-`;
-
 const AboutMe: React.FC<{}> = (props) => {
   return (
     <StyledDiv>
@@ -67,3 +54,16 @@ const AboutMe: React.FC<{}> = (props) => {
 
 export default AboutMe;
 
+/* Styling */
+const StyledDiv = styled.div`
+  margin-top: 30;
+`;
+
+const StyledChip = styled(Chip)`
+  margin: 15 2;
+`;
+
+const StyledAvatar = styled(Avatar)`
+  height: 120 !important;
+  width: 120 !important;
+`;
