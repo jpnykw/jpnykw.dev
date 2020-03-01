@@ -57,10 +57,9 @@ const App: React.FC<{}> = () => {
         <Typography component="h1" variant="h2" align="center">
           About Me
         </Typography>
-        <Typography component="h1" variant="h5" align="center">
-          Haruto Hirakawa
-        </Typography>
       </Container>
+
+      <AboutMe />
 
       <Container maxWidth="sm">
         <Typography component="h1" variant="h2" align="center">
@@ -68,8 +67,8 @@ const App: React.FC<{}> = () => {
         </Typography>
       </Container>
 
-      <Container maxWidth="md">
-        <StyledGridParent container alignItems="center" justify="center" spacing={4}>
+      <StyledContainer maxWidth="md">
+        <Grid container spacing={4}>
           {Object.entries(Projects).map(([key, project]) => (
             <Grid item key={key} xs={12} sm={6} md={4}>
               <ProjectCard
@@ -83,15 +82,16 @@ const App: React.FC<{}> = () => {
               ></ProjectCard>
             </Grid>
           ))}
-        </StyledGridParent>
-      </Container>
+        </Grid>
+      </StyledContainer>
     </div>
   );
 }
 
 /* Styling */
-const StyledGridParent = styled(Grid)`
+const StyledContainer = styled(Container)`
   padding-top: 20;
+  padding-bottom: 20;
 `;
 
 /* Rendering */

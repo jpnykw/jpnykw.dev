@@ -21,33 +21,23 @@ import Icon from '../assets/images/icon.png';
 const AboutMe: React.FC<{}> = (props) => {
   return (
     <StyledDiv>
-      <Card>
-        <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" src={Icon} />
-          }
-          action={
-            <IconButton>
-              <ShareIcon />
-            </IconButton>
-          }
-          title="Haruto Hirakawa"
-          subheader="March 5th, 2002"
-        />
-        <CardContent>
-          <Typography variant="body1" component="h1" align="center">
-            Skills Set
-          </Typography>
+      <Typography component="h1" variant="h5" align="center">
+        Haruto Hirakawa
+      </Typography>
 
-          <StyledChip label="C" size="small" />
-          <StyledChip avatar={<Avatar>R</Avatar>} label="Rust" size="small" />
-          <StyledChip label="C++" size="small" />
-          <StyledChip label="Python" size="small" />
-          <StyledChip label="JavaScript" size="small" />
-          <StyledChip label="AfterEffects" size="small" />
-          <StyledChip label="Blender" size="small" />
-        </CardContent>
-      </Card>
+      <Typography variant="body1" component="h1" align="center">
+        Skills Set
+      </Typography>
+
+      <Typography variant="h5" align="center" color="textSecondary" paragraph>
+        <StyledChip label="C" size="small" />
+        <StyledChip avatar={<Avatar>R</Avatar>} label="Rust" size="small" />
+        <StyledChip label="C++" size="small" />
+        <StyledChip label="Python" size="small" />
+        <StyledChip label="JavaScript" size="small" />
+        <StyledChip label="AfterEffects" size="small" />
+        <StyledChip label="Blender" size="small" />
+      </Typography>
     </StyledDiv>
   );
 };

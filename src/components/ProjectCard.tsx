@@ -130,9 +130,8 @@ export default ProjectCard;
 
 /* Styling */
 const StyledCard = styled(Card)`
-  height: 400;
-  width: 300;
-  margin: 10;
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledModalCard = styled(Card)`
@@ -152,7 +151,7 @@ const StyledModalCard = styled(Card)`
 
 const StyledCardMedia: typeof CardMedia = styled(CardMedia)`
   height: 170;
-  width: 300;
+  width: 100%;
 `;
 
 const StyledModalCardMedia: typeof CardMedia = styled(CardMedia)`
