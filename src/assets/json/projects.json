@@ -46,7 +46,7 @@
     "date": "Apr 19, 2019",
     "tags": ["HTML5", "JavaScript"],
     "description": {
-      "about": "HTML5で作成した2Dシューティングゲームです. グラフィックに拘っています.",
+      "about": "HTML5でGraphicに拘って作成した2Dシューティングゲームです.",
       "detail": "JavaScriptとHTML5のcanvasを覚えたての頃に, 練習を兼ねて製作した2Dシューティングゲームです. WebGLではなくContext2Dの機能だけでグラフィックを実装しており, glitch等のエフェクトを自前で用意しました."
     }
   },
