@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 /* @material-ui components */
 import { Avatar } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
@@ -26,22 +27,16 @@ const GetThumbnail = (type: string) => {
   switch (type) {
     case 'rust_reversi':
       return RustReversi;
-
     case 'shader_editor':
       return ShaderEditor;
-
     case 'ccbc':
       return Ccbc;
-
     case 'aura':
       return Aura;
-
     case 'smart_vj':
       return SmartVJ;
-
     case 'e_chat':
       return EChat;
-
     case 'plat':
       return Plat;
   }
