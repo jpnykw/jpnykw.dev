@@ -57,17 +57,15 @@ const Works: React.FC<{}> = (props) => {
         <Grid container spacing={4}>
           {Object.entries(Projects).map(([key, project]) => (
             <Grid item key={key} xs={12} sm={6} md={4}>
-              {/* <Link to="/project"> */}
-                <ProjectCard
-                  link={project.link}
-                  demo={project.demo }
-                  title={project.title}
-                  date={project.date}
-                  tags={project.tags}
-                  description={project.description}
-                  thumbnail={GetThumbnail(project.thumbnail)}
-                ></ProjectCard>
-              {/* </Link> */}
+              <ProjectCard
+                link={project.link}
+                demo={project.demo }
+                title={project.title}
+                date={project.date}
+                tags={project.tags}
+                description={project.description}
+                thumbnail={GetThumbnail(project.thumbnail)}
+              ></ProjectCard>
             </Grid>
           ))}
         </Grid>

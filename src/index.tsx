@@ -32,32 +32,12 @@ import {
 import Home from './pages/Home';
 import Works from './pages/Works';
 
-
 const App: React.FC<{}> = () => {
-  const [state, setState] = React.useState({
-    left: false,
-  });
-
-  type DrawerSide = 'top' | 'left' | 'bottom' | 'right';
-  const toggleDrawer = (side: DrawerSide, open: boolean) => (
-    event: React.KeyboardEvent | React.MouseEvent
-  ) => {
-    if (
-      event && event.type === 'keydown' &&
-      (
-        (event as React.KeyboardEvent).key === 'Tab' ||
-        (event as React.KeyboardEvent).key === 'Shift'
-      )
-    ) {
-      return;
-    }
-
-    setState({...state, [side]: open});
-  };
+  const [isOpen, setOpen] = React.useState(false);
 
   const SideList = (
     <div>
-      <List>
+      <StyledList>
         <Link to="/">
           <ListItem button>
             <ListItemText primary="Home" />
@@ -69,21 +49,23 @@ const App: React.FC<{}> = () => {
             <ListItemText primary="Works" />
           </ListItem>
         </Link>
-      </List>
+      </StyledList>
     </div>
   );
 
   return (
     <Router>
-      <StyledAppBar position="relative" color="inherit">
+      <AppBar position="fixed" color="inherit">
         <Toolbar>
-          <IconButton aria-label="menu" onClick={toggleDrawer('left', true)}>
+          <IconButton aria-label="menu" onClick={() => setOpen(true)}>
             <MenuIcon />
           </IconButton>
         </Toolbar>
-      </StyledAppBar>
+      </AppBar>
 
-      <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+      <Margin />
+
+      <Drawer open={isOpen} onClose={() => setOpen(false)}>
         {SideList}
       </Drawer>
 
@@ -101,8 +83,13 @@ const App: React.FC<{}> = () => {
 };
 
 // styling
-const StyledAppBar = styled(AppBar)`
-  margin-bottom: 20;
+const StyledList = styled(List)`
+  width: 250;
+`;
+
+const Margin = styled.div`
+  height: 80;
 `;
 
 ReactDOM.render(<App />, document.querySelector('#root'));
+
