@@ -28,8 +28,9 @@ import {
   Menu as MenuIcon
 } from '@material-ui/icons';
 
-// original components
+// pages for router
 import Home from './pages/Home';
+import Works from './pages/Works';
 
 
 const App: React.FC<{}> = () => {
@@ -74,13 +75,13 @@ const App: React.FC<{}> = () => {
 
   return (
     <Router>
-      <AppBar position="relative" color="inherit">
+      <StyledAppBar position="relative" color="inherit">
         <Toolbar>
           <IconButton aria-label="menu" onClick={toggleDrawer('left', true)}>
             <MenuIcon />
           </IconButton>
         </Toolbar>
-      </AppBar>
+      </StyledAppBar>
 
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {SideList}
@@ -92,12 +93,16 @@ const App: React.FC<{}> = () => {
         </Route>
 
         <Route path="/works">
-          <h1>test</h1>
+          <Works />
         </Route>
       </Switch>
     </Router>
   );
 };
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+// styling
+const StyledAppBar = styled(AppBar)`
+  margin-bottom: 20;
+`;
 
+ReactDOM.render(<App />, document.querySelector('#root'));
