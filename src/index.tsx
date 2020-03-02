@@ -87,7 +87,7 @@ const App: React.FC<{}> = () => {
       </Drawer>
 
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
 
