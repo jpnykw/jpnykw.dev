@@ -13,7 +13,13 @@ import {
 // material ui components
 import {
   AppBar,
+  Drawer,
+  Divider,
   IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   Toolbar,
   Typography
 } from '@material-ui/core';
@@ -25,34 +31,73 @@ import {
 // original components
 import Home from './pages/Home';
 
+
 const App: React.FC<{}> = () => {
+  const [state, setState] = React.useState({
+    left: false,
+  });
+
+  type DrawerSide = 'top' | 'left' | 'bottom' | 'right';
+  const toggleDrawer = (side: DrawerSide, open: boolean) => (
+    event: React.KeyboardEvent | React.MouseEvent
+  ) => {
+    if (
+      event && event.type === 'keydown' &&
+      (
+        (event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift'
+      )
+    ) {
+      return;
+    }
+
+    setState({...state, [side]: open});
+  };
+
+  const SideList = (
+    <div>
+      <List>
+        <Link to="/">
+          <ListItem button>
+            <ListItemText primary="Home" />
+          </ListItem>
+        </Link>
+
+        <Link to="/works">
+          <ListItem button>
+            <ListItemText primary="Works" />
+          </ListItem>
+        </Link>
+      </List>
+    </div>
+  );
+
   return (
     <Router>
-      <AppBar position="static">
+      <AppBar position="relative" color="inherit">
         <Toolbar>
-          <IconButton edge="start"aria-label="menu">
-            <StyledMenuIcon />
+          <IconButton aria-label="menu" onClick={toggleDrawer('left', true)}>
+            <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
+
+      <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+        {SideList}
+      </Drawer>
 
       <Switch>
         <Route path="/">
           <Home />
         </Route>
 
-        <Route path="/test">
+        <Route path="/works">
           <h1>test</h1>
         </Route>
       </Switch>
     </Router>
   );
 };
-
-// styling
-const StyledMenuIcon = styled(MenuIcon)`
-  color: white;
-`;
 
 ReactDOM.render(<App />, document.querySelector('#root'));
 
