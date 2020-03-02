@@ -58,7 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
 
   return (
     <StyledCard>
-      <CardActionArea onClick={handleOpen}>
+      <CardActionArea>
         <StyledCardMedia
           component="img"
           image={props.thumbnail}
