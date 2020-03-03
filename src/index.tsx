@@ -55,6 +55,11 @@ const App: React.FC<{}> = () => {
 
   return (
     <Router>
+      <IconButton aria-label="menu" onClick={() => setOpen(true)}>
+        <MenuIcon />
+      </IconButton>
+
+      {/*
       <AppBar position="fixed" color="inherit">
         <Toolbar>
           <IconButton aria-label="menu" onClick={() => setOpen(true)}>
@@ -62,6 +67,7 @@ const App: React.FC<{}> = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
+      */}
 
       <Margin />
 
