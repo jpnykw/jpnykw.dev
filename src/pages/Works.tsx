@@ -47,12 +47,6 @@ const GetThumbnail = (type: string) => {
 const Works: React.FC<{}> = (props) => {
   return (
     <div>
-      <Container maxWidth="sm">
-        <Typography component="h1" variant="h2" align="center">
-          Works
-        </Typography>
-      </Container>
-
       <StyledContainer maxWidth="md">
         <Grid container spacing={4}>
           {Object.entries(Projects).map(([key, project]) => (

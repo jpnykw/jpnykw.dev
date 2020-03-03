@@ -15,13 +15,9 @@ import ProjectCard from '../components/ProjectCard';
 const Home: React.FC<{}> = (props) => {
   return (
     <div>
-      <Container maxWidth="sm">
-        <Typography component="h1" variant="h2" align="center">
-          About Me
-        </Typography>
+      <Container>
+        <AboutMe />
       </Container>
-
-      <AboutMe />
     </div>
   );
 };
