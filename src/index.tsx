@@ -1,7 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import styled from 'styled-components';
+
 import './assets/css/font.css';
+import './assets/css/index.css';
 
 // react router modules
 import {
@@ -14,6 +16,7 @@ import {
 // material ui components
 import {
   AppBar,
+  Button,
   Drawer,
   Divider,
   Grid,
@@ -57,7 +60,7 @@ const App: React.FC<{}> = () => {
 
   return (
     <Router>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} style={{height: 100}}>
         {[
           {text: 'Home', path: '/'},
           {text: 'Works', path: '/works'},
@@ -65,7 +68,15 @@ const App: React.FC<{}> = () => {
           {text: 'Contact', path: '/contact'},
         ].map((data, value) => (
           <StyledGrid item xs={3} key={value}>
-            <Link to={data.path}>{data.text}</Link>
+            <Link to={data.path} style={{width: '100%'}}>
+              <Button style={{
+                width: '100%',
+                color: '#e3f2fd',
+                lineHeight: '4'
+              }}>
+                {data.text}
+              </Button>
+            </Link>
           </StyledGrid>
         ))}
       </Grid>
@@ -107,7 +118,7 @@ const App: React.FC<{}> = () => {
 const StyledGrid = styled(Grid)`
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20;
+  font-size: 23;
 `;
 
 const StyledList = styled(List)`
