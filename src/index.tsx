@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import styled from 'styled-components';
+// import { Transition, animated } from 'react-spring';
 
 import './assets/css/font.css';
 import './assets/css/index.css';
@@ -10,7 +11,8 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  withRouter
 } from 'react-router-dom';
 
 // material ui components
@@ -59,58 +61,10 @@ const App: React.FC<{}> = () => {
   );
 
   return (
-    <Router>
-      <Grid container spacing={3} style={{height: 100}}>
-        {[
-          {text: 'Home', path: '/'},
-          {text: 'Works', path: '/works'},
-          {text: 'History', path: '/history'},
-          {text: 'Contact', path: '/contact'},
-        ].map((data, value) => (
-          <StyledGrid item xs={3} key={value}>
-            <Link to={data.path} style={{width: '100%'}}>
-              <Button style={{
-                width: '100%',
-                color: '#e3f2fd',
-                lineHeight: '4'
-              }}>
-                {data.text}
-              </Button>
-            </Link>
-          </StyledGrid>
-        ))}
-      </Grid>
-
-      {/*
-      <IconButton aria-label="menu" onClick={() => setOpen(true)}>
-        <MenuIcon />
-      </IconButton>
-      */}
-
-      <Margin />
-
-      <Drawer open={isOpen} onClose={() => setOpen(false)}>
-        {SideList}
-      </Drawer>
-
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-
-        <Route path="/works">
-          <Works />
-        </Route>
-
-        <Route path="/history">
-          <h1>History</h1>
-        </Route>
-
-        <Route path="/contact">
-          <h1>Contact</h1>
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <Home />
+      <Works />
+    </div>
   );
 };
 
@@ -126,7 +80,7 @@ const StyledList = styled(List)`
 `;
 
 const Margin = styled.div`
-  height: 80;
+  height: 30;
 `;
 
 ReactDOM.render(<App />, document.querySelector('#root'));

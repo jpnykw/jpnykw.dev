@@ -16,7 +16,7 @@
     "link": "https://github.com/jpnykw/glsl-editor",
     "demo": "https://www.youtube.com/embed/QmkfcLJc-mU",
     "thumbnail": "shader_editor",
-    "title": "WebGL Shader Editor",
+    "title": "Shader Editor",
     "date": "Dec 14, 2019",
     "tags": ["JavaScript", "GLSL"],
     "description": {
@@ -74,19 +74,6 @@
     "description": {
       "about": "N高学内のWebページコンテスト用に製作したチャットです.",
       "detail": "Node.jsを使うという前提があったので, Node,js, Socket.io, Express等を用いてチャットサービスを作りました. 特徴として, 発言内容に応じた派手なエフェクトや演出がチャット参加者全員に送られる機能などがついてます. これによって感情をより伝えやすくなると考えています."
-    }
-  },
-
-  "7": {
-    "link": "https://github.com/jpnykw/plat",
-    "demo": "",
-    "thumbnail": "plat",
-    "title": "Playthings",
-    "date": "Dec 23, 2019",
-    "tags": ["Rust", "LLVM"],
-    "description": {
-      "about": "RustとLLVMを用いて作ったおもちゃ自作言語platです.",
-      "detail": "言語処理系に興味があって初めて作った自作言語です. Rustを覚えたかったことで開発はRustを採用し, LLVMと呼ばれるコンパイラ基盤を用いて開発しました. LLVMを用いることで様々なアーキテクチャのアセンブリへの変換を行ってくれるので, 自作言語をLLVM IRという中間言語にコンパイルしてやれば実行できるようになります. 字句解析器やASTなど, 言語処理系のノウハウを覚えることができました."
     }
   }
 }

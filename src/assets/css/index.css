@@ -8,3 +8,21 @@ a {
   text-decoration: none;
 }
 
+/* animation with react router */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+    transition: opacity 800ms ease-out;
+    opacity: 1;
+}
+
+.fade-exit {
+    transition: opacity 800ms ease-in;
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+}

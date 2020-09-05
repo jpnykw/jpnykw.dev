@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import '../assets/css/font.css';
 /* @material-ui components */
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -20,14 +21,18 @@ const AboutMe: React.FC<{}> = (props) => {
   return (
     <Container>
       <Grid container alignItems="center" justify="center">
-        <Button style={{borderRadius: 100}}>
-          <img src={Icon} style={{borderRadius: 100}} />
-        </Button>
-      </Grid>
+        <img src={Icon} style={{
+          width: 180,
+          borderRadius: 90,
+          marginRight: 30
+        }} />
 
-      <Typography component="h5" variant="h5" align="center">
-        Haruto Hirakawa
-      </Typography>
+        <Typography component="h3" variant="h3" align="center" style={{
+          fontFamily: `'Montserrat', sans-serif`
+        }}>
+          Haruto Hirakawa
+        </Typography>
+      </Grid>
 
       <Margin />
 
