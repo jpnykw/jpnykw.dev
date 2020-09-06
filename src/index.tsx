@@ -13,7 +13,8 @@ import Works from './pages/Works';
 const App: React.FC<{}> = () => {
   return (
     <>
-      <StyledAbout />
+      <About />
+			<Margin />
       <Works />
     </>
   );
@@ -23,6 +24,10 @@ const App: React.FC<{}> = () => {
 const StyledAbout = styled(About)`
   background: red;
   width: 100%;
+`;
+
+const Margin = styled.div`
+  margin: 100;
 `;
 
 ReactDOM.render(<App />, document.querySelector('#root'));

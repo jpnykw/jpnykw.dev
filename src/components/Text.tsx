@@ -1,38 +1,38 @@
 import React from 'react';
-import anime from 'animejs';
 import styled from 'styled-components';
+import anime from 'animejs';
 
 interface Props {
-  text: string,
-  delay: number,
-  cooltime: number,
+  text: string
+  delay: number
+  cooltime: number
 }
 
 const Text: React.FC<Props> = (props) => {
   return (
     <>
-      {props.text.split('').map((text, id) => {
-        return (
-          <StyledSpan
+      {props.text.split('').map((text, id) => (
+        <StyledSpan
             ref={ref => {
               const delay = props.delay + props.cooltime * id;
 
               anime({
                 targets: ref,
                 opacity: 1,
-                delay
+                delay,
               })
             }}
           >
-            {text}
-           </StyledSpan>
+          {text}
+         </StyledSpan>
         )
-      })}
+      )}
     </>
   )
 };
 
 const StyledSpan = styled.span`
+  font-size: 30;
   opacity: 0;
 `;
 

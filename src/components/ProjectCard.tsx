@@ -17,16 +17,16 @@ import Typography from '@material-ui/core/Typography';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 interface ProjectCardProps {
-  thumbnail: string;
-  title: string;
-  date: string;
-  demo: string;
-  link: string;
-  tags: string[];
+  thumbnail: string
+  title: string
+  date: string
+  demo: string
+  link: string
+  tags: string[]
   description: {
-    about: string;
-    detail: string;
-  };
+    about: string
+    detail: string
+  }
 }
 
 const GetTagColor = (type: string) => {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import anime from 'animejs';
 
 // components
 import {
@@ -47,11 +48,29 @@ const GetThumbnail = (type: string) => {
 
 const Works: React.FC<{}> = (props) => {
   return (
-    <div>
-      <StyledContainer maxWidth="md">
+    <>
+      <Container maxWidth="md">
         <Grid container spacing={6}>
           {Object.entries(Projects).map(([key, project]) => (
-            <Grid item key={key} xs={12} sm={6} md={4}>
+            <StyledGrid
+							key={key}
+							xs={12}
+							sm={6}
+							md={4}
+							item
+
+							ref={ref => {
+								const delay = 1800 + 90 * key;
+
+								anime({
+									targets: ref,
+									opacity: 1,
+									easing: 'easeInOutExpo',
+									duration: 800,
+									delay,
+								})
+							}}
+						>
               <ProjectCard
                 link={project.link}
                 demo={project.demo }
@@ -61,19 +80,17 @@ const Works: React.FC<{}> = (props) => {
                 description={project.description}
                 thumbnail={GetThumbnail(project.thumbnail)}
               ></ProjectCard>
-            </Grid>
+            </StyledGrid>
           ))}
         </Grid>
-      </StyledContainer>
-    </div>
+      </Container>
+    </>
   );
 };
 
 export default Works;
 
-// Styling
-const StyledContainer = styled(Container)`
-  padding-top: 20;
-  padding-bottom: 20;
+const StyledGrid = styled(Grid)`
+	opacity: 0;
 `;
 

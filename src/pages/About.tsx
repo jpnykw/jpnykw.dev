@@ -34,48 +34,24 @@ const AboutMe: React.FC<{}> = (props) => {
 					    targets: ref,
 							opacity: 1,
 							translateY: -50,
-						  easing: 'easeInOutExpo',
-							// easing: 'spring(1, 80, 10, 0)',
+						  // easing: 'easeInOutExpo',
+							easing: 'spring(1, 80, 10, 0)',
 							delay: 1000,
+							duration: 400,
 						})
           }}
         />
-
-        {/*
-        <Typography component="h3" variant="h3" align="center" style={{
-          fontFamily: `'Montserrat', sans-serif`
-        }}>
-          Haruto Hirakawa
-        </Typography>
-        */}
       </Grid>
 
       <Margin />
 
-      <Typography component="h4" variant="h4" align="center">
+      <Typography component="h3" variant="h3" align="center">
 				<MotionText
-					text="Skill Set"
-					delay={1800}
+					text="Haruto Hirakawa"
+					delay={1400}
 					cooltime={30}
 				/>
       </Typography>
-
-      <Typography component="h5" variant="h5" align="center" color="primary">
-        Languages
-      </Typography>
-
-      <StyledContainer maxWidth="sm">
-        {['C', 'C++', 'Rust', 'Python', 'JavaScript'].map((name, index) => (
-          <StyledChip key={index} label={name} size="small" />
-        ))}
-
-        <Typography component="h5" variant="h5" align="center" color="primary">
-          Tools
-        </Typography>
-
-        <StyledChip label="AfterEffects" size="small" />
-        <StyledChip label="Blender" size="small" />
-      </StyledContainer>
     </Container>
   );
 };
@@ -92,7 +68,7 @@ const StyledImg = styled.img`
 `
 
 const Margin = styled.div`
-  margin: 20;
+  margin: 30;
 `;
 
 const StyledContainer = styled(Container)`
@@ -101,6 +77,7 @@ const StyledContainer = styled(Container)`
 
 const StyledChip = styled(Chip)`
   margin: 15 2;
+	opacity: 0;
 `;
 
 const StyledAvatar = styled(Avatar)`
