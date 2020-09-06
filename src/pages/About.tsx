@@ -1,6 +1,7 @@
 import React from 'react';
+import anime from 'animejs'
 import styled from 'styled-components';
-import '../assets/css/font.css';
+
 /* @material-ui components */
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -14,24 +15,37 @@ import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import SvgIcon from '@material-ui/core/SvgIcon';
+
 /* resources */
+import '../assets/css/font.css';
 import Icon from '../assets/images/icon.png';
 
 const AboutMe: React.FC<{}> = (props) => {
   return (
     <Container>
       <Grid container alignItems="center" justify="center">
-        <img src={Icon} style={{
-          width: 180,
-          borderRadius: 90,
-          marginRight: 30
-        }} />
+        <StyledImg
+          src={Icon}
 
+          ref={ref => {
+						anime({
+					    targets: ref,
+							opacity: 1,
+							translateY: -50,
+						  easing: 'easeInOutExpo',
+							// easing: 'spring(1, 80, 10, 0)',
+							delay: 1000,
+						})
+          }}
+        />
+
+        {/*
         <Typography component="h3" variant="h3" align="center" style={{
           fontFamily: `'Montserrat', sans-serif`
         }}>
           Haruto Hirakawa
         </Typography>
+        */}
       </Grid>
 
       <Margin />
@@ -63,6 +77,14 @@ const AboutMe: React.FC<{}> = (props) => {
 export default AboutMe;
 
 /* Styling */
+const StyledImg = styled.img`
+	border-radius: 90px;
+	width: 180px;
+	opacity: 0;
+	position: relative;
+	top: 50px;
+`
+
 const Margin = styled.div`
   margin: 20;
 `;

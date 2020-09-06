@@ -1,25 +1,26 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+
 import styled from 'styled-components';
 
 import './assets/css/font.css';
 import './assets/css/index.css';
 
 // pages for router
-import AboutMe from './components/AboutMe';
+import About from './pages/About';
 import Works from './pages/Works';
 
 const App: React.FC<{}> = () => {
   return (
     <>
-      <StyledAboutMe />
+      <StyledAbout />
       <Works />
     </>
   );
 };
 
 // styling
-const StyledAboutMe = styled(AboutMe)`
+const StyledAbout = styled(About)`
   background: red;
   width: 100%;
 `;
