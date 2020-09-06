@@ -28,16 +28,22 @@ const GetThumbnail = (type: string) => {
   switch (type) {
     case 'rust_reversi':
       return RustReversi;
+
     case 'shader_editor':
       return ShaderEditor;
+
     case 'ccbc':
       return Ccbc;
+
     case 'aura':
       return Aura;
+
     case 'smart_vj':
       return SmartVJ;
+
     case 'e_chat':
       return EChat;
+
     case 'plat':
       return Plat;
   }
@@ -60,7 +66,7 @@ const Works: React.FC<{}> = (props) => {
 							item
 
 							ref={ref => {
-								const delay = 1800 + 90 * key;
+								const delay = 1800 + 90 * Number(key);
 
 								anime({
 									targets: ref,
