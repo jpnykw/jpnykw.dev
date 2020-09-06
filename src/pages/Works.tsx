@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import styled from 'styled-components';
-import anime from 'animejs';
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import styled from 'styled-components'
+import anime from 'animejs'
 
 // components
 import {
@@ -9,43 +9,43 @@ import {
   Container,
   Grid,
   Typography
-} from '@material-ui/core';
+} from '@material-ui/core'
 
-import ProjectCard from '../components/ProjectCard';
+import ProjectCard from '../components/ProjectCard'
 
 // resources
-import Projects from '../assets/json/projects.json';
-import Icon from '../assets/images/icon.png';
-import RustReversi from '../assets/images/t_rust_reversi.png';
-import ShaderEditor from '../assets/images/t_shader_editor.png';
-import Ccbc from '../assets/images/t_ccbc.png';
-import Aura from '../assets/images/t_aura.png';
-import SmartVJ from '../assets/images/t_smart_vj.jpg';
-import EChat from '../assets/images/t_e_chat.png';
-import Plat from '../assets/images/t_plat.png';
+import Projects from '../assets/json/projects.json'
+import Icon from '../assets/images/icon.png'
+import RustReversi from '../assets/images/t_rust_reversi.png'
+import ShaderEditor from '../assets/images/t_shader_editor.png'
+import Ccbc from '../assets/images/t_ccbc.png'
+import Aura from '../assets/images/t_aura.png'
+import SmartVJ from '../assets/images/t_smart_vj.jpg'
+import EChat from '../assets/images/t_e_chat.png'
+import Plat from '../assets/images/t_plat.png'
 
 const GetThumbnail = (type: string) => {
   switch (type) {
     case 'rust_reversi':
-      return RustReversi;
+      return RustReversi
 
     case 'shader_editor':
-      return ShaderEditor;
+      return ShaderEditor
 
     case 'ccbc':
-      return Ccbc;
+      return Ccbc
 
     case 'aura':
-      return Aura;
+      return Aura
 
     case 'smart_vj':
-      return SmartVJ;
+      return SmartVJ
 
     case 'e_chat':
-      return EChat;
+      return EChat
 
     case 'plat':
-      return Plat;
+      return Plat
   }
 
   // By throwing exception, return type of `GetThumbnail` is fixed to `string`.
@@ -66,7 +66,7 @@ const Works: React.FC<{}> = (props) => {
 							item
 
 							ref={ref => {
-								const delay = 1800 + 90 * Number(key);
+								const delay = 1800 + 90 * Number(key)
 
 								anime({
 									targets: ref,
@@ -91,12 +91,12 @@ const Works: React.FC<{}> = (props) => {
         </Grid>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default Works;
+export default Works
 
 const StyledGrid = styled(Grid)`
 	opacity: 0;
-`;
+`
 

@@ -1,26 +1,26 @@
-import React from 'react';
-import anime from 'animejs';
-import styled from 'styled-components';
+import React from 'react'
+import anime from 'animejs'
+import styled from 'styled-components'
 
 /* @material-ui components */
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import Chip from '@material-ui/core/Chip';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import CardContent from '@material-ui/core/CardContent'
+import CardActionArea from '@material-ui/core/CardActionArea'
+import Chip from '@material-ui/core/Chip'
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import IconButton from '@material-ui/core/IconButton'
+import Typography from '@material-ui/core/Typography'
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 /* resources */
-import '../assets/css/font.css';
-import Icon from '../assets/images/icon.png';
+import '../assets/css/font.css'
+import Icon from '../assets/images/icon.png'
 
-import MotionText from '../components/Text';
+import MotionText from '../components/Text'
 
 const AboutMe: React.FC<{}> = (props) => {
   return (
@@ -53,10 +53,10 @@ const AboutMe: React.FC<{}> = (props) => {
 				/>
       </Typography>
     </Container>
-  );
-};
+  )
+}
 
-export default AboutMe;
+export default AboutMe
 
 /* Styling */
 const StyledImg = styled.img`
@@ -69,18 +69,19 @@ const StyledImg = styled.img`
 
 const Margin = styled.div`
   margin: 30;
-`;
+`
 
 const StyledContainer = styled(Container)`
   text-align: center;
-`;
+`
 
 const StyledChip = styled(Chip)`
   margin: 15 2;
 	opacity: 0;
-`;
+`
 
 const StyledAvatar = styled(Avatar)`
   height: 120 !important;
   width: 120 !important;
-`;
+`
+
