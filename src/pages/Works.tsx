@@ -9,6 +9,7 @@ import {
   Grid,
   Typography
 } from '@material-ui/core';
+
 import ProjectCard from '../components/ProjectCard';
 
 // resources

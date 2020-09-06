@@ -1,5 +1,5 @@
 import React from 'react';
-import anime from 'animejs'
+import anime from 'animejs';
 import styled from 'styled-components';
 
 /* @material-ui components */
@@ -19,6 +19,8 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 /* resources */
 import '../assets/css/font.css';
 import Icon from '../assets/images/icon.png';
+
+import MotionText from '../components/Text';
 
 const AboutMe: React.FC<{}> = (props) => {
   return (
@@ -51,7 +53,11 @@ const AboutMe: React.FC<{}> = (props) => {
       <Margin />
 
       <Typography component="h4" variant="h4" align="center">
-        Skills Set
+				<MotionText
+					text="Skill Set"
+					delay={1800}
+					cooltime={30}
+				/>
       </Typography>
 
       <Typography component="h5" variant="h5" align="center" color="primary">
