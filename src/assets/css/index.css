@@ -2,6 +2,8 @@ body {
   color: #e3f2fd;
   background: rgb(33,36,44);
   background: linear-gradient(135deg, rgba(33,36,44,1) 0%, rgba(22,38,55,1) 100%);
+
+	font-family: Montserrat;
 }
 
 a {
@@ -14,15 +16,15 @@ a {
 }
 
 .fade-enter-active {
-    transition: opacity 800ms ease-out;
-    opacity: 1;
+	transition: opacity 800ms ease-out;
+	opacity: 1;
 }
 
 .fade-exit {
-    transition: opacity 800ms ease-in;
-    opacity: 1;
+	transition: opacity 800ms ease-in;
+	opacity: 1;
 }
 
 .fade-exit-active {
-    opacity: 0;
+	opacity: 0;
 }
