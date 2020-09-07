@@ -13,21 +13,18 @@ import Works from './pages/Works'
 // Background
 const Thing = () => {
   const ref = React.useRef()
-  // React.useFrame<any>(() => (ref.current.rotation.z += 0.01))
-	const loop = () => {
-		requestAnimationFrame(loop)
-		// ref.current.rotation.z += 0.01
-		console.log(ref.current)
-	}
+
+  useFrame(() => {
+		ref.current.rotation.y += 0.01
+	})
 
   return (
     <mesh
       ref={ref}
-      onClick={e => console.log('click')}
-      onPointerOver={e => console.log('hover')}
-      onPointerOut={e => console.log('unhover')}>
-      <planeBufferGeometry attach="geometry" args={[1, 1]} />
-      <meshBasicMaterial attach="material" color="hotpink" opacity={0.5} transparent />
+			rotation={[0, 0, 0]}
+		>
+			<boxGeometry attach='geometry' args={[1, 1, 1]} />
+			<meshNormalMaterial attach='material' />
     </mesh>
   )
 }
