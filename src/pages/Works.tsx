@@ -54,7 +54,7 @@ const GetThumbnail = (type: string) => {
 
 const Works: React.FC<{}> = (props) => {
   return (
-    <>
+    <Contents>
       <Container maxWidth="md">
         <Grid container spacing={6}>
           {Object.entries(Projects).map(([key, project]) => (
@@ -90,11 +90,19 @@ const Works: React.FC<{}> = (props) => {
           ))}
         </Grid>
       </Container>
-    </>
+    </Contents>
   )
 }
 
 export default Works
+
+const Contents = styled.div`
+  width: 100%;
+  position: absolute;
+  transform: translate(-50%, 0);
+  left: 50%;
+  top: 80%;
+`
 
 const StyledGrid = styled(Grid)`
 	opacity: 0;

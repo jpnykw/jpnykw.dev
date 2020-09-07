@@ -27,24 +27,25 @@ const AboutMe: React.FC<{}> = (props) => {
     <Contents>
 			{/* MOTION */}
 			<Elements
-				className="demo-content function-based-values-demo"
+				className="elements"
 
 				ref={ref => {
 					anime({
-						targets: '.function-based-values-demo .el',
+						targets: '.elements .el',
 						translateX: function(el: any) {
 							return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
 						},
 						translateY: function(el: any) {
 							return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
 						},
-						scale: function(el: any, i: any, l: any) {
-							return 0.75 + i / 3
-						},
+            scale: 2,
 						rotate: function() { return anime.random(-360, 360); },
 						borderRadius: function() { return ['50%', anime.random(10, 35) + '%']; },
-						duration: function() { return anime.random(1200, 1800); },
-						delay: function() { return anime.random(100, 800); },
+						duration: function() { return anime.random(1400, 1800); },
+						delay: function() { return anime.random(900, 1100); },
+						opacity: function(el: any) {
+              return Number(el.getAttribute('data-opacity')) || 1
+            },
 						direction: 'alternate',
 						loop: true
 					});
@@ -55,9 +56,14 @@ const AboutMe: React.FC<{}> = (props) => {
 					width: '100px',
 				}}
 			>
-				<div data-x="-200" data-y="-60" className="small circle el" style={{width: '30px', height: '30px', background: 'rgba(164, 255, 79)'}} />
-				<div data-x="190" data-y="180" className="small circle el" style={{width: '20px', height: '20px', background: 'rgba(79, 255, 164)'}} />
-				<div data-x="170" data-y="-260" className="small circle el" style={{width: '30px', height: '30px', background: 'rgba(255, 164, 79)'}} />
+				<div data-x="-200" data-y="-60" className="small circle el" style={{opacity: '0', width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}} />
+				<div data-x="200" data-y="190" className="small circle el" style={{opacity: '0', width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}} />
+				<div data-x="170" data-y="-260" className="small circle el" style={{opacity: '0', width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}} />
+
+				<div data-x="700" data-y="-400" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<div data-x="-600" data-y="-300" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<div data-x="-600" data-y="250" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<div data-x="500" data-y="340" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
 			</Elements>
 
 			{/* ICON */}
@@ -71,7 +77,7 @@ const AboutMe: React.FC<{}> = (props) => {
 						translateY: -50,
 						// easing: 'easeInOutExpo',
 						easing: 'spring(1, 80, 10, 0)',
-						delay: 1000,
+						delay: 800,
 						duration: 400,
 					})
 				}}
@@ -82,7 +88,7 @@ const AboutMe: React.FC<{}> = (props) => {
 			{/* NAME */}
 			<MotionText
 				text="Haruto Hirakawa"
-				delay={1400}
+				delay={1100}
 				cooltime={30}
 			/>
 
