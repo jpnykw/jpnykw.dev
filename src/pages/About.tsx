@@ -64,17 +64,17 @@ const AboutMe: React.FC<{}> = (props) => {
             translateY: function(el: any) {
               return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
             },
+            duration: function() { return anime.random(1800, 2600); },
+            delay: function() { return anime.random(1200, 1300); },
             borderRadius: 100,
             opacity: 0.2,
             scale: 3,
-            duration: 2400,
-            delay: 1300,
           })
         }}
       >
         {
-          Array(19).fill(null).map(() => {
-            const x = (200 + Math.random() * 700) * (Math.random() < .5 ? 1 : -1)
+          Array(14).fill(null).map(() => {
+            const x = (200 + Math.random() * 650) * (Math.random() < .5 ? 1 : -1)
             const y = (150 + Math.random() * 350) * (Math.random() < .5 ? 1 : -1)
 
             return (
@@ -85,13 +85,6 @@ const AboutMe: React.FC<{}> = (props) => {
             )
           })
         }
-
-        {/*
-        <Element data-x="700" data-y="-400" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-        <Element data-x="-600" data-y="-300" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-        <Element data-x="-600" data-y="250" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-        <Element data-x="500" data-y="340" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-        */}
       </Elements>
 
       {/* ICON */}
