@@ -62,7 +62,7 @@ const Works: React.FC<{}> = (props) => {
               item
 
               ref={ref => {
-                const delay = 1800 + 90 * Number(key)
+                const delay = 2200 + 120 * Number(key)
 
                 anime({
                   targets: ref,
