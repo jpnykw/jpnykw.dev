@@ -20,6 +20,7 @@ const App: React.FC<{}> = () => {
       <Footer>
         <img
           src={LiquidMe}
+
           ref={ref => {
             anime({
               targets: ref,

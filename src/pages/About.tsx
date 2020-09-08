@@ -77,13 +77,13 @@ const AboutMe: React.FC<{}> = (props) => {
         }}
       >
         {
-          Array(14).fill(null).map(() => {
+          Array(14).fill(null).map((_, id) => {
             const x = (200 + Math.random() * 650) * (Math.random() < .5 ? 1 : -1)
             const y = (150 + Math.random() * 350) * (Math.random() < .5 ? 1 : -1)
 
             return (
               <Element
-                data-x={x} data-y={y} className="small circle el"
+                key={id} data-x={x} data-y={y} className="small circle el"
                 style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}}
               />
             )
