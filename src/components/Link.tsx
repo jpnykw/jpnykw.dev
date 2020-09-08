@@ -13,7 +13,10 @@ interface Props {
 
 const Link: React.FC<Props> = (props) => {
   return (
-    <StyledButton aria-label={props.text}>
+    <StyledButton
+      aria-label={props.text}
+      onClick={() => open(props.href)}
+    >
       {props.icon}
     </StyledButton>
   )
