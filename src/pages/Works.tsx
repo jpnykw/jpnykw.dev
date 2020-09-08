@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import styled from 'styled-components'
 import anime from 'animejs'
+import styled from 'styled-components'
 /* @material-ui components */
 import Avatar from '@material-ui/core/Avatar'
 import Container from '@material-ui/core/Container'
