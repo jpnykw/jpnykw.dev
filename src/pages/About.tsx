@@ -18,11 +18,11 @@ const AboutMe: React.FC<{}> = (props) => {
     <Contents className="center">
 			{/* MOTION */}
 			<Elements
-				className="elements center"
+				className="loop center"
 
 				ref={ref => {
 					anime({
-						targets: '.elements .el',
+						targets: '.loop .el',
 						translateX: function(el: any) {
 							return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
 						},
@@ -50,11 +50,48 @@ const AboutMe: React.FC<{}> = (props) => {
 				<Element data-x="-200" data-y="-60" className="small circle el" style={{opacity: '0', width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}} />
 				<Element data-x="200" data-y="190" className="small circle el" style={{opacity: '0', width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}} />
 				<Element data-x="170" data-y="-260" className="small circle el" style={{opacity: '0', width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}} />
+      </Elements>
 
-				<Element data-x="700" data-y="-400" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<Element data-x="-600" data-y="-300" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<Element data-x="-600" data-y="250" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<Element data-x="500" data-y="340" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+      <Elements
+				className="star center"
+
+				ref={ref => {
+					anime({
+						targets: '.star .el',
+						translateX: function(el: any) {
+							return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
+						},
+						translateY: function(el: any) {
+							return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
+						},
+            borderRadius: 100,
+						opacity: 0.2,
+            scale: 3,
+						duration: 2400,
+						delay: 1300,
+					})
+        }}
+      >
+        {
+          Array(19).fill(null).map(() => {
+            const x = (200 + Math.random() * 700) * (Math.random() < .5 ? 1 : -1)
+            const y = (150 + Math.random() * 350) * (Math.random() < .5 ? 1 : -1)
+
+            return (
+              <Element
+                data-x={x} data-y={y} className="small circle el"
+                style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}}
+              />
+            )
+          })
+        }
+
+        {/*
+				<Element data-x="700" data-y="-400" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<Element data-x="-600" data-y="-300" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<Element data-x="-600" data-y="250" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<Element data-x="500" data-y="340" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+        */}
 			</Elements>
 
 			{/* ICON */}
