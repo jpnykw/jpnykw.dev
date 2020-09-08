@@ -2,18 +2,14 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import anime from 'animejs'
-
-// components
-import {
-  Avatar,
-  Container,
-  Grid,
-  Typography
-} from '@material-ui/core'
-
+/* @material-ui components */
+import Avatar from '@material-ui/core/Avatar'
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+/* components */
 import ProjectCard from '../components/ProjectCard'
-
-// resources
+/* resources */
 import Projects from '../assets/json/projects.json'
 import Icon from '../assets/images/icon.png'
 import RustReversi from '../assets/images/t_rust_reversi.png'

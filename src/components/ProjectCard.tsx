@@ -11,11 +11,11 @@ import CardHeader from '@material-ui/core/CardHeader'
 import CardMedia from '@material-ui/core/CardMedia'
 import Chip from '@material-ui/core/Chip'
 import Collapse from '@material-ui/core/Collapse'
-import CssBaseline from "@material-ui/core/CssBaseline"
+import CssBaseline from '@material-ui/core/CssBaseline'
 import Modal from '@material-ui/core/Modal'
 import Typography from '@material-ui/core/Typography'
 /* @material-ui styles */
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 
 interface ProjectCardProps {
   thumbnail: string

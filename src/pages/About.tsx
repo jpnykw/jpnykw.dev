@@ -1,7 +1,6 @@
 import React from 'react'
 import anime from 'animejs'
 import styled from 'styled-components'
-
 /* @material-ui components */
 import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button'
@@ -15,12 +14,11 @@ import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import SvgIcon from '@material-ui/core/SvgIcon'
-
+/* components */
+import MotionText from '../components/Text'
 /* resources */
 import '../assets/css/font.css'
 import Icon from '../assets/images/icon.png'
-
-import MotionText from '../components/Text'
 
 const AboutMe: React.FC<{}> = (props) => {
   return (
