@@ -2,18 +2,10 @@ import React from 'react'
 import anime from 'animejs'
 import styled from 'styled-components'
 /* @material-ui components */
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
-import Card from '@material-ui/core/Card'
-import CardHeader from '@material-ui/core/CardHeader'
-import CardContent from '@material-ui/core/CardContent'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import Chip from '@material-ui/core/Chip'
 import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
-import SvgIcon from '@material-ui/core/SvgIcon'
+/* @material-ui icons */
+import TwitterIcon from '@material-ui/icons/Twitter'
+import GitHubIcon from '@material-ui/icons/GitHub'
 /* components */
 import Link from '../components/Link'
 import MotionText from '../components/Text'
@@ -92,8 +84,8 @@ const AboutMe: React.FC<{}> = (props) => {
 			/>
 
       <Container>
-        <Link text="Twitter" href="https://twitter.com/jpnykw" />
-        <Link text="GitHub" href="https://github.com/jpnykw" />
+        <Link icon={<TwitterIcon />} text="Twitter" href="https://twitter.com/jpnykw" />
+        <Link icon={<GitHubIcon />} text="GitHub" href="https://github.com/jpnykw" />
       </Container>
     </Contents>
   )
