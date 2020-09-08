@@ -84,8 +84,8 @@ const AboutMe: React.FC<{}> = (props) => {
 			/>
 
       <Container>
-        <Link icon={<TwitterIcon />} text="Twitter" href="https://twitter.com/jpnykw" />
-        <Link icon={<GitHubIcon />} text="GitHub" href="https://github.com/jpnykw" />
+        <Link delay={1280} icon={<TwitterIcon />} text="Twitter" href="https://twitter.com/jpnykw" />
+        <Link delay={1370} icon={<GitHubIcon />} text="GitHub" href="https://github.com/jpnykw" />
       </Container>
     </Contents>
   )
