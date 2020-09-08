@@ -15,6 +15,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import SvgIcon from '@material-ui/core/SvgIcon'
 /* components */
+import Link from '../components/Link'
 import MotionText from '../components/Text'
 /* resources */
 import '../assets/css/font.css'
@@ -22,10 +23,10 @@ import Icon from '../assets/images/icon.png'
 
 const AboutMe: React.FC<{}> = (props) => {
   return (
-    <Contents>
+    <Contents className="center">
 			{/* MOTION */}
 			<Elements
-				className="elements"
+				className="elements center"
 
 				ref={ref => {
 					anime({
@@ -54,14 +55,14 @@ const AboutMe: React.FC<{}> = (props) => {
 					width: '100px',
 				}}
 			>
-				<div data-x="-200" data-y="-60" className="small circle el" style={{opacity: '0', width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}} />
-				<div data-x="200" data-y="190" className="small circle el" style={{opacity: '0', width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}} />
-				<div data-x="170" data-y="-260" className="small circle el" style={{opacity: '0', width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}} />
+				<Element data-x="-200" data-y="-60" className="small circle el" style={{opacity: '0', width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}} />
+				<Element data-x="200" data-y="190" className="small circle el" style={{opacity: '0', width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}} />
+				<Element data-x="170" data-y="-260" className="small circle el" style={{opacity: '0', width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}} />
 
-				<div data-x="700" data-y="-400" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<div data-x="-600" data-y="-300" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<div data-x="-600" data-y="250" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<div data-x="500" data-y="340" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<Element data-x="700" data-y="-400" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<Element data-x="-600" data-y="-300" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<Element data-x="-600" data-y="250" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+				<Element data-x="500" data-y="340" data-opacity="0.4" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
 			</Elements>
 
 			{/* ICON */}
@@ -90,37 +91,22 @@ const AboutMe: React.FC<{}> = (props) => {
 				cooltime={30}
 			/>
 
-			{/*
-      <Typography
-				style={{
-					position: 'absolute',
-					transform: 'translate(-50%, -50%)',
-					left: '50%',
-					top: '50%',
-				}}
-			>
-				<MotionText
-					text="12800000m 1second" // petrification beam :P
-					delay={1700}
-					cooltime={80}
-				/>
-      </Typography>
-			*/}
+      <Container>
+        <Link text="Twitter" href="https://twitter.com/jpnykw" />
+        <Link text="GitHub" href="https://github.com/jpnykw" />
+      </Container>
     </Contents>
   )
 }
 
 export default AboutMe
 
-/* Styling */
-const Contents = styled.div`
-	text-align: center;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	left: 50%;
-	top: 50%;
-`
+/* naming */
+const Contents = styled.div``
+const Elements = styled.div``
+const Element = styled.div``
 
+/* Styling */
 const StyledImg = styled.img`
 	border-radius: 90px;
 	width: 180px;
@@ -131,13 +117,5 @@ const StyledImg = styled.img`
 
 const Margin = styled.div`
   margin: 30;
-`
-
-const Elements = styled.div`
-	text-align: center;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	left: 50%;
-	top: 50%;
 `
 

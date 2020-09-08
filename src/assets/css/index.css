@@ -16,6 +16,14 @@ a {
   text-decoration: none;
 }
 
+.center {
+	text-align: center;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+}
+
 /* animation with react router */
 .fade-enter {
   opacity: 0;
