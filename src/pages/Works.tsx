@@ -56,7 +56,7 @@ const Works: React.FC<{}> = (props) => {
   return (
     <Contents>
       <Container maxWidth="md">
-        <Grid container spacing={6}>
+        <Grid container spacing={8}>
           {Object.entries(Projects).map(([key, project]) => (
             <StyledGrid
 							key={key}
