@@ -54,12 +54,11 @@ const Works: React.FC<{}> = (props) => {
       <Container maxWidth="md">
         <Grid container spacing={8}>
           {Object.entries(Projects).map(([key, project]) => (
-            <StyledGrid
+            <StyledGrid item
               key={key}
               xs={12}
               sm={6}
               md={4}
-              item
 
               ref={ref => {
                 const delay = 2200 + 120 * Number(key)

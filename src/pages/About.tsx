@@ -30,16 +30,16 @@ const AboutMe: React.FC<{}> = (props) => {
               return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
             },
             scale: 2,
-            rotate: function() { return anime.random(-360, 360); },
-            borderRadius: function() { return ['50%', anime.random(10, 35) + '%']; },
-            duration: function() { return anime.random(1400, 1800); },
-            delay: function() { return anime.random(900, 1100); },
+            rotate: function() { return anime.random(-360, 360) },
+            borderRadius: function() { return ['50%', anime.random(10, 35) + '%'] },
+            duration: function() { return anime.random(1400, 1800) },
+            delay: function() { return anime.random(900, 1100) },
             opacity: function(el: any) {
               return Number(el.getAttribute('data-opacity')) || 1
             },
             direction: 'alternate',
             loop: true
-          });
+          })
         }}
 
         style={{
@@ -64,8 +64,12 @@ const AboutMe: React.FC<{}> = (props) => {
             translateY: function(el: any) {
               return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
             },
-            duration: function() { return anime.random(1800, 2600); },
-            delay: function() { return anime.random(1200, 1300); },
+            duration: function() {
+              return anime.random(1800, 2600)
+            },
+            delay: function() {
+              return anime.random(1200, 1300)
+            },
             borderRadius: 100,
             opacity: 0.2,
             scale: 3,
