@@ -70,23 +70,20 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
                   <StyledChip
                     key={tag}
                     label={tag}
-                    color={'primary'}
                     size="small"
                   />
                 )
               })
             }
 
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" component="p">
               {props.description.about}
             </Typography>
           </CardContent>
         </CardActionArea>
 
         <CardActions onClick={() => open(props.link)}>
-          <Button size="small" color="primary">
-            ソースコード
-          </Button>
+          <Button size="small">Source</Button>
         </CardActions>
       </StyledCard>
     </ThemeProvider>
@@ -107,6 +104,7 @@ const StyledCardMedia: typeof CardMedia = styled(CardMedia)`
 `
 
 const StyledChip: typeof Chip = styled(Chip)`
+  background: #5a4e91 !important;
   margin: 15 2;
 `
 
