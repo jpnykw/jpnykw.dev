@@ -8,7 +8,7 @@ body {
   background-position: 0 0, 10px 10px;
   background-size: 10px 10px;
 
-	font-family: Montserrat;
+  font-family: Montserrat;
   overflow-x: hidden;
 }
 
@@ -17,11 +17,11 @@ a {
 }
 
 .center {
-	text-align: center;
-	position: absolute;
-	transform: translate(-50%, -50%);
-	left: 50%;
-	top: 50%;
+  text-align: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
 }
 
 /* animation with react router */
@@ -30,15 +30,15 @@ a {
 }
 
 .fade-enter-active {
-	transition: opacity 800ms ease-out;
-	opacity: 1;
+  transition: opacity 800ms ease-out;
+  opacity: 1;
 }
 
 .fade-exit {
-	transition: opacity 800ms ease-in;
-	opacity: 1;
+  transition: opacity 800ms ease-in;
+  opacity: 1;
 }
 
 .fade-exit-active {
-	opacity: 0;
+  opacity: 0;
 }

@@ -55,24 +55,24 @@ const Works: React.FC<{}> = (props) => {
         <Grid container spacing={8}>
           {Object.entries(Projects).map(([key, project]) => (
             <StyledGrid
-							key={key}
-							xs={12}
-							sm={6}
-							md={4}
-							item
+              key={key}
+              xs={12}
+              sm={6}
+              md={4}
+              item
 
-							ref={ref => {
-								const delay = 1800 + 90 * Number(key)
+              ref={ref => {
+                const delay = 1800 + 90 * Number(key)
 
-								anime({
-									targets: ref,
-									opacity: 1,
-									easing: 'easeInOutExpo',
-									duration: 800,
-									delay,
-								})
-							}}
-						>
+                anime({
+                  targets: ref,
+                  opacity: 1,
+                  easing: 'easeInOutExpo',
+                  duration: 800,
+                  delay,
+                })
+              }}
+            >
               <ProjectCard
                 link={project.link}
                 demo={project.demo }
@@ -101,6 +101,6 @@ const Contents = styled.div`
 `
 
 const StyledGrid = styled(Grid)`
-	opacity: 0;
+  opacity: 0;
 `
 

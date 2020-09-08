@@ -16,60 +16,60 @@ import Icon from '../assets/images/icon.png'
 const AboutMe: React.FC<{}> = (props) => {
   return (
     <Contents className="center">
-			{/* MOTION */}
-			<Elements
-				className="loop center"
+      {/* MOTION */}
+      <Elements
+        className="loop center"
 
-				ref={ref => {
-					anime({
-						targets: '.loop .el',
-						translateX: function(el: any) {
-							return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
-						},
-						translateY: function(el: any) {
-							return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
-						},
+        ref={ref => {
+          anime({
+            targets: '.loop .el',
+            translateX: function(el: any) {
+              return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
+            },
+            translateY: function(el: any) {
+              return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
+            },
             scale: 2,
-						rotate: function() { return anime.random(-360, 360); },
-						borderRadius: function() { return ['50%', anime.random(10, 35) + '%']; },
-						duration: function() { return anime.random(1400, 1800); },
-						delay: function() { return anime.random(900, 1100); },
-						opacity: function(el: any) {
+            rotate: function() { return anime.random(-360, 360); },
+            borderRadius: function() { return ['50%', anime.random(10, 35) + '%']; },
+            duration: function() { return anime.random(1400, 1800); },
+            delay: function() { return anime.random(900, 1100); },
+            opacity: function(el: any) {
               return Number(el.getAttribute('data-opacity')) || 1
             },
-						direction: 'alternate',
-						loop: true
-					});
-				}}
+            direction: 'alternate',
+            loop: true
+          });
+        }}
 
-				style={{
-					height: '100px',
-					width: '100px',
-				}}
-			>
-				<Element data-x="-200" data-y="-60" className="small circle el" style={{opacity: '0', width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}} />
-				<Element data-x="200" data-y="190" className="small circle el" style={{opacity: '0', width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}} />
-				<Element data-x="170" data-y="-260" className="small circle el" style={{opacity: '0', width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}} />
+        style={{
+          height: '100px',
+          width: '100px',
+        }}
+      >
+        <Element data-x="-200" data-y="-60" className="small circle el" style={{opacity: '0', width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}} />
+        <Element data-x="200" data-y="190" className="small circle el" style={{opacity: '0', width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}} />
+        <Element data-x="170" data-y="-260" className="small circle el" style={{opacity: '0', width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}} />
       </Elements>
 
       <Elements
-				className="star center"
+        className="star center"
 
-				ref={ref => {
-					anime({
-						targets: '.star .el',
-						translateX: function(el: any) {
-							return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
-						},
-						translateY: function(el: any) {
-							return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
-						},
+        ref={ref => {
+          anime({
+            targets: '.star .el',
+            translateX: function(el: any) {
+              return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
+            },
+            translateY: function(el: any) {
+              return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
+            },
             borderRadius: 100,
-						opacity: 0.2,
+            opacity: 0.2,
             scale: 3,
-						duration: 2400,
-						delay: 1300,
-					})
+            duration: 2400,
+            delay: 1300,
+          })
         }}
       >
         {
@@ -87,38 +87,38 @@ const AboutMe: React.FC<{}> = (props) => {
         }
 
         {/*
-				<Element data-x="700" data-y="-400" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<Element data-x="-600" data-y="-300" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<Element data-x="-600" data-y="250" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
-				<Element data-x="500" data-y="340" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+        <Element data-x="700" data-y="-400" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+        <Element data-x="-600" data-y="-300" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+        <Element data-x="-600" data-y="250" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
+        <Element data-x="500" data-y="340" className="small circle el" style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}} />
         */}
-			</Elements>
+      </Elements>
 
-			{/* ICON */}
-			<StyledImg
-				src={Icon}
+      {/* ICON */}
+      <StyledImg
+        src={Icon}
 
-				ref={ref => {
-					anime({
-						targets: ref,
-						opacity: 1,
-						translateY: -50,
-						// easing: 'easeInOutExpo',
-						easing: 'spring(1, 80, 10, 0)',
-						delay: 800,
-						duration: 400,
-					})
-				}}
-			/>
+        ref={ref => {
+          anime({
+            targets: ref,
+            opacity: 1,
+            translateY: -50,
+            // easing: 'easeInOutExpo',
+            easing: 'spring(1, 80, 10, 0)',
+            delay: 800,
+            duration: 400,
+          })
+        }}
+      />
 
       <Margin />
 
-			{/* NAME */}
-			<MotionText
-				text="Haruto Hirakawa"
-				delay={1100}
-				cooltime={30}
-			/>
+      {/* NAME */}
+      <MotionText
+        text="Haruto Hirakawa"
+        delay={1100}
+        cooltime={30}
+      />
 
       <Container>
         <Link delay={1280} icon={<TwitterIcon />} text="Twitter" href="https://twitter.com/jpnykw" />
@@ -137,11 +137,11 @@ const Element = styled.div``
 
 /* Styling */
 const StyledImg = styled.img`
-	border-radius: 90px;
-	width: 180px;
-	opacity: 0;
-	position: relative;
-	top: 50px;
+  border-radius: 90px;
+  width: 180px;
+  opacity: 0;
+  position: relative;
+  top: 50px;
 `
 
 const Margin = styled.div`

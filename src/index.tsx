@@ -12,7 +12,7 @@ import './assets/css/index.css'
 const App: React.FC<{}> = () => {
   return (
     <>
-			<About />
+      <About />
       <Works />
     </>
   )
