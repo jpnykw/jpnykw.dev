@@ -114,7 +114,7 @@ const AboutMe: React.FC<{}> = (props) => {
           />
 
           {/* NAME */}
-          <div>
+          <div style={{marginTop: '20px'}}>
             <MotionText
               text="Haruto Hirakawa"
               delay={1100}

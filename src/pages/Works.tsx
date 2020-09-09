@@ -93,10 +93,6 @@ export default Works
 
 const Contents = styled.div`
   width: 100%;
-  position: absolute;
-  transform: translate(-50%, 0);
-  left: 50%;
-  top: 80%;
 `
 
 const StyledGrid = styled(Grid)`
