@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container'
 /* @material-ui icons */
 import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
+import YouTubeIcon from '@material-ui/icons/YouTube'
 /* components */
 import Link from '../components/Link'
 import MotionText from '../components/Text'
@@ -124,7 +125,8 @@ const AboutMe: React.FC<{}> = (props) => {
 
           <div>
             <Link delay={1280} icon={<TwitterIcon />} text="Twitter" href="https://twitter.com/jpnykw" />
-            <Link delay={1370} icon={<GitHubIcon />} text="GitHub" href="https://github.com/jpnykw" />
+            <Link delay={1340} icon={<GitHubIcon style={{fontSize: '20px'}} />} text="GitHub" href="https://github.com/jpnykw" />
+            <Link delay={1400} icon={<YouTubeIcon style={{fontSize: '26px'}} />} text="YouTube" href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured" />
           </div>
         </div>
       </Contents>
