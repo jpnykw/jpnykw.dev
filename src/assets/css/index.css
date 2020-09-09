@@ -1,6 +1,4 @@
 body {
-  color: #e3f2fd;
-
   background: rgb(9,26,34);
   /* background: linear-gradient(145deg, rgba(9,26,34,1) 0%, rgba(13,28,33,1) 100%); */
 
@@ -9,11 +7,15 @@ body {
   background-size: 10px 10px;
 
   font-family: Montserrat;
-  overflow-x: hidden;
+  color: #e3f2fd;
 }
 
 a {
   text-decoration: none;
+}
+
+#root {
+  overflow-x: hidden;
 }
 
 .center {
