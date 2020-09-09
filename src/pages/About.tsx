@@ -13,6 +13,7 @@ import MotionText from '../components/Text'
 /* resources */
 import '../assets/css/font.css'
 import Icon from '../assets/images/icon.png'
+import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 
 const AboutMe: React.FC<{}> = (props) => {
   return (
@@ -127,6 +128,7 @@ const AboutMe: React.FC<{}> = (props) => {
             <Link delay={1280} icon={<TwitterIcon />} text="Twitter" href="https://twitter.com/jpnykw" />
             <Link delay={1340} icon={<GitHubIcon style={{fontSize: '20px'}} />} text="GitHub" href="https://github.com/jpnykw" />
             <Link delay={1400} icon={<YouTubeIcon style={{fontSize: '26px'}} />} text="YouTube" href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured" />
+            <Link delay={1400} icon={<img src={SoundCloudIcon} style={{width: '26px', color: '#fff'}} />} text="YouTube" href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured" />
           </div>
         </div>
       </Contents>
