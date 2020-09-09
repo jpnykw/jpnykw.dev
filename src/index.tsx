@@ -39,20 +39,22 @@ const App: React.FC<{}> = () => {
 
 // styling
 const Footer = styled.div`
-  position: absolute;
-  transform: translate(-50%, 0);
-  left: 50%;
-  top: 180%;
+  text-align: center;
+  margin-top: 200;
 
   img {
     margin-bottom: 200;
     border-radius: 30px;
     opacity: 0;
+
+    @media screen and (max-width: 480px) {
+      border-radius: 8px;
+      width: 90%;
+    }
   }
 `
 
 const Credit = styled.div`
-  text-align: center;
   width: 100%;
   margin-bottom: 20;
 `
