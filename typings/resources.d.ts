@@ -14,7 +14,7 @@ declare module '*.gif' {
 }
 
 declare module '*.svg' {
-  const path: string
-  export = path
+    const value: React.StatelessComponent<React.SVGAttributes<SVGElement>>;
+    export default value;
 }
 
