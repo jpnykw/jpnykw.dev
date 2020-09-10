@@ -147,7 +147,7 @@ const Element = styled.div``
 /* Styling */
 const Motion = styled.div`
   position: relative;
-  top: 540px;
+  top: ${innerHeight / 2}px;
 `
 
 const Contents = styled.div`
