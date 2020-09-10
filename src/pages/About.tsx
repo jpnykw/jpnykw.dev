@@ -16,6 +16,8 @@ import Icon from '../assets/images/icon.png'
 import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 
 const AboutMe: React.FC<{}> = (props) => {
+  const icon_size = 24
+
   return (
     <>
       <Motion>
@@ -125,11 +127,10 @@ const AboutMe: React.FC<{}> = (props) => {
           </div>
 
           <div>
-            <Link delay={1280} icon={<TwitterIcon />} text="Twitter" href="https://twitter.com/jpnykw" />
-            <Link delay={1340} icon={<GitHubIcon style={{fontSize: '20px'}} />} text="GitHub" href="https://github.com/jpnykw" />
-            <Link delay={1400} icon={<YouTubeIcon style={{fontSize: '26px'}} />} text="YouTube" href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured" />
-            {/* <Link delay={1400} icon={<img src={SoundCloudIcon} style={{width: '26px', color: '#fff'}} />} text="YouTube" href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured" /> */}
-            <Link delay={1460} icon={<SoundCloudIcon />} text="SoundCloud" href="" />
+            <Link delay={1280} icon={<TwitterIcon style={{fontSize: `${icon_size - 6}px`}} />} text="Twitter" href="https://twitter.com/jpnykw" />
+            <Link delay={1340} icon={<GitHubIcon style={{fontSize: `${icon_size - 6}px`}} />} text="GitHub" href="https://github.com/jpnykw" />
+            <Link delay={1400} icon={<YouTubeIcon style={{fontSize: `${icon_size}px`}} />} text="YouTube" href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured" />
+            <Link delay={1460} icon={<SoundCloudIcon width={`${icon_size}px`} />} text="SoundCloud" href="https://soundcloud.com/jpnykw" />
           </div>
         </div>
       </Contents>
