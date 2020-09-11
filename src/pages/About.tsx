@@ -52,9 +52,22 @@ const AboutMe: React.FC<{}> = (props) => {
             width: '100px',
           }}
         >
-          <Element data-x="-200" data-y="-60" className="small circle el" style={{opacity: '0', width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}} />
-          <Element data-x="200" data-y="190" className="small circle el" style={{opacity: '0', width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}} />
-          <Element data-x="170" data-y="-260" className="small circle el" style={{opacity: '0', width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}} />
+          <Element
+            data-x="-200" data-y="-60" className="small circle el"
+            style={{width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}}
+          />
+          <Element
+            data-x="200" data-y="190" className="small circle el"
+            style={{width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}}
+          />
+          <Element
+            data-x="170" data-y="-260" className="small circle el"
+            style={{width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}}
+            onClick={() => {
+              console.log('ʕ•ٹ•ʔ', 'ﾈｺﾁｬﾝ...')
+              //TODO: ひみつ
+            }}
+          />
         </Elements>
 
         <Elements
@@ -142,12 +155,15 @@ export default AboutMe
 
 /* naming */
 const Elements = styled.div``
-const Element = styled.div``
-
 /* Styling */
 const Motion = styled.div`
   position: relative;
   top: ${innerHeight / 2}px;
+`
+
+const Element = styled.div`
+  opacity: 0;
+  cursor: pointer;
 `
 
 const Contents = styled.div`
