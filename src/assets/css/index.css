@@ -26,6 +26,23 @@ a {
   top: 50%;
 }
 
+/* animation for easter egg */
+@keyframes fall {
+  0% {
+    top: -20px;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
 /* animation with react router */
 .fade-enter {
   opacity: 0;

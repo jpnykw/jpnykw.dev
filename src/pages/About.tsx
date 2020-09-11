@@ -14,6 +14,8 @@ import MotionText from '../components/Text'
 import '../assets/css/font.css'
 import Icon from '../assets/images/icon.png'
 import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
+/* extend */
+import '../../lib/string.extend.ts'
 
 const AboutMe: React.FC<{}> = (props) => {
   const icon_size = 24
@@ -63,9 +65,24 @@ const AboutMe: React.FC<{}> = (props) => {
           <Element
             data-x="170" data-y="-260" className="small circle el"
             style={{width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}}
+
             onClick={() => {
               console.log('ʕ•ٹ•ʔ', 'ﾈｺﾁｬﾝ...')
               //TODO: ひみつ
+              Array(30).fill(null).map(() => {
+                const cat = document.createElement('div')
+                cat.innerText = '🐱😺😼🙀😹😻😿'.random_unicode()
+
+                cat.style.fontSize = `${16 + Math.random() * 10}px`
+                cat.style.position = 'absolute'
+                cat.style.left = `${Math.random() * innerWidth}px`
+                cat.style.top = '-20px'
+
+                const easing = 'cubic-bezier(0.37, 0.02, 1, -0.02)'
+                cat.style.animation = `fall ${0.4 + Math.random() * 1.2}s ${easing} ${Math.random() * 4}s 1 normal both`
+
+                document.body.appendChild(cat)
+              })
             }}
           />
         </Elements>
