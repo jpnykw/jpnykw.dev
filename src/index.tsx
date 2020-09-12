@@ -13,6 +13,8 @@ import Works from './pages/Works'
 import './assets/css/font.css'
 import './assets/css/index.css'
 import LiquidMe from './assets/images/liquid_jpnykw.png'
+/* extend */
+import '../lib/date.extend.ts'
 
 // Main
 const App: React.FC<{}> = () => {
@@ -35,7 +37,7 @@ const App: React.FC<{}> = () => {
             })
           }}
         >
-          <Typography>2002年3月5日生まれ 18{/* TODO: 自動計算にする */}歳</Typography>
+          <Typography>2002年3月5日生まれ {new Date().calcAge({year: 2002, month: 3, date: 5})}歳</Typography>
           <Typography>映像やWebコンテンツなど動くものが好き</Typography>
         </Container>
 
