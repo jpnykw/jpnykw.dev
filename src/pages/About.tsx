@@ -76,12 +76,17 @@ const AboutMe: React.FC<{}> = (props) => {
                 cat.style.fontSize = `${18 + Math.random() * 15}px`
                 cat.style.position = 'absolute'
                 cat.style.left = `${Math.random() * innerWidth}px`
-                cat.style.top = '-20px'
+                cat.style.top = '-50px'
 
                 const easing = 'cubic-bezier(0.37, 0.02, 1, -0.02)'
-                cat.style.animation = `fall ${0.4 + Math.random() * 1.2}s ${easing} ${Math.random() * 4}s 1 normal both`
-
+                const duration = 0.4 + Math.random() * 1.2
+                const delay = Math.random() * 0.4
+                cat.style.animation = `fall ${duration}s ${easing} ${delay}s 1 normal both`
                 document.body.appendChild(cat)
+
+                setTimeout(() => {
+                  document.body.removeChild(cat)
+                }, (delay + duration) * 1000)
               })
             }}
           />
