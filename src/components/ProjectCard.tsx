@@ -60,7 +60,7 @@ const ProjectCard: React.FC<ProjectCardProps> = (props) => {
               {props.title}
             </Typography>
 
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" component="p">
               {props.date}
             </Typography>
 
