@@ -68,12 +68,12 @@ const AboutMe: React.FC<{}> = (props) => {
 
             onClick={() => {
               console.log('ʕ•ٹ•ʔ', 'ﾈｺﾁｬﾝ...')
-              //TODO: ひみつ
               Array(30).fill(null).map(() => {
+                {/* こいつｺﾝﾎﾟｰﾈﾝﾄにできんの? */}
                 const cat = document.createElement('div')
                 cat.innerText = '🐱😺😼🙀😹😻😿'.random_unicode()
 
-                cat.style.fontSize = `${16 + Math.random() * 10}px`
+                cat.style.fontSize = `${18 + Math.random() * 15}px`
                 cat.style.position = 'absolute'
                 cat.style.left = `${Math.random() * innerWidth}px`
                 cat.style.top = '-20px'

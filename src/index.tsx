@@ -1,11 +1,11 @@
-import * as React from 'react'
+import React, { Suspense } from 'react'
 import * as ReactDOM from 'react-dom'
 import anime from 'animejs'
 import styled from 'styled-components'
 /* pages */
-import About from './pages/About'
-import Works from './pages/Works'
-import History from './pages/History'
+const About = React.lazy(() => import('./pages/About'))
+const Works = React.lazy(() => import('./pages/Works'))
+const History = React.lazy(() => import('./pages/History'))
 /* resources */
 import './assets/css/font.css'
 import './assets/css/index.css'
@@ -16,16 +16,29 @@ import '../lib/date.extend.ts'
 const App: React.FC<{}> = () => {
   return (
     <>
-      <About />
-      <Works />
-      <History />
+      <Suspense fallback={<Loading>(=^・^=)</Loading>}>
+        <section>
+          <About />
+          <Works />
+          <History />
 
-      <Credit className="credit">2020 &copy; jpnykw</Credit>
+          <Credit className="credit">2020 &copy; jpnykw</Credit>
+        </section>
+      </Suspense>
     </>
   )
 }
 
 // styling
+const Loading = styled.div`
+  opacity: 0.2;
+  font-size: 14px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+`
+
 const Credit = styled.div`
   width: 100%;
   margin-bottom: 20;
