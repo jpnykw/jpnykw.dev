@@ -12,13 +12,13 @@ import ProjectCard from '../components/ProjectCard'
 /* resources */
 import Projects from '../assets/json/projects.json'
 import Icon from '../assets/images/icon.png'
-import RustReversi from '../assets/images/t_rust_reversi.png'
-import ShaderEditor from '../assets/images/t_shader_editor.png'
-import Ccbc from '../assets/images/t_ccbc.png'
-import Aura from '../assets/images/t_aura.png'
+import RustReversi from '../assets/images/t_rust_reversi.jpg'
+import ShaderEditor from '../assets/images/t_shader_editor.jpg'
+import Ccbc from '../assets/images/t_ccbc.jpg'
+import Aura from '../assets/images/t_aura.jpg'
 import SmartVJ from '../assets/images/t_smart_vj.jpg'
-import EChat from '../assets/images/t_e_chat.png'
-import Plat from '../assets/images/t_plat.png'
+import EChat from '../assets/images/t_e_chat.jpg'
+import Plat from '../assets/images/t_plat.jpg'
 
 const GetThumbnail = (type: string) => {
   switch (type) {
