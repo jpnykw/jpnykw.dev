@@ -1,7 +1,9 @@
-const path = require('path');
-const webpack = require('webpack');
-const CopyPlugin = require('copy-webpack-plugin');
-const DEV_PORT = process.env.PORT || 3000;
+const path = require('path')
+const webpack = require('webpack')
+const CopyPlugin = require('copy-webpack-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+
+const DEV_PORT = process.env.PORT || 3000
 
 module.exports = {
   entry: './src/index.tsx',
@@ -59,6 +61,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new CopyPlugin([{ from: './public', to: '.' }]),
+    new HardSourceWebpackPlugin(),
   ],
-};
+}
 
