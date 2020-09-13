@@ -11,6 +11,13 @@ import LiquidMe from '../assets/images/liquid_jpnykw.png'
 import '../../lib/date.extend.ts'
 
 const History: React.FC<{}> = (props) => {
+  const rotate = (e: any) => {
+    const delay = 1400
+    const myself = e.currentTarget
+    myself.style.animation = `rotate ${delay}ms ease-in-out 0ms 1 normal both`
+    setTimeout(() => myself.style.animation = '', delay)
+  }
+
   return (
     <>
       <Contents>
@@ -30,7 +37,7 @@ const History: React.FC<{}> = (props) => {
           <Typography>映像やWebコンテンツなど動くものが好き</Typography>
         </Container>
 
-        <img
+        <Banner
           src={LiquidMe}
 
           ref={ref => {
@@ -41,6 +48,8 @@ const History: React.FC<{}> = (props) => {
               delay: 3000,
             })
           }}
+
+          onClick={rotate}
         />
 
         <Container
@@ -89,5 +98,10 @@ const  Contents = styled.div`
       width: 90%;
     }
   }
+`
+
+const Banner = styled.img`
+  transform-style: preserve-3d;
+  cursor: pointer;
 `
 
