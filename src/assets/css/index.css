@@ -27,6 +27,16 @@ a {
 }
 
 /* animation for easter egg */
+@keyframes rotate {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(360deg);
+  }
+}
+
 @keyframes fall {
   0% {
     top: -20px;

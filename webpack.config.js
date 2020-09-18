@@ -59,9 +59,13 @@ module.exports = {
     hot: true,
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new CopyPlugin([{ from: './public', to: '.' }]),
     new HardSourceWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: './public', to: '.' },
+      ]
+    }),
   ],
 }
 
