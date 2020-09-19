@@ -10,18 +10,35 @@
       img {
         margin: 0;
         padding: 0;
+        box-shadow: 0 0 60px #111;
+
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
+
         width: 85%;
         height: 85%;
-        box-shadow: 0 0 60px #111;
       }
     </style>
   </head>
   <body>
-    <img src="https://raw.githubusercontent.com/jpnykw/portfolio/master/src/assets/gif/404.gif">
+    <img>
+    <script>
+      const set_src = () => {
+        const img = document.querySelector('img');
+        if (window.matchMedia('(max-width: 767px)').matches) {
+        // 404_2 がモバイル用
+          img.src = "https://raw.githubusercontent.com/jpnykw/portfolio/master/src/assets/gif/404_2.gif"
+        } else {
+        // 404_1 がPC用
+          img.src = "https://raw.githubusercontent.com/jpnykw/portfolio/master/src/assets/gif/404_1.gif"
+        }
+      }
+
+      onload = set_src;
+      onresize = set_src
+    </script>
   </body>
 </html>
 
