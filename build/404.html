@@ -7,43 +7,52 @@
       body {
         background: #03080B;
       }
+
       img {
         margin: 0;
         padding: 0;
-
-        /* 画面いっぱいのほうが良さそう */
-        width: 100%;
-        height: 100%;
-
-        /*
-        box-shadow: 0 0 60px #111;
 
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
 
-        width: 85%;
-        height: 85%;
-        /*
+        width: 80%;
+        height: 80%;
+      }
+
+      @media screen and (max-width: 959px) {
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     </style>
   </head>
   <body>
     <img>
     <script>
+      let flag = null
+
       const set_src = () => {
-        const img = document.querySelector('img');
-        if (window.matchMedia('(max-width: 767px)').matches) {
-        // 404_2 がモバイル用
+        const is_mobile = window.matchMedia('(max-width: 767px)').matches
+        const img = document.querySelector('img')
+
+        if (flag === null) {
+          flag = is_mobile
+        } else {
+          if (flag && is_mobile) return
+          if (!flag && !is_mobile) return
+        }
+
+        if (is_mobile) {
           img.src = "https://raw.githubusercontent.com/jpnykw/portfolio/master/src/assets/gif/404_2.gif"
         } else {
-        // 404_1 がPC用
           img.src = "https://raw.githubusercontent.com/jpnykw/portfolio/master/src/assets/gif/404_1.gif"
         }
       }
 
-      onload = set_src;
+      onload = set_src
       onresize = set_src
     </script>
   </body>
