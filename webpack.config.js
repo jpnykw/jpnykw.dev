@@ -1,12 +1,13 @@
 const path = require('path')
-const webpack = require('webpack')
-const CopyPlugin = require('copy-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-
-const DEV_PORT = process.env.PORT || 3000
+const outputPath = path.resolve(__dirname, 'build')
+const port = process.env.PORT || 3000
 
 module.exports = {
   entry: './src/pages/index.tsx',
+  output: {
+    path: outputPath,
+    filename: 'index.js'
+  },
   module: {
     rules: [
       {
@@ -44,28 +45,15 @@ module.exports = {
           loader: "json-loader",
         },
       },
-    ],
-  },
-  output: {
-    path: path.resolve(__dirname, 'build/'),
-    filename: 'bundle.js',
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'build/'),
-    port: DEV_PORT,
+    contentBase: outputPath,
     hot: true,
+    port,
   },
-  plugins: [
-    new HardSourceWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { from: './public', to: '.' },
-      ]
-    }),
-  ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json']
+  }
 }
 
