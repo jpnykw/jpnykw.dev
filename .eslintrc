@@ -1,5 +1,14 @@
 {
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2017
   },
@@ -15,7 +24,6 @@
     "curly": 2,
     "no-eq-null": 2,
     "no-eval": 2,
-    "no-use-before-define": 2,
     "no-mixed-spaces-and-tabs": 2,
     "no-trailing-spaces": 2,
     "arrow-body-style": 2,
