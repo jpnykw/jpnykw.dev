@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
 import anime from 'animejs'
 import styled from 'styled-components'
 /* @material-ui components */
@@ -10,7 +9,13 @@ import LiquidMe from '../assets/images/liquid_jpnykw.png'
 /* extend */
 import '../lib/date.extend.ts'
 
-const History: React.FC<{}> = (props) => {
+const age: number = new Date().calcAge({
+  year: 2002,
+  month: 3,
+  date: 5
+})
+
+const History = () => {
   const rotate = (e: any) => {
     const delay = 1400
     const myself = e.currentTarget
@@ -24,7 +29,7 @@ const History: React.FC<{}> = (props) => {
         <Container
           className="text"
 
-          ref={ref => {
+          ref={(ref) => {
             anime({
               targets: ref,
               opacity: 1,
@@ -33,14 +38,14 @@ const History: React.FC<{}> = (props) => {
             })
           }}
         >
-          <Typography>2002年3月5日生まれ {new Date().calcAge({year: 2002, month: 3, date: 5})}歳</Typography>
+          <Typography>2002年3月5日生まれ {age}歳</Typography>
           <Typography>映像やWebコンテンツなど動くものが好き</Typography>
         </Container>
 
         <Banner
           src={LiquidMe}
 
-          ref={ref => {
+          ref={(ref) => {
             anime({
               targets: ref,
               opacity: 0.3,
@@ -55,7 +60,7 @@ const History: React.FC<{}> = (props) => {
         <Container
           className="text"
 
-          ref={ref => {
+          ref={(ref) => {
             anime({
               targets: ref,
               opacity: 1,
