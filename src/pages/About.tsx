@@ -25,11 +25,11 @@ const AboutMe: React.FC<{}> = (props) => {
       <Motion>
         {/* MOTION */}
         <Elements
-          className="loop center"
+          className="fragments center"
 
           ref={ref => {
             anime({
-              targets: '.loop .el',
+              targets: '.fragments .el',
               translateX: function(el: any) {
                 return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
               },
@@ -44,8 +44,6 @@ const AboutMe: React.FC<{}> = (props) => {
               opacity: function(el: any) {
                 return Number(el.getAttribute('data-opacity')) || 1
               },
-              direction: 'alternate',
-              loop: true
             })
           }}
 
@@ -69,7 +67,6 @@ const AboutMe: React.FC<{}> = (props) => {
             onClick={() => {
               console.log('ʕ•ٹ•ʔ', 'ﾈｺﾁｬﾝ...')
               Array(30).fill(null).map(() => {
-                {/* こいつｺﾝﾎﾟｰﾈﾝﾄにできんの? */}
                 const cat = document.createElement('div')
                 cat.innerText = '🐱😺😼🙀😹😻😿'.random_unicode()
 
