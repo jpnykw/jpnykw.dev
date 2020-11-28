@@ -6,4 +6,5 @@ DS_Store
 *.sw*
 # Other
 build
+!build/*.html
 dump
