@@ -40,9 +40,9 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        type: "javascript/auto",
+        type: 'javascript/auto',
         use: {
-          loader: "json-loader",
+          loader: 'json-loader',
         },
       },
     ]
