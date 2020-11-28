@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography'
 /* resources */
 import LiquidMe from '../assets/images/liquid_jpnykw.png'
 /* extend */
-import '../../lib/date.extend.ts'
+import '../lib/date.extend.ts'
 
 const History: React.FC<{}> = (props) => {
   const rotate = (e: any) => {

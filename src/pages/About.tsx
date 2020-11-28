@@ -15,7 +15,7 @@ import '../assets/css/font.css'
 import Icon from '../assets/images/icon.png'
 import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 /* extend */
-import '../../lib/string.extend.ts'
+import '../lib/string.extend.ts'
 
 const AboutMe: React.FC<{}> = (props) => {
   const icon_size = 24
