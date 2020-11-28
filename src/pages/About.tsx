@@ -1,8 +1,6 @@
 import React from 'react'
 import anime from 'animejs'
 import styled from 'styled-components'
-/* @material-ui components */
-import Container from '@material-ui/core/Container'
 /* @material-ui icons */
 import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
@@ -17,7 +15,7 @@ import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 /* extend */
 import '../lib/string.extend.ts'
 
-const AboutMe: React.FC<{}> = (props) => {
+const AboutMe = () => {
   const icon_size = 24
 
   return (
@@ -27,13 +25,13 @@ const AboutMe: React.FC<{}> = (props) => {
         <Elements
           className="fragments center"
 
-          ref={ref => {
+          ref={() => {
             anime({
               targets: '.fragments .el',
-              translateX: function(el: any) {
+              translateX: function(el: HTMLElement) {
                 return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
               },
-              translateY: function(el: any) {
+              translateY: function(el: HTMLElement) {
                 return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
               },
               scale: 2,
@@ -41,7 +39,7 @@ const AboutMe: React.FC<{}> = (props) => {
               borderRadius: function() { return ['50%', anime.random(10, 35) + '%'] },
               duration: function() { return anime.random(1400, 1800) },
               delay: function() { return anime.random(900, 1100) },
-              opacity: function(el: any) {
+              opacity: function(el: HTMLElement) {
                 return Number(el.getAttribute('data-opacity')) || 1
               },
             })
@@ -54,15 +52,33 @@ const AboutMe: React.FC<{}> = (props) => {
         >
           <Element
             data-x="-200" data-y="-60" className="small circle el"
-            style={{width: '14px', height: '14px', background: 'rgba(164, 255, 79)'}}
+            style={
+              {
+                width: '14px',
+                height: '14px',
+                background: 'rgba(164, 255, 79)'
+              }
+            }
           />
           <Element
             data-x="200" data-y="190" className="small circle el"
-            style={{width: '12px', height: '12px', background: 'rgba(79, 255, 164)'}}
+            style={
+              {
+                width: '12px',
+                height: '12px',
+                background: 'rgba(79, 255, 164)'
+              }
+            }
           />
           <Element
             data-x="170" data-y="-260" className="small circle el"
-            style={{width: '10px', height: '10px', background: 'rgba(255, 164, 79)'}}
+            style={
+              {
+                width: '10px',
+                height: '10px',
+                background: 'rgba(255, 164, 79)'
+              }
+            }
 
             onClick={() => {
               console.log('ʕ•ٹ•ʔ', 'ﾈｺﾁｬﾝ...')
@@ -92,13 +108,13 @@ const AboutMe: React.FC<{}> = (props) => {
         <Elements
           className="star center"
 
-          ref={ref => {
+          ref={() => {
             anime({
               targets: '.star .el',
-              translateX: function(el: any) {
+              translateX: function(el: HTMLElement) {
                 return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
               },
-              translateY: function(el: any) {
+              translateY: function(el: HTMLElement) {
                 return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
               },
               duration: function() {
@@ -121,7 +137,14 @@ const AboutMe: React.FC<{}> = (props) => {
               return (
                 <Element
                   key={id} data-x={x} data-y={y} className="small circle el"
-                  style={{opacity: '0', width: '2px', height: '2px', background: 'rgba(244, 244, 244, 10)'}}
+                  style={
+                    {
+                      opacity: '0',
+                      width: '2px',
+                      height: '2px',
+                      background: 'rgba(244, 244, 244, 10)'
+                    }
+                  }
                 />
               )
             })
@@ -136,7 +159,7 @@ const AboutMe: React.FC<{}> = (props) => {
           <StyledImg
             src={Icon}
 
-            ref={ref => {
+            ref={(ref) => {
               anime({
                 targets: ref,
                 opacity: 1,
@@ -198,9 +221,5 @@ const StyledImg = styled.img`
   top: 50px;
   border-radius: 90px;
   opacity: 0;
-`
-
-const Margin = styled.div`
-  margin: 30;
 `
 
