@@ -6,7 +6,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const DEV_PORT = process.env.PORT || 3000
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './src/pages/index.tsx',
   module: {
     rules: [
       {

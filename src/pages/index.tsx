@@ -3,12 +3,12 @@ import * as ReactDOM from 'react-dom'
 import anime from 'animejs'
 import styled from 'styled-components'
 /* pages */
-const About = React.lazy(() => import('./pages/About'))
-const Works = React.lazy(() => import('./pages/Works'))
-const History = React.lazy(() => import('./pages/History'))
+const About = React.lazy(() => import('./About'))
+const Works = React.lazy(() => import('./Works'))
+const History = React.lazy(() => import('./History'))
 /* resources */
-import './assets/css/font.css'
-import './assets/css/index.css'
+import '../assets/css/font.css'
+import '../assets/css/index.css'
 /* extend */
 import '../lib/date.extend.ts'
 
