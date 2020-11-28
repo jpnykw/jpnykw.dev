@@ -33,10 +33,10 @@
     "prefer-const": 2,
     "no-plusplus": 2,
     "object-curly-newline": 2,
-    "object-curly-spacing": 2,
     "object-property-newline": 2,
     "space-infix-ops": 2,
     "spaced-comment": 1,
+    "@typescript-eslint/no-unused-vars": 2,
     "quotes": [
       2,
       "single"

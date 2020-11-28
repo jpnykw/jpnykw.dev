@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const path = require('path')
 const outputPath = path.resolve(__dirname, 'build')
 const port = process.env.PORT || 3000
