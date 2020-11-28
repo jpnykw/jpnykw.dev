@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/pages/index.tsx',
   output: {
     path: outputPath,
-    filename: 'index.js'
+    filename: 'bundle.js'
   },
   module: {
     rules: [
