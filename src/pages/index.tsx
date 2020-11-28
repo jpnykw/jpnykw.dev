@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react'
 import * as ReactDOM from 'react-dom'
-import anime from 'animejs'
 import styled from 'styled-components'
 /* pages */
 const About = React.lazy(() => import('./About'))
@@ -13,21 +12,19 @@ import '../assets/css/index.css'
 import '../lib/date.extend.ts'
 
 // Main
-const App: React.FC<{}> = () => {
-  return (
+const App = () =>
+  (
     <>
       <Suspense fallback={<Loading>(=^・^=)</Loading>}>
         <section>
           <About />
           <Works />
           <History />
-
           <Credit className="credit">2020 &copy; jpnykw</Credit>
         </section>
       </Suspense>
     </>
   )
-}
 
 // styling
 const Loading = styled.div`

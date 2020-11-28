@@ -8,14 +8,14 @@ interface Props {
   cooltime: number
 }
 
-const Text: React.FC<Props> = (props) => {
-  return (
+const Text: React.FC<Props> = (props) =>
+  (
     <>
       {props.text.split('').map((text, id) => (
         <StyledSpan
           key={id}
 
-          ref={ref => {
+          ref={(ref) => {
             const delay = props.delay + props.cooltime * id
 
             anime({
@@ -31,7 +31,6 @@ const Text: React.FC<Props> = (props) => {
       )}
     </>
   )
-}
 
 const StyledSpan = styled.span`
   font-size: 30;

@@ -1,17 +1,13 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
 import anime from 'animejs'
 import styled from 'styled-components'
 /* @material-ui components */
-import Avatar from '@material-ui/core/Avatar'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
 /* components */
 import ProjectCard from '../components/ProjectCard'
 /* resources */
 import Projects from '../assets/json/projects.json'
-import Icon from '../assets/images/icon.png'
 import RustReversi from '../assets/images/t_rust_reversi.jpg'
 import ShaderEditor from '../assets/images/t_shader_editor.jpg'
 import Ccbc from '../assets/images/t_ccbc.jpg'
@@ -48,8 +44,8 @@ const GetThumbnail = (type: string) => {
   throw new Error(`undefined type: ${type}`)
 }
 
-const Works: React.FC<{}> = (props) => {
-  return (
+const Works = () =>
+  (
     <Contents>
       <Container maxWidth="md">
         <Grid container spacing={8}>
@@ -60,7 +56,7 @@ const Works: React.FC<{}> = (props) => {
               sm={6}
               md={4}
 
-              ref={ref => {
+              ref={(ref) => {
                 const delay = 2200 + 120 * Number(key)
 
                 anime({
@@ -87,7 +83,6 @@ const Works: React.FC<{}> = (props) => {
       </Container>
     </Contents>
   )
-}
 
 export default Works
 

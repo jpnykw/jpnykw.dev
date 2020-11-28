@@ -1,25 +1,23 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
 import anime from 'animejs'
 import styled from 'styled-components'
 /* @material-ui components */
-import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 
 interface Props {
-  icon: any,
+  icon: JSX.Element,
   text: string,
   href: string,
   delay: number,
 }
 
-const Link: React.FC<Props> = (props) => {
-  return (
+const Link: React.FC<Props> = (props) =>
+  (
     <StyledButton
       aria-label={props.text}
       onClick={() => open(props.href)}
 
-      ref={ref => {
+      ref={(ref) => {
         anime({
           targets: ref,
           opacity: 1,
@@ -30,7 +28,6 @@ const Link: React.FC<Props> = (props) => {
       {props.icon}
     </StyledButton>
   )
-}
 
 export default Link
 
