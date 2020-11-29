@@ -5,9 +5,6 @@
     "prettier",
     "prettier/@typescript-eslint"
   ],
-  "plugins": [
-    "@typescript-eslint"
-  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2017
@@ -18,7 +15,6 @@
     "es6": true
   },
   "rules": {
-    "no-extra-semi": 2,
     "no-unexpected-multiline": 2,
     "no-unreachable": 1,
     "curly": 2,
@@ -35,17 +31,29 @@
     "object-curly-newline": 2,
     "object-property-newline": 2,
     "space-infix-ops": 2,
-    "spaced-comment": 1,
-    "@typescript-eslint/no-unused-vars": 2,
-    "quotes": [
-      2,
-      "single"
-    ],
-    "space-before-blocks": [
-      2,
-      {
-        "functions": "always"
+    "spaced-comment": 1
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [
+          2,
+          {
+            "argsIgnorePattern": "^_"
+          }
+        ],
+        "@typescript-eslint/quotes": [
+          2,
+          "single"
+        ]
       }
-    ]
-  }
+    }
+  ]
 }
