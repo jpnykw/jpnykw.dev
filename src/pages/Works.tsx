@@ -44,7 +44,7 @@ const GetThumbnail = (type: string) => {
   throw new Error(`undefined type: ${type}`)
 }
 
-const Works = () =>
+const Works: React.FC = () =>
   (
     <Contents>
       <Container maxWidth="md">

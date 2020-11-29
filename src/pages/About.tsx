@@ -15,7 +15,7 @@ import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 /* extend */
 import '../lib/string.extend.ts'
 
-const AboutMe = () => {
+const AboutMe: React.FC = () => {
   const icon_size = 24
 
   return (
