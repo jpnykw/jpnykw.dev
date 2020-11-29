@@ -5,10 +5,10 @@ import styled from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 
 interface Props {
-  icon: JSX.Element,
-  text: string,
-  href: string,
-  delay: number,
+  icon: JSX.Element
+  text: string
+  href: string
+  delay: number
 }
 
 const Link: React.FC<Props> = (props) =>
