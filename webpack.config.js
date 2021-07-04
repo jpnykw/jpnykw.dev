@@ -2,10 +2,11 @@
 
 const path = require('path')
 const outputPath = path.resolve(__dirname, 'build')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 2990
 
 module.exports = {
   entry: './src/pages/index.tsx',
+  mode: 'development',
   output: {
     path: outputPath,
     filename: 'bundle.js'
