@@ -1,6 +1,6 @@
 body {
-  background: rgb(9,26,34);
-  background-image: radial-gradient(#101011 12%, transparent 0), radial-gradient(#101011 12%, transparent 0);
+  background: #181d24;
+  background-image: radial-gradient(#1a1f26 12%, transparent 0), radial-gradient(#1a1f26 12%, transparent 0);
   background-position: 0 0, 10px 10px;
   background-size: 10px 10px;
   font-family: Montserrat;
