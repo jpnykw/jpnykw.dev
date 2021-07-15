@@ -1,6 +1,8 @@
 import React from 'react'
 import anime from 'animejs'
 import styled from 'styled-components'
+/* animation */
+import { Player, Controls } from '@lottiefiles/react-lottie-player'
 /* @material-ui icons */
 import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
@@ -8,6 +10,8 @@ import YouTubeIcon from '@material-ui/icons/YouTube'
 /* components */
 import Link from '../components/Link'
 import MotionText from '../components/Text'
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
 /* resources */
 import '../assets/css/font.css'
 import Icon from '../assets/images/icon.png'
@@ -153,7 +157,6 @@ const AboutMe: React.FC = () => {
       </Motion>
 
       <Contents>
-
         <div style={{textAlign: 'center'}}>
           {/* ICON */}
           <StyledImg
@@ -163,7 +166,7 @@ const AboutMe: React.FC = () => {
               anime({
                 targets: ref,
                 opacity: 1,
-                translateY: -50,
+                translateY: 150,
                 // easing: 'easeInOutExpo',
                 easing: 'spring(1, 80, 10, 0)',
                 delay: 800,
@@ -172,12 +175,35 @@ const AboutMe: React.FC = () => {
             }}
           />
 
-          {/* NAME */}
-          <div style={{marginTop: '20px'}}>
+          <Player
+            keepLastFrame={true}
+            background="transparent"
+            src="https://assets1.lottiefiles.com/packages/lf20_usg9bh3l.json"
+            style={{width: '400px', height: '400px'}}
+            ref={(ref) => {
+              setTimeout(() => {
+                ref!.play()
+              }, 900)
+            }}
+          />
+
+          <div
+            ref={(ref) => {
+              anime({
+                targets: ref,
+                opacity: 1,
+                translateY: -160,
+                easing: 'spring(1, 80, 10, 0)',
+                delay: 990,
+                duration: 400,
+              })
+            }}
+          >
             <MotionText
-              text="Haruto Hirakawa"
-              delay={1100}
+              text="an engineer who likes cats"
+              delay={1160}
               cooltime={30}
+              fontSize={16}
             />
           </div>
 
@@ -187,6 +213,34 @@ const AboutMe: React.FC = () => {
             <Link delay={1400} icon={<YouTubeIcon style={{fontSize: `${icon_size}px`}} />} text="YouTube" href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured" />
             <Link delay={1460} icon={<SoundCloudIcon width={`${icon_size}px`} />} text="SoundCloud" href="https://soundcloud.com/jpnykw" />
           </div>
+
+          <Container
+            className="text"
+
+            ref={(ref) => {
+              anime({
+                targets: ref,
+                opacity: 1,
+                duration: 700,
+                delay: 1700,
+              })
+              anime({
+                targets: ref,
+                opacity: 1,
+                translateY: -120,
+                easing: 'spring(1, 80, 10, 0)',
+                delay: 700,
+                duration: 500,
+              })
+            }}
+
+            style={{
+              marginTop: '120px',
+              opacity: 0
+            }}
+          >
+            content is below
+          </Container>
         </div>
       </Contents>
     </>
@@ -218,7 +272,7 @@ const Contents = styled.div`
 const StyledImg = styled.img`
   width: 180px;
   position: relative;
-  top: 50px;
+  top: 0px;
   border-radius: 90px;
   opacity: 0;
 `
