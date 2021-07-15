@@ -10,21 +10,41 @@ import '../assets/css/font.css'
 import '../assets/css/index.css'
 /* extend */
 import '../lib/date.extend.ts'
+/* scroll */
+import { useInView } from 'react-intersection-observer';
 
 // Main
-const App = () =>
-  (
+const App = () => {
+  const [ref, inView] = useInView({
+    rootMargin: '-50px',
+    triggerOnce: true,
+  });
+
+  return (
     <>
       <Suspense fallback={<Loading>(=^・^=)</Loading>}>
         <section>
           <About />
-          <Works />
+
+          <StyledDiv
+            ref={ref}
+            style={{
+              opacity: inView ? 1 : 0,
+              animation: inView ? 'fade-in 600ms' : 0,
+            }}
+          >
+            <Works />
+          </StyledDiv>
+
           <History />
+
           <Credit className="credit">2020 &copy; jpnykw</Credit>
+
         </section>
       </Suspense>
     </>
   )
+}
 
 // styling
 const Loading = styled.div`
@@ -41,6 +61,10 @@ const Credit = styled.div`
   margin-bottom: 20;
   text-align: center;
   margin-top: 100;
+`
+
+const StyledDiv = styled.div`
+  opacity: 0;
 `
 
 ReactDOM.render(<App />, document.querySelector('#root'))
