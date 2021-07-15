@@ -14,7 +14,7 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 /* resources */
 import '../assets/css/font.css'
-import Icon from '../assets/images/icon.png'
+import Icon from '../assets/images/icon.jpeg'
 import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 /* extend */
 import '../lib/string.extend.ts'

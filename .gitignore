@@ -2,7 +2,7 @@
 node_modules
 package-lock.json
 # System
-DS_Store
+.DS_Store
 *.sw*
 # Other
 build
