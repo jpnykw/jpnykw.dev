@@ -171,8 +171,9 @@ const AboutMe: React.FC = () => {
         <div style={{
           textAlign: 'center',
           position: 'absolute',
-          transform: 'translateX(-50%)',
+          transform: 'translate(-50%, -50%)',
           left: '50%',
+          top: '50%',
         }}>
           <StyledImg
             src={Icon}
