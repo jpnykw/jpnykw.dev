@@ -25,25 +25,34 @@ const AboutMe: React.FC = () => {
   return (
     <>
       <Motion>
-        {/* MOTION */}
         <Elements
           className="fragments center"
 
           ref={() => {
             anime({
               targets: '.fragments .el',
-              translateX: function(el: HTMLElement) {
+              translateX: (el: HTMLElement) => {
                 return Number(el.getAttribute('data-x')) + anime.random(-20, 30)
               },
-              translateY: function(el: HTMLElement) {
+              translateY: (el: HTMLElement) => {
                 return Number(el.getAttribute('data-y')) + anime.random(-50, 50)
               },
-              scale: 2,
-              rotate: function() { return anime.random(-360, 360) },
-              borderRadius: function() { return ['50%', anime.random(10, 35) + '%'] },
-              duration: function() { return anime.random(1400, 1800) },
-              delay: function() { return anime.random(900, 1100) },
-              opacity: function(el: HTMLElement) {
+              scale: () => {
+                return 2
+              },
+              rotate: () => {
+                return anime.random(-360, 360)
+              },
+              borderRadius: () => {
+                return ['50%', anime.random(10, 35) + '%']
+              },
+              duration: () => {
+                return anime.random(1400, 1800)
+              },
+              delay: () => {
+                return anime.random(900, 1100)
+              },
+              opacity: (el: HTMLElement) => {
                 return Number(el.getAttribute('data-opacity')) || 1
               },
             })
@@ -157,8 +166,10 @@ const AboutMe: React.FC = () => {
       </Motion>
 
       <Contents>
-        <div style={{textAlign: 'center'}}>
-          {/* ICON */}
+        <div style={{
+          textAlign: 'center',
+          position: 'absolute',
+        }}>
           <StyledImg
             src={Icon}
 
@@ -167,7 +178,6 @@ const AboutMe: React.FC = () => {
                 targets: ref,
                 opacity: 1,
                 translateY: 150,
-                // easing: 'easeInOutExpo',
                 easing: 'spring(1, 80, 10, 0)',
                 delay: 800,
                 duration: 400,
@@ -251,7 +261,8 @@ export default AboutMe
 
 /* naming */
 const Elements = styled.div``
-/* Styling */
+
+/* styling */
 const Motion = styled.div`
   position: relative;
   top: ${innerHeight / 2}px;
