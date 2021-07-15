@@ -3,6 +3,8 @@ import anime from 'animejs'
 import styled from 'styled-components'
 /* animation */
 import { Player, Controls } from '@lottiefiles/react-lottie-player'
+/* animation data */
+import TypographyMotion from '../assets/json/animation/typography.json';
 /* @material-ui icons */
 import TwitterIcon from '@material-ui/icons/Twitter'
 import GitHubIcon from '@material-ui/icons/GitHub'
@@ -143,8 +145,8 @@ const AboutMe: React.FC = () => {
           }}
         >
           {
-            Array(14).fill(null).map((_, id) => {
-              const x = (200 + Math.random() * 650) * (Math.random() < .5 ? 1 : -1)
+            Array(28).fill(null).map((_, id) => {
+              const x = (200 + Math.random() * 450) * (Math.random() < .5 ? 1 : -1)
               const y = (150 + Math.random() * 350) * (Math.random() < .5 ? 1 : -1)
 
               return (
@@ -153,8 +155,8 @@ const AboutMe: React.FC = () => {
                   style={
                     {
                       opacity: '0',
-                      width: '2px',
-                      height: '2px',
+                      width: '1px',
+                      height: '1px',
                       background: 'rgba(244, 244, 244, 10)'
                     }
                   }
@@ -188,10 +190,14 @@ const AboutMe: React.FC = () => {
           <Player
             keepLastFrame={true}
             background="transparent"
-            src="https://assets1.lottiefiles.com/packages/lf20_usg9bh3l.json"
-            style={{width: '400px', height: '400px'}}
+            src={TypographyMotion}
+            style={{
+              width: '400px',
+              height: '400px'
+            }}
             ref={(ref) => {
               setTimeout(() => {
+                if (ref === null) return null;
                 ref!.play()
               }, 900)
             }}
