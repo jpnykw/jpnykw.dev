@@ -1,18 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import anime from 'animejs'
 
 interface Props {
   text: string
   delay: number
   cooltime: number
+  fontSize?: number
 }
 
-const Text: React.FC<Props> = (props) =>
-  (
+const Text: React.FC<Props> = (props) => {
+  const fontSize = props.fontSize === undefined ? 30 : props.fontSize
+
+  return (
     <>
       {props.text.split('').map((text, id) => (
-        <StyledSpan
+        <span
           key={id}
 
           ref={(ref) => {
@@ -20,22 +23,24 @@ const Text: React.FC<Props> = (props) =>
 
             anime({
               targets: ref,
-              opacity: 1,
+              opacity: text === ' ' ? 0 : 1,
               delay,
             })
           }}
+
+          style={{
+            fontSize: `${fontSize}px`,
+            opacity: 0,
+          }}
         >
-          {text}
-        </StyledSpan>
+          {text === ' ' ? '-' : text}
+        </span>
       )
       )}
     </>
-  )
+  );
+}
 
-const StyledSpan = styled.span`
-  font-size: 30;
-  opacity: 0;
-`
 
 export default Text
 

@@ -16,9 +16,9 @@ const age: number = new Date().calcAge({
 })
 
 const History: React.FC = () => {
-  const rotate = (e: React.MouseEvent<HTMLImageElement>) => {
+  const rotate = (element: React.MouseEvent<HTMLImageElement>) => {
     const delay = 1400
-    const myself = e.currentTarget
+    const myself = element.currentTarget
     myself.style.animation = `rotate ${delay}ms ease-in-out 0ms 1 normal both`
     setTimeout(() => myself.style.animation = '', delay)
   }
