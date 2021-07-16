@@ -15,15 +15,21 @@ import Paper from '@material-ui/core/Paper'
 
 const data = [
   {
-    when: '2002/03/05', title: '誕生',
-    description: '千葉県で生まれました',
+    when: '2002/03/05',
+    logo: '🎂',
+    title: '誕生日',
+    description: '(=^・^=)',
   },
   {
-    when: '2019/05/28', title: '未踏ジュニア 採択',
-    description: 'SmartVJで採択されました',
+    when: '2019/05/28',
+    logo: '⚡',
+    title: '未踏ジュニア採択',
+    description: 'SmartVJ の原案が採択されました',
   },
   {
-    when: '2019/05/02', title: 'SecHack365 採択',
+    when: '2019/05/02',
+    logo: '⚡',
+    title: 'SecHack365採択',
     description: '表現駆動コースに採択されました',
   },
 ]
@@ -31,10 +37,10 @@ const data = [
 const CustomTimeline: React.FC = () => {
   return (
     <>
-      <Container maxWidth="md">
-        <Timeline align="alternate">
+      <Container maxWidth={'md'}>
+        <Timeline align={'alternate'}>
           {
-            data.map(({ when, title, description }, index) => {
+            data.map(({ when, logo, title, description }, index) => {
               return (
                 <TimelineItem key={index}>
                   <TimelineOppositeContent>
@@ -48,14 +54,11 @@ const CustomTimeline: React.FC = () => {
                     }
                   </TimelineSeparator>
                   <TimelineContent>
-                    {/* <Typography>{what}</Typography> */}
                     <StyledPaper elevation={3} style={{
-                      background: '#424242',
+                      background: '#3a4043',
                       color: '#e6e6e6',
                     }}>
-                      <Typography variant="h6" component="h1">
-                        {title}
-                      </Typography>
+                      <Typography variant={'h6'} component={'h1'}>{logo} {title}</Typography>
                       <Typography>{description}</Typography>
                     </StyledPaper>
                   </TimelineContent>

@@ -58,10 +58,10 @@ const App = () => {
               animation: inView ? 'fade-in 1400ms' : 0,
             }}
           >
-            <Works />
+            <History />
           </StyledDiv>
 
-          {/* <History /> */}
+          <Works />
 
           <Credit className="credit">2020 &copy; jpnykw</Credit>
 
