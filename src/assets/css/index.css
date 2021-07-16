@@ -47,6 +47,15 @@ a {
   }
 }
 
+@keyframes spin {
+  from {
+    transform: translateY(150px) rotateY(0deg);
+  }
+  to {
+    transform: translateY(150px) rotateY(360deg);
+  }
+}
+
 /* animation for react-intersection-observer */
 @keyframes fade-in {
   from {

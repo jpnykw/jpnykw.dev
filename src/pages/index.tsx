@@ -36,7 +36,7 @@ const App = () => {
             <Works />
           </StyledDiv>
 
-          {/*<History />*/}
+          {/* <History /> */}
 
           <Credit className="credit">2020 &copy; jpnykw</Credit>
 

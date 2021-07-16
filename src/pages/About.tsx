@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import anime from 'animejs'
 import styled from 'styled-components'
 /* animation */
@@ -14,6 +14,7 @@ import Link from '../components/Link'
 import MotionText from '../components/Text'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
+import Tooltip from '@material-ui/core/Tooltip'
 /* resources */
 import '../assets/css/font.css'
 import Icon from '../assets/images/icon.jpeg'
@@ -22,7 +23,19 @@ import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 import '../lib/string.extend.ts'
 
 const AboutMe: React.FC = () => {
+  const [animatedIcon, setAnimatedIcon] = useState(false)
   const icon_size = 24
+
+  const iconAnimation = (event: any) => {
+    if (!animatedIcon) {
+      setAnimatedIcon(true)
+      event.target.style.animation = 'spin 800ms ease-in-out 0s 1 normal'
+      setTimeout(() => {
+        event.target.style.animation = ''
+        setAnimatedIcon(false)
+      }, 800);
+    }
+  }
 
   return (
     <>
@@ -177,7 +190,9 @@ const AboutMe: React.FC = () => {
         }}>
           <StyledImg
             src={Icon}
-
+            onClick={(event) => {
+              iconAnimation(event);
+            }}
             ref={(ref) => {
               anime({
                 targets: ref,
@@ -196,7 +211,8 @@ const AboutMe: React.FC = () => {
             src={TypographyMotion}
             style={{
               width: '400px',
-              height: '400px'
+              height: '400px',
+              pointerEvents: 'none',
             }}
             ref={(ref) => {
               setTimeout(() => {
@@ -258,7 +274,21 @@ const AboutMe: React.FC = () => {
               opacity: 0
             }}
           >
-            content is below
+            <Tooltip title={'I love you (=^・^=) ♥'}>
+              <a
+                href={'https://ko-fi.com/G2G65CB5J'}
+                target={'_blank'}
+              >
+                <img
+                  style={{
+                    border: '0px',
+                    height: '36px',
+                  }}
+                  src={'https://cdn.ko-fi.com/cdn/kofi1.png?v=2'}
+                  alt={'Buy Me a Coffee at ko-fi.com'}
+                />
+              </a>
+            </Tooltip>
           </Container>
         </div>
       </Contents>
@@ -295,5 +325,6 @@ const StyledImg = styled.img`
   top: 0px;
   border-radius: 90px;
   opacity: 0;
+  cursor: pointer;
 `
 
