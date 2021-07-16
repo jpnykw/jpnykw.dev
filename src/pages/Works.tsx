@@ -5,8 +5,9 @@ import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 /* components */
+import Timeline from '../components/Timeline'
 import ProjectCard from '../components/ProjectCard'
-/* resources */
+// TODO: DB から取得するように変更する
 import Projects from '../assets/json/projects.json'
 import RustReversi from '../assets/images/t_rust_reversi.jpg'
 import ShaderEditor from '../assets/images/t_shader_editor.jpg'
@@ -47,6 +48,8 @@ const GetThumbnail = (type: string) => {
 const Works: React.FC = () =>
   (
     <Contents>
+      <Timeline />
+      {/*
       <Container maxWidth="md">
         <Grid container spacing={8}>
           {Object.entries(Projects).map(([key, project]) => (
@@ -81,6 +84,7 @@ const Works: React.FC = () =>
           ))}
         </Grid>
       </Container>
+      */}
     </Contents>
   )
 

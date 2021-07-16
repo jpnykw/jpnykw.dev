@@ -16,7 +16,7 @@ import { useInView } from 'react-intersection-observer';
 // Main
 const App = () => {
   const [ref, inView] = useInView({
-    rootMargin: '-50px',
+    rootMargin: '-100px',
     triggerOnce: true,
   });
 
@@ -30,13 +30,13 @@ const App = () => {
             ref={ref}
             style={{
               opacity: inView ? 1 : 0,
-              animation: inView ? 'fade-in 600ms' : 0,
+              animation: inView ? 'fade-in 1400ms' : 0,
             }}
           >
             <Works />
           </StyledDiv>
 
-          <History />
+          {/*<History />*/}
 
           <Credit className="credit">2020 &copy; jpnykw</Credit>
 
@@ -60,7 +60,7 @@ const Credit = styled.div`
   width: 100%;
   margin-bottom: 20;
   text-align: center;
-  margin-top: 100;
+  margin-top: 200;
 `
 
 const StyledDiv = styled.div`

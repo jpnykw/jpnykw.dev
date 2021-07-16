@@ -16,7 +16,6 @@ const Link: React.FC<Props> = (props) =>
     <StyledButton
       aria-label={props.text}
       onClick={() => open(props.href)}
-
       ref={(ref) => {
         anime({
           targets: ref,
