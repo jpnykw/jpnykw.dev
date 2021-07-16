@@ -4,9 +4,10 @@ import styled from 'styled-components'
 /* @material-ui components */
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 /* components */
 import ProjectCard from '../components/ProjectCard'
-/* resources */
+// TODO: 作品一覧を DB から取得するように変更する
 import Projects from '../assets/json/projects.json'
 import RustReversi from '../assets/images/t_rust_reversi.jpg'
 import ShaderEditor from '../assets/images/t_shader_editor.jpg'
@@ -16,69 +17,23 @@ import SmartVJ from '../assets/images/t_smart_vj.jpg'
 import EChat from '../assets/images/t_e_chat.jpg'
 import Plat from '../assets/images/t_plat.jpg'
 
-const GetThumbnail = (type: string) => {
-  switch (type) {
-    case 'rust_reversi':
-      return RustReversi
-
-    case 'shader_editor':
-      return ShaderEditor
-
-    case 'ccbc':
-      return Ccbc
-
-    case 'aura':
-      return Aura
-
-    case 'smart_vj':
-      return SmartVJ
-
-    case 'e_chat':
-      return EChat
-
-    case 'plat':
-      return Plat
-  }
-
-  // By throwing exception, return type of `GetThumbnail` is fixed to `string`.
-  throw new Error(`undefined type: ${type}`)
-}
-
 const Works: React.FC = () =>
   (
     <Contents>
-      <Container maxWidth="md">
-        <Grid container spacing={8}>
-          {Object.entries(Projects).map(([key, project]) => (
-            <StyledGrid item
-              key={key}
-              xs={12}
-              sm={6}
-              md={4}
-
-              ref={(ref) => {
-                const delay = 2200 + 120 * Number(key)
-
-                anime({
-                  targets: ref,
-                  opacity: 1,
-                  easing: 'easeInOutExpo',
-                  duration: 800,
-                  delay,
-                })
-              }}
-            >
-              <ProjectCard
-                link={project.link}
-                demo={project.demo }
-                title={project.title}
-                date={project.date}
-                tags={project.tags}
-                description={project.description}
-                thumbnail={GetThumbnail(project.thumbnail)}
-              ></ProjectCard>
-            </StyledGrid>
-          ))}
+      <Container
+        maxWidth={'md'}
+        style={{
+          marginTop: '200px',
+        }}
+      >
+        <Grid
+          container
+          alignItems='center'
+          justify='center'
+        >
+          <Grid item>
+            <Typography>更新作業中につき作品一覧は表示できないよ</Typography>
+          </Grid>
         </Grid>
       </Container>
     </Contents>

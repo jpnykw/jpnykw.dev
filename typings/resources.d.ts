@@ -8,6 +8,11 @@ declare module '*.jpg' {
   export = path
 }
 
+declare module '*.jpeg' {
+  const path: string
+  export = path
+}
+
 declare module '*.gif' {
   const path: string
   export = path
