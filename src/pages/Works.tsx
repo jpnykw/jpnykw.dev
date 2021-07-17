@@ -20,22 +20,14 @@ import Plat from '../assets/images/t_plat.jpg'
 const Works: React.FC = () =>
   (
     <Contents>
-      <Container
-        maxWidth={'md'}
+      <Typography
         style={{
-          marginTop: '200px',
+          textAlign: 'center',
+          marginTop: '200px'
         }}
       >
-        <Grid
-          container
-          alignItems={'center'}
-          justifyContent={'center'}
-        >
-          <Grid item>
-            <Typography>更新作業中につき作品一覧は表示できないよ</Typography>
-          </Grid>
-        </Grid>
-      </Container>
+        更新作業中につき作品一覧は表示できないよ
+      </Typography>
     </Contents>
   )
 
