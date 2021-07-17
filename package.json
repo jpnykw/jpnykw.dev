@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack",
+    "build": "echo '!-- Install --!' && npm install && echo '\n!-- Build --!\n' && webpack",
     "lint": "eslint ."
   },
   "devDependencies": {
