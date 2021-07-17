@@ -1,8 +1,6 @@
 body {
-  background-blend-mode: soft-light;
-  background: rgb(3, 7, 10);
-  /* background: url('../images/noise.png'), linear-gradient(169deg, rgba(11,19,32,1) 0%, rgba(15,25,32,1) 48%, rgba(19,29,41,1) 100%); */
-  background: url('../images/noise.png'), rgb(3, 7, 10); /* linear-gradient(169deg, rgb(2 6 14) 0%, rgb(8 16 21) 48%, rgb(3 12 10) 100%); */
+  background: url('../images/noise.png'), rgb(6, 16, 20);
+  background-blend-mode: overlay;
   font-family: Montserrat;
   color: #e3f2fd;
 }
@@ -24,25 +22,25 @@ a {
 }
 
 .custom-shape-divider-top-1626431516 {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    animation: fade-in 700ms 1000ms forwards;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  animation: fade-in 700ms 1000ms forwards;
 }
 
 .custom-shape-divider-top-1626431516 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 344px;
+  position: relative;
+  display: block;
+  height: 350px;
+  margin: 0;
 }
 
 .custom-shape-divider-top-1626431516 .shape-fill {
-    fill: rgba(255, 255, 255, 0.03);
+  fill: rgba(255, 255, 255, 0.03);
 }
 
 /* animation for easter egg */

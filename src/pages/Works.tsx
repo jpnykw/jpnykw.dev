@@ -28,8 +28,8 @@ const Works: React.FC = () =>
       >
         <Grid
           container
-          alignItems='center'
-          justify='center'
+          alignItems={'center'}
+          justifyContent={'center'}
         >
           <Grid item>
             <Typography>更新作業中につき作品一覧は表示できないよ</Typography>
