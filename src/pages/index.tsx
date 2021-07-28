@@ -217,13 +217,12 @@ const App = () => {
           crossY[18] = 0.6480520378191748;
           crossY[19] = 0.03806044602562775;
 
-          // vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
-          vec2 p = (gl_FragCoord.xy * 2.0 - resolution * 2.0) / min(resolution.x, resolution.y);
+          vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
+          // vec2 p = (gl_FragCoord.xy * 2.0 - resolution * 2.0) / min(resolution.x, resolution.y);
 
           // 詳細なアニメーションステータス
           int type = 0;
           float t, u;
-
           t = 0.0;
 
           // 冒頭のドラムに合わせて図形を表示するシーン
