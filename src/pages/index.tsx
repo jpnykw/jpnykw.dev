@@ -24,6 +24,9 @@ const App = () => {
     triggerOnce: true,
   })
 
+  const width = innerWidth
+  const height = innerHeight
+
   const shaders = Shaders.create({
     liquidNoise: {
       // uniforms are variables from JS. We pipe blue uniform into blue output color
@@ -217,8 +220,11 @@ const App = () => {
           crossY[18] = 0.6480520378191748;
           crossY[19] = 0.03806044602562775;
 
-          vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
-          // vec2 p = (gl_FragCoord.xy * 2.0 - resolution * 2.0) / min(resolution.x, resolution.y);
+          ${
+            navigator.userAgent.toLowerCase().includes('mac os') ?
+            'vec2 p = (gl_FragCoord.xy * 2.0 - resolution * 2.0) / min(resolution.x, resolution.y);' :
+            'vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);'
+          }
 
           // 詳細なアニメーションステータス
           int type = 0;
@@ -366,13 +372,13 @@ const App = () => {
             </svg>
           </div>
 
-          <div className={'center'} style={{ opacity: 0.3 }}>
-            <Surface width={innerWidth} height={innerHeight}>
+          <div className={'center'} style={{ opacity: 0.2 }}>
+            <Surface width={width} height={height}>
               <Node
                 shader={shaders.liquidNoise}
                 uniforms={{
-                  resolution: [innerWidth, innerHeight],
-                  time: [0.4, 0.9, 1.2, 1.9, 2.7, 3.8][(Math.random() * 6) >> 0]
+                  resolution: [width, height],
+                  time: [0.4, 0.8, 0.9, 1.2, 1.4][(Math.random() * 5) >> 0]
                 }}
               />;
             </Surface>
