@@ -372,17 +372,23 @@ const App = () => {
             </svg>
           </div>
 
-          <div className={'center'} style={{ opacity: 0.2 }}>
-            <Surface width={width} height={height}>
-              <Node
-                shader={shaders.liquidNoise}
-                uniforms={{
-                  resolution: [width, height],
-                  time: [0.4, 0.8, 0.9, 1.2, 1.4][(Math.random() * 5) >> 0]
-                }}
-              />;
-            </Surface>
-          </div>
+          {
+            navigator.userAgent.toLowerCase().match(/iphone|android.+mobile/) === null ? (
+              <div className={'center'} style={{ opacity: 0.2 }}>
+                <Surface width={width} height={height}>
+                  <Node
+                    shader={shaders.liquidNoise}
+                    uniforms={{
+                      resolution: [width, height],
+                      time: [0.4, 0.8, 0.9, 1.2, 1.4][(Math.random() * 5) >> 0]
+                    }}
+                  />;
+                </Surface>
+              </div>
+            ) : (
+              <></>
+            )
+          }
 
           <About />
 
@@ -391,6 +397,7 @@ const App = () => {
             style={{
               opacity: inView ? 1 : 0,
               animation: inView ? 'fade-in 1400ms' : 0,
+              marginTop: '190px',
             }}
           >
             <History />
