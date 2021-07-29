@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react'
+import React, { useState, useEffect, useMemo, Suspense } from 'react'
 import * as ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import { Shaders, Node, GLSL } from 'gl-react';
@@ -84,7 +84,6 @@ const App = () => {
           }
         }
 
-        // 枠線回転
         float drawSquareOut(vec2 pos, vec2 cor, float size, float bold, float theta) {
           cor.x = cor.x * cos(theta) - cor.y * sin(theta);
           cor.y = cor.x * sin(theta) + cor.y * cos(theta);
@@ -99,7 +98,6 @@ const App = () => {
           return length(r);
         }
 
-        // 時間判定
         bool isFitTime(float t, float u, float diff) {
           return abs(t - u) < diff;
         }
@@ -108,11 +106,9 @@ const App = () => {
           return mod(floor(float(n) / exp2(floor(float(b)))), 2.0) != 0.0;
         }
 
-        // 円アニメーション
         #define firstAnimeMax 20
 
         void main(void) {
-          // ランダム生成したアニメーションステータス
           float vertex[20], size[20], bold[20], crossX[20], crossY[20];
 
           vertex[0] = 3.0;
@@ -220,25 +216,23 @@ const App = () => {
           crossY[18] = 0.6480520378191748;
           crossY[19] = 0.03806044602562775;
 
+          // OS 依存で中心がズレてしまうバグの対処 (要調査)
           ${
             navigator.userAgent.toLowerCase().includes('mac os') ?
             'vec2 p = (gl_FragCoord.xy * 2.0 - resolution * 2.0) / min(resolution.x, resolution.y);' :
             'vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);'
           }
 
-          // 詳細なアニメーションステータス
           int type = 0;
           float t, u;
           t = 0.0;
 
-          // 冒頭のドラムに合わせて図形を表示するシーン
           if (time >= 0.2) {
             for (int i = firstAnimeMax; i > 0; i--) {
               if (time < getDelayTime(0.0, 0.08, i)) {
                 u = sin((atan(p.y, p.x) - time * 0.4) * vertex[i - 1]) * 0.01;
                 t = bold[i - 1] * 0.1 / abs((size[i - 1] - 0.16) * 1.2 + u - length(p));
 
-                // ドットマップ、クロスマップ、正方形を描画する
                 for (float drawY = 0.0; drawY < 6.0; drawY++) {
                   for (float drawX = 0.0; drawX < 3.0; drawX++) {
                     t += drawCross(vec2(crossX[i] * 1.8 + drawX * 0.06, crossY[i] + drawY * 0.06), p, 0.02, 0.003);
@@ -262,7 +256,6 @@ const App = () => {
           if (time >= 1.8) {
               type = 1;
 
-              // 3段階変化
               if (time >= 3.76) {
                   if (time <= 5.6) {
                       u = sin((atan(p.x, p.y) + 4.0) * 8.0) * 0.01;
@@ -332,7 +325,6 @@ const App = () => {
             }
           }
 
-          // レンダリング
           vec4 color;
           if (type == 0) color = vec4(vec3(t), 1.0);
           if (type == 1) color = vec4(0.0, t * 0.6, t, 1.0);
@@ -342,6 +334,29 @@ const App = () => {
       `
     }
   })
+
+  const TopContents = useMemo(() => (
+    <>
+      {
+        navigator.userAgent.toLowerCase().match(/iphone|android.+mobile/) === null ? (
+          <div className={'center'} style={{ opacity: 0.2 }}>
+            <Surface width={width} height={height}>
+              <Node
+                shader={shaders.liquidNoise}
+                uniforms={{
+                  resolution: [width, height],
+                  time: [0.4, 0.8, 0.9, 1.2, 1.4][(Math.random() * 5) >> 0]
+                }}
+              />;
+            </Surface>
+          </div>
+        ) : (
+          <></>
+        )
+      }
+      <About />
+    </>
+  ), [])
 
   return (
     <>
@@ -372,25 +387,7 @@ const App = () => {
             </svg>
           </div>
 
-          {
-            navigator.userAgent.toLowerCase().match(/iphone|android.+mobile/) === null ? (
-              <div className={'center'} style={{ opacity: 0.2 }}>
-                <Surface width={width} height={height}>
-                  <Node
-                    shader={shaders.liquidNoise}
-                    uniforms={{
-                      resolution: [width, height],
-                      time: [0.4, 0.8, 0.9, 1.2, 1.4][(Math.random() * 5) >> 0]
-                    }}
-                  />;
-                </Surface>
-              </div>
-            ) : (
-              <></>
-            )
-          }
-
-          <About />
+          {TopContents}
 
           <StyledDiv
             ref={ref}
