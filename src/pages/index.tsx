@@ -15,7 +15,8 @@ import '../lib/date.extend.ts'
 /* scroll */
 import { useInView } from 'react-intersection-observer';
 
-let time = 0
+const disableWebglContents: boolean = true
+let time: number = 0
 
 // Main
 const App = () => {
@@ -338,7 +339,7 @@ const App = () => {
   const TopContents = useMemo(() => (
     <>
       {
-        navigator.userAgent.toLowerCase().match(/iphone|android.+mobile/) === null ? (
+        !disableWebglContents && navigator.userAgent.toLowerCase().match(/iphone|android.+mobile/) === null ? (
           <div className={'center'} style={{ opacity: 0.2 }}>
             <Surface width={width} height={height}>
               <Node
