@@ -2,10 +2,10 @@ body {
 	background:
 		linear-gradient(to right, #080e20, #12020e),
 		url(https://grainy-gradients.vercel.app/noise.svg);
-  filter: contrast(120%);
+  filter: contrast(110%);
   font-family: Montserrat;
   color: #e3f2fd;
-  overflow-x: hidden;
+  overflow: hidden;
   margin: 0;
 }
 

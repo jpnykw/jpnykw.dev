@@ -10,6 +10,8 @@ const Credit = styled.div`
   width: 100%;
   text-align: center;
 	height: 50px;
+	opacity: 0;
+  animation: fade-in 400ms 2000ms forwards;
 `
 
 const App = () => {

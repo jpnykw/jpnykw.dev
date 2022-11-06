@@ -18,6 +18,7 @@ import Icon from '../assets/images/jpnykw.png'
 import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 /* extend */
 import '../lib/string.extend.ts'
+import { red200 } from 'material-ui/styles/colors';
 
 const minX = 150
 const minY = 100
@@ -52,6 +53,8 @@ const StyledImg = styled.img`
   cursor: pointer;
 `
 
+const nop = () => Math.random() > 0.5 ? 1 : -1
+
 const RandomElements = memo(() => {
 	return (
 		<Motion>
@@ -80,7 +83,7 @@ const RandomElements = memo(() => {
 							return anime.random(1400, 1800)
 						},
 						delay: () => {
-							return anime.random(900, 1100)
+							return anime.random(400, 1400)
 						},
 						opacity: (el: HTMLElement) => {
 							return Number(el.getAttribute('data-opacity')) || 1
@@ -93,36 +96,37 @@ const RandomElements = memo(() => {
 					width: '100px',
 				}}
 			>
-				<Element
-					data-x="-200" data-y="-60" className="small circle el"
-					style={
-						{
-							width: '14px',
-							height: '14px',
-							background: 'rgba(164, 255, 79)'
-						}
-					}
-				/>
-				<Element
-					data-x="200" data-y="190" className="small circle el"
-					style={
-						{
-							width: '12px',
-							height: '12px',
-							background: 'rgba(79, 255, 164)'
-						}
-					}
-				/>
-				<Element
-					data-x="170" data-y="-260" className="small circle el"
-					style={
-						{
-							width: '10px',
-							height: '10px',
-							background: 'rgba(255, 164, 79)'
-						}
-					}
-				/>
+				{Array(8).fill(null).map((_, index: number) => {
+					const colorPalette = [
+						'rgba(79, 255, 164)',
+						'rgba(255, 80, 120)',
+						'rgba(164, 255, 79)',
+						'rgba(50, 160, 240)',
+					]
+
+					const angle = Math.random() * 360 * Math.PI / 180
+					const radius = 180 + Math.random() * 200
+					const x = Math.cos(angle) * radius
+					const y = Math.sin(angle) * radius - 50
+
+					const size = (5 + Math.random() * 25)
+					const blur = (size / 30) * 5
+
+					return (
+						<Element
+							key={`cube-${index}`}
+							data-x={`${x}`}
+							data-y={`${y}`}
+							className="small circle el"
+							style={{
+								width: `${size}px`,
+								height: `${size}px`,
+								background: colorPalette[Math.floor(Math.random() * colorPalette.length)],
+								filter: `blur(${blur}px)`,
+							}}
+						/>
+					)
+				})}
 			</Elements>
 
 			<Elements
@@ -141,7 +145,7 @@ const RandomElements = memo(() => {
 							return anime.random(1800, 2600)
 						},
 						delay: function() {
-							return anime.random(1200, 1300)
+							return anime.random(1240, 1500)
 						},
 						borderRadius: 100,
 						opacity: 0.2,
@@ -149,30 +153,28 @@ const RandomElements = memo(() => {
 					})
 				}}
 			>
-				{
-					Array(30).fill(null).map((_, id) => {
-						const x = (minX + Math.random() * (innerWidth - minX)) * (Math.random() < .5 ? 1 : -1)
-						const y = (minY + Math.random() * (innerHeight - minY)) * (Math.random() < .5 ? 1 : -1)
-						const px = 1 + Math.random() * 1.5
+				{Array(60).fill(null).map((_, id) => {
+					const x = nop() * (minX + Math.random() * (innerWidth - minX))
+					const y = nop() * (minY + Math.random() * (innerHeight - minY)) 
+					const px = 1 + Math.random() * 1.5
 
-						return (
-							<Element
-								key={id}
-								data-x={x / 2}
-								data-y={y / 2}
-								className="small circle el"
-								style={
-									{
-										opacity: '0',
-										width: `${px}px`,
-										height: `${px}px`,
-										background: 'rgb(244, 244, 244)',
-									}
+					return (
+						<Element
+							key={id}
+							data-x={x / 2}
+							data-y={y / 2}
+							className="small circle el"
+							style={
+								{
+									opacity: '0',
+									width: `${px}px`,
+									height: `${px}px`,
+									background: 'rgb(244, 244, 244)',
 								}
-							/>
-						)
-					})
-				}
+							}
+						/>
+					)
+				})}
 			</Elements>
 		</Motion>
 	)
@@ -215,7 +217,7 @@ const AboutMe: React.FC = () => {
                 opacity: 1,
                 translateY: 150,
                 easing: 'spring(1, 80, 10, 0)',
-                delay: 800,
+                delay: 400,
                 duration: 400,
               })
             }}
@@ -234,7 +236,7 @@ const AboutMe: React.FC = () => {
               setTimeout(() => {
                 if (ref === null) return null;
                 ref!.play()
-              }, 900)
+              }, 1400)
             }}
           />
 
