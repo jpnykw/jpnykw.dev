@@ -1,21 +1,28 @@
 import React, { memo, useState, useCallback } from 'react'
 import anime from 'animejs'
 import styled from 'styled-components'
+
 /* animation */
 import { Player } from '@lottiefiles/react-lottie-player'
+
 /* animation data */
 import TypographyMotion from '../assets/json/animation/typography.json';
-/* @material-ui icons */
-import TwitterIcon from '@material-ui/icons/Twitter'
-import GitHubIcon from '@material-ui/icons/GitHub'
-import YouTubeIcon from '@material-ui/icons/YouTube'
+
+import {
+	GrTwitter as TwitterIcon,
+	GrGithub as GitHubIcon,
+	GrYoutube as YouTubeIcon,
+	GrSoundcloud as SoundCloudIcon,
+} from 'react-icons/gr'
+
 /* components */
 import Link from '../components/Link'
 import MotionText from '../components/Text'
+
 /* resources */
 import '../assets/css/font.css'
 import Icon from '../assets/images/jpnykw.png'
-import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
+
 /* extend */
 import '../lib/string.extend.ts'
 
@@ -262,11 +269,53 @@ const AboutMe: React.FC = () => {
             />
           </div>
 
-          <div>
-            <Link delay={1280} icon={<TwitterIcon style={{fontSize: `${icon_size - 6}px`}} />} text="Twitter" href="https://twitter.com/jpnykw" />
-            <Link delay={1340} icon={<GitHubIcon style={{fontSize: `${icon_size - 6}px`}} />} text="GitHub" href="https://github.com/jpnykw" />
-            <Link delay={1400} icon={<YouTubeIcon style={{fontSize: `${icon_size}px`}} />} text="YouTube" href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured" />
-            <Link delay={1460} icon={<SoundCloudIcon width={`${icon_size}px`} />} text="SoundCloud" href="https://soundcloud.com/jpnykw" />
+          <div style={{
+						marginTop: '10px',
+						display: 'grid',
+						gridTemplateColumns: 'repeat(4, 30px)',
+						placeContent: 'center',
+						gap: '14px',
+					}}>
+            <Link
+							delay={1280}
+							icon={<TwitterIcon style={{
+								fontSize: `${icon_size - 6}px`,
+								padding: '4px 0',
+								cursor: 'pointer',
+							}} />}
+							text="Twitter"
+							href="https://twitter.com/jpnykw"
+						/>
+            <Link
+							delay={1340}
+							icon={<GitHubIcon style={{
+								fontSize: `${icon_size - 6}px`,
+								padding: '4px 0',
+								cursor: 'pointer',
+							}} />}
+							text="GitHub"
+							href="https://github.com/jpnykw"
+						/>
+            <Link
+							delay={1400}
+							icon={<YouTubeIcon style={{
+								fontSize: `${icon_size}px`,
+								padding: '1px 0',
+								cursor: 'pointer',
+							}} />}
+							text="YouTube"
+							href="https://www.youtube.com/channel/UCmpA3l3QF0VI4nvNVADXoyg/featured"
+						/>
+            <Link
+							delay={1460}
+							icon={<SoundCloudIcon style={{
+								fontSize: `${icon_size}px`,
+								padding: '1px 0',
+								cursor: 'pointer',
+							}} />}
+							text="SoundCloud"
+							href="https://soundcloud.com/jpnykw"
+						/>
           </div>
         </div>
       </Contents>
