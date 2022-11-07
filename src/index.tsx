@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 
-import About from './About'
-import '../assets/css/font.css'
-import '../assets/css/index.css'
+import About from './pages/About'
+import './assets/css/font.css'
+import './assets/css/index.css'
 
 const Credit = styled.div`
   width: 100%;
