@@ -18,7 +18,6 @@ import Icon from '../assets/images/jpnykw.png'
 import SoundCloudIcon from '../assets/svg/soundcloud-brands.svg'
 /* extend */
 import '../lib/string.extend.ts'
-import { red200 } from 'material-ui/styles/colors';
 
 const minX = 150
 const minY = 100
