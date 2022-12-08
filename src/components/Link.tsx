@@ -9,8 +9,11 @@ interface Props {
   delay: number
 }
 
-const StyledButton = styled.span`
-	width: fit-content;
+const StyledButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  width: fit-content;
   margin: 0 5;
   opacity: 0;
 `
