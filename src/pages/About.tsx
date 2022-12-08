@@ -51,7 +51,7 @@ const Contents = styled.div`
 `
 
 const StyledImg = styled.img`
-  width: 180px;
+  aspect-ratio: 1/1;
   position: relative;
   top: 0px;
   border-radius: 90px;
@@ -216,6 +216,9 @@ const AboutMe: React.FC = memo(() => {
 				>
           <StyledImg
             src={Icon}
+            alt='jpnykw icon'
+            width='180px'
+            height='180px'
             onClick={handleClickIcon}
             ref={(ref) => {
               anime({
