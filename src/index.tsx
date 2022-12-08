@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useCallback } from 'react'
 import ReactDOM from 'react-dom'
+import React, { useEffect, useState, useCallback } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import loadable from '@loadable/component'
 import styled from 'styled-components'
-
-import About from './pages/About'
-import NotFound from './pages/NotFound'
-import Wtf from './pages/Wtf'
 import './assets/css/font.css'
 import './assets/css/index.css'
+
+const About = loadable(() => import('./pages/About'))
+const NotFound = loadable(() => import('./pages/NotFound'))
+const Wtf = loadable(() => import('./pages/Wtf'))
 
 const Credit = styled.div`
   width: 100%;
