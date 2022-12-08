@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import './assets/css/font.css'
 import './assets/css/index.css'
 
-const About = loadable(() => import('./pages/About'))
+import About from './pages/About'
 const NotFound = loadable(() => import('./pages/NotFound'))
 const Wtf = loadable(() => import('./pages/Wtf'))
 
@@ -53,8 +53,8 @@ const App = () => {
 
   return (
     <>
-			<Sh pos={'bottom'} y={y || 0} />
-			<Sh pos={'top'} y={y || 0} />
+			<Sh pos={'bottom'} y={(y || 0) + 40} />
+			<Sh pos={'top'} y={(y || 0) + 8} />
 			<BrowserRouter>
 				<Routes>
 					<Route index element={<About />} />
