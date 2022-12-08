@@ -1,19 +1,4 @@
-declare module '*.png' {
-  const path: string
-  export = path
-}
-
-declare module '*.jpg' {
-  const path: string
-  export = path
-}
-
-declare module '*.jpeg' {
-  const path: string
-  export = path
-}
-
-declare module '*.gif' {
+declare module '*.webp' {
   const path: string
   export = path
 }

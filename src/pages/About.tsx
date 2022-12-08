@@ -21,7 +21,7 @@ import MotionText from '../components/Text'
 
 /* resources */
 import '../assets/css/font.css'
-import Icon from '../assets/images/jpnykw.png'
+import Icon from '../assets/images/jpnykw.webp'
 
 /* extend */
 import '../lib/string.extend.ts'
@@ -159,7 +159,7 @@ const RandomElements = memo(() => {
 					})
 				}}
 			>
-				{Array(60).fill(null).map((_, id) => {
+				{Array(30).fill(null).map((_, id) => {
 					const x = nop() * (minX + Math.random() * (innerWidth - minX))
 					const y = nop() * (minY + Math.random() * (innerHeight - minY)) 
 					const px = 1 + Math.random() * 1.5
@@ -186,7 +186,7 @@ const RandomElements = memo(() => {
 	)
 })
 
-const AboutMe: React.FC = () => {
+const AboutMe: React.FC = memo(() => {
   const [animatedIcon, setAnimatedIcon] = useState(false)
   const icon_size = 24
 
@@ -258,7 +258,9 @@ const AboutMe: React.FC = () => {
               })
             }}
 						style={{
-							color: '#777',
+              background: '-webkit-linear-gradient(79deg, rgba(57,46,249,1) 0%, rgba(197,39,238,1) 39%, rgba(246,41,98,1) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
 						}}
           >
             <MotionText
@@ -321,6 +323,6 @@ const AboutMe: React.FC = () => {
       </Contents>
     </>
   )
-}
+})
 
 export default AboutMe
