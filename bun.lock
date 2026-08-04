@@ -5,6 +5,7 @@
     "": {
       "name": "jpnykw.dev",
       "dependencies": {
+        "@lottiefiles/dotlottie-web": "^0.78.2",
         "astro": "^5.0.0",
       },
       "devDependencies": {
@@ -170,6 +171,8 @@
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.5", "", {}, "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og=="],
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
+
+    "@lottiefiles/dotlottie-web": ["@lottiefiles/dotlottie-web@0.78.2", "", {}, "sha512-ERBw7qATlekpFnR1xwNoTeXsXqw0FzCiEgei0IwPiquT277m36/o0aSWZDK7CgkhVd1NYre3M9fH+6n4waUfHA=="],
 
     "@napi-rs/lzma-linux-x64-gnu": ["@napi-rs/lzma-linux-x64-gnu@1.5.1", "", { "os": "linux", "cpu": "x64" }, "sha512-oTXEIha4SsuXdTA4Iyskj0kpdx2yVXdhd75c2v3xGrHFfVMsbhTPZU/nMPL4sWKo4pBHm3aucLaqGlF696dTyQ=="],
 

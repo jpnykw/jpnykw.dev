@@ -1,0 +1,140 @@
+---
+import { profile } from '../lib/profile';
+import icon from '../assets/images/jpnykw.webp';
+---
+
+<section class="bio" aria-label="プロフィール">
+  <div class="ghost-title" aria-hidden="true">WHOAMI</div>
+  <div class="grid">
+    <div>
+      <h2 class="name">
+        {profile.handle}<br /><em>{profile.name}</em>
+      </h2>
+      <p class="motto">{profile.motto}</p>
+      <ul class="sns">
+        {
+          profile.sns.map((s) => (
+            <li>
+              <a href={s.href}>{s.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <img
+      src={icon.src}
+      alt={`${profile.handle}のアイコン`}
+      width={icon.width}
+      height={icon.height}
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<style>
+  /* 見た目の値はすべてglobal.cssのトークン参照。位置・グリッドの
+     構造指定(position/grid-template等)はレイアウトの成立要件なので対象外 */
+  .bio {
+    position: relative;
+    padding: var(--spacing-section) 0;
+  }
+  /* 背景に沈む輪郭だけの章文字。飾りなので読み上げ対象から外す */
+  .ghost-title {
+    position: absolute;
+    top: var(--spacing-ghost-y);
+    left: var(--spacing-ghost-x);
+    font-size: var(--text-ghost);
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: var(--stroke-ghost) var(--color-accent-ghost);
+    letter-spacing: var(--tracking-ghost);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-block);
+    align-items: center;
+  }
+  .name {
+    font-size: var(--text-display);
+    font-weight: 900;
+    line-height: var(--leading-display);
+  }
+  .name em {
+    font-style: normal;
+    color: var(--color-accent-alt);
+  }
+  .motto {
+    color: var(--color-dim);
+    margin-top: var(--spacing-lead);
+    letter-spacing: var(--tracking-motto);
+  }
+  .sns {
+    display: flex;
+    gap: var(--spacing-stack);
+    margin-top: var(--spacing-stack);
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+  .sns a {
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    position: relative;
+  }
+  /* 下線が右から消え左から現れる。ピンク=反応の差し色(正典§6) */
+  .sns a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: calc(-1 * var(--spacing-underline));
+    height: var(--stroke-underline);
+    width: 100%;
+    background: var(--color-accent-alt);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--duration-hover) var(--ease-glide);
+  }
+  .sns a:hover::after,
+  .sns a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  img {
+    width: var(--size-avatar);
+    height: var(--size-avatar);
+    border-radius: var(--radius-avatar);
+    border: var(--stroke-avatar) solid var(--color-accent-frame);
+    rotate: -6deg;
+    box-shadow: var(--shadow-avatar);
+    transition:
+      rotate var(--duration-hover) var(--ease-spring),
+      border-radius var(--duration-morph);
+  }
+  img:hover {
+    rotate: 4deg;
+    border-radius: var(--radius-avatar-hover);
+  }
+  @media (max-width: 40rem) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    img {
+      justify-self: start;
+      order: -1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sns a::after,
+    img {
+      transition: none;
+    }
+  }
+</style>
