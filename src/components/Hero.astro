@@ -1,0 +1,167 @@
+---
+import { profile } from '../lib/profile';
+
+// 巨大タイポを1文字ずつ slam-in させるため、文字とアニメ遅延の組に分解しておく。
+// 行ごとに開始タイミングをずらすと落下が波として伝わって見える。
+const lines = [
+  { text: profile.handle, kind: 'ghost', delayBase: 0 },
+  { text: profile.handle, kind: 'solid', delayBase: 2 },
+  { text: '.dev', kind: 'alt', delayBase: 5 },
+] as const;
+---
+
+<section class="hero" aria-label={`${profile.handle}.dev`}>
+  <!-- Lottieタイポグラフィの層。読み込み失敗時はJSがdata属性を外し、CSSごと消える -->
+  <canvas class="lottie" data-hero-lottie aria-hidden="true"></canvas>
+  <div class="stack" data-hero-stack>
+    {
+      lines.map((line) => (
+        <div
+          class:list={['line', line.kind]}
+          aria-hidden={line.kind !== 'solid'}
+        >
+          {[...line.text].map((ch, i) => (
+            <span style={`--i:${line.delayBase + i}`}>{ch}</span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+  <p class="caption">portfolio</p>
+</section>
+
+<style>
+  /* ヒーローはsticky固定し、後続の場面が上に乗り上げる(正典§6の場面転換)。
+     reduced-motion時はstickyを解いて通常フローの静的表示に落とす。
+     100vh等の全面表示・配置指定は見た目の値ではなく構造の成立要件なので
+     トークン化しない(見た目の値はすべてglobal.cssのトークン参照) */
+  .hero {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: clip;
+    display: grid;
+    place-items: center;
+  }
+  .lottie {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: var(--size-hero-lottie);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .lottie:not([data-hero-lottie]) {
+    display: none;
+  }
+  .stack {
+    transform: rotate(-8deg);
+    will-change: transform, opacity;
+  }
+  .line {
+    display: flex;
+    font-weight: 900;
+    font-size: var(--text-hero);
+    line-height: var(--leading-hero);
+    letter-spacing: var(--tracking-hero);
+  }
+  .line.ghost {
+    color: transparent;
+    -webkit-text-stroke: var(--stroke-hero) var(--color-accent-stroke);
+    margin-left: var(--spacing-hero-shift-ghost);
+  }
+  .line.solid {
+    color: var(--color-ink);
+    margin-left: var(--spacing-hero-shift-solid);
+  }
+  .line.alt {
+    color: var(--color-accent-alt);
+    margin-left: var(--spacing-hero-shift-alt);
+  }
+  .line span {
+    display: inline-block;
+    animation: slam var(--duration-slam) var(--ease-slam) both;
+    animation-delay: calc(var(--i) * 70ms);
+  }
+  @keyframes slam {
+    from {
+      opacity: 0;
+      transform: translateY(-1.2em) rotate(6deg);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .caption {
+    position: absolute;
+    bottom: var(--spacing-caption-y);
+    right: var(--spacing-caption-x);
+    color: var(--color-dim);
+    letter-spacing: var(--tracking-caption);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    animation: slam var(--duration-reveal) 0.9s both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero {
+      position: relative;
+      height: auto;
+      padding: var(--spacing-hero-pad) 0;
+    }
+    .lottie {
+      display: none;
+    }
+    .line span,
+    .caption {
+      animation: none;
+    }
+    .stack {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  import { DotLottie } from '@lottiefiles/dotlottie-web';
+  import lottieUrl from '../assets/animations/typography.lottie?url';
+
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas =
+    document.querySelector<HTMLCanvasElement>('[data-hero-lottie]');
+
+  // Lottieは純粋な装飾層。失敗しても文字タイポだけでヒーローが成立する(絶対ルール5)
+  if (canvas) {
+    if (reduced) {
+      canvas.remove();
+    } else {
+      try {
+        const player = new DotLottie({
+          canvas,
+          src: lottieUrl,
+          loop: true,
+          autoplay: true,
+        });
+        player.addEventListener('loadError', () => canvas.remove());
+      } catch {
+        canvas.remove();
+      }
+    }
+  }
+
+  // スクロールで縮小・回転しながら退場し、次の場面へ主役を渡す
+  const stack = document.querySelector<HTMLElement>('[data-hero-stack]');
+  if (stack && !reduced) {
+    addEventListener(
+      'scroll',
+      () => {
+        const p = Math.min(1, scrollY / innerHeight);
+        stack.style.transform = `rotate(${-8 + p * 6}deg) scale(${1 - p * 0.25}) translateY(${p * -12}vh)`;
+        stack.style.opacity = String(1 - p * 0.9);
+      },
+      { passive: true },
+    );
+  }
+</script>

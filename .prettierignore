@@ -1,0 +1,6 @@
+# Git管理外のエージェント文書は、正典の作業ツリーを整形対象にしない。
+AGENTS.md
+PLAN.md
+docs/
+.claude/
+.codex/

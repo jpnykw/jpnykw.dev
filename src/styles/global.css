@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+/*
+ * デザイントークン(正典§6で確定した方針の実体)。
+ * UI規約により、コンポーネントは色・余白・角丸・影・タイポ・モーションの値を
+ * 直指定せず、必ずここのトークンを参照する。
+ *
+ * 差し色は2色のビビッドで役割を分ける:
+ *   accent(青)   = 構造(罫線、ゴースト文字の輪郭、グロー、年号)
+ *   accent-alt(ピンク) = 反応と頂点(ホバー、選択、強調、ヒートマップ最高階級)
+ * 全面に塗らず点で打つのが原則。ライトテーマは意図的に持たない(§6)。
+ */
+@theme {
+  /* 色 */
+  --color-bg: #0e111a;
+  --color-scene: #141826;
+  --color-ink: #f5f7fa;
+  --color-dim: #7e88a6;
+  --color-accent: #3d6bff;
+  --color-accent-alt: #ff3d8f;
+
+  /* 色の透過バリエーション(用途名で持ち、%の直指定を散らさない) */
+  --color-accent-ring: color-mix(in srgb, #3d6bff 6%, transparent);
+  --color-accent-glow: color-mix(in srgb, #3d6bff 9%, transparent);
+  --color-accent-ghost: color-mix(in srgb, #3d6bff 14%, transparent);
+  --color-accent-border: color-mix(in srgb, #3d6bff 22%, transparent);
+  --color-accent-stroke: color-mix(in srgb, #3d6bff 40%, transparent);
+  --color-accent-frame: color-mix(in srgb, #3d6bff 50%, transparent);
+  --color-bg-veil: color-mix(in srgb, #0e111a 60%, transparent);
+  --color-shadow: color-mix(in srgb, #0e111a 70%, black);
+
+  /* タイポグラフィ(役割ベースのスケール) */
+  --text-hero: clamp(4rem, 16vw, 12rem);
+  --text-ghost: clamp(4rem, 13vw, 9rem);
+  --text-display: clamp(2rem, 6vw, 3.6rem);
+  --text-label: 0.85rem;
+  --text-meta: 0.78rem;
+  --text-caption: 0.75rem;
+  --leading-hero: 0.94;
+  --leading-display: 1.15;
+  --tracking-hero: -0.02em;
+  --tracking-ghost: 0.02em;
+  --tracking-motto: 0.06em;
+  --tracking-label: 0.15em;
+  --tracking-caption: 0.25em;
+  --tracking-marquee: 0.3em;
+
+  /* 余白・寸法 */
+  --spacing-section: 6.5rem;
+  --spacing-hero-pad: 22vh;
+  --spacing-gutter: 1.5rem;
+  --spacing-block: 3rem;
+  --spacing-stack: 1.6rem;
+  --spacing-lead: 1rem;
+  --spacing-strip: 0.7rem;
+  --spacing-footer: 3.5rem;
+  --spacing-underline: 4px;
+  --spacing-caption-x: 6vw;
+  --spacing-caption-y: 8vh;
+  --spacing-hero-shift-ghost: 8vw;
+  --spacing-hero-shift-solid: -4vw;
+  --spacing-hero-shift-alt: 14vw;
+  --spacing-ghost-x: -0.5rem;
+  --spacing-ghost-y: 1.2rem;
+  --spacing-word: 1.2rem;
+  --container-page: 68rem;
+  --size-avatar: 150px;
+  --size-hero-lottie: min(70vw, 56rem);
+  --size-glow: 22rem;
+
+  /* 角丸(アイコンの有機的なblob形状) */
+  --radius-avatar: 24% 76% 66% 34% / 39% 33% 67% 61%;
+  --radius-avatar-hover: 60% 40% 30% 70% / 50% 60% 40% 50%;
+
+  /* 影・線 */
+  --shadow-scene: 0 -30px 80px var(--color-shadow);
+  --shadow-avatar:
+    0 0 0 10px var(--color-accent-ring), 0 18px 44px var(--color-shadow);
+  --stroke-ghost: 1px;
+  --stroke-hero: 1.5px;
+  --stroke-avatar: 2px;
+  --stroke-underline: 2px;
+
+  /* モーション(気持ちよさの共通言語。イージングを揃えて統一感を出す) */
+  --ease-slam: cubic-bezier(0.15, 0.9, 0.2, 1.15);
+  --ease-glide: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-spring: cubic-bezier(0.3, 1.4, 0.4, 1);
+  --duration-slam: 0.7s;
+  --duration-reveal: 0.8s;
+  --duration-hover: 0.35s;
+  --duration-morph: 0.6s;
+  --duration-marquee: 22s;
+}
+
+::selection {
+  background: var(--color-accent-alt);
+  color: var(--color-bg);
+}

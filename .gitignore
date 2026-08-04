@@ -1,12 +1,24 @@
-# Node
-node_modules
+# Dependencies
+node_modules/
 package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Astro
+.astro/
+dist/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+.dev.vars
+
+# Agent configuration
+.claude/
+.codex/
 
 # System
 .DS_Store
-*.sw*
-
-# Other
-build
-dist
-dump
+*.swp
+*.swo
