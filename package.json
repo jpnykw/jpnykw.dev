@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.78.2",
     "astro": "^5.0.0"
   },
   "devDependencies": {
