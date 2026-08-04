@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+/*
+ * 最終的なデザイン方向性は正典で未決のため、M1では差し替えやすい最小トークンだけを仮置きする。
+ */
+@theme {
+  --color-surface: #242939;
+  --color-ink: #f5f7fa;
+  --color-accent: #aab8ff;
+}
