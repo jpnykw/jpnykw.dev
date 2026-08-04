@@ -47,15 +47,16 @@ const marqueeWords = [
 </Base>
 
 <style>
-  /* カーソル追従の発光。ページ全体が反応している感覚をつくる(青=構造の差し色) */
+  /* 見た目の値はすべてglobal.cssのトークン参照(構造指定のみ直書き)。
+     カーソル追従の発光はページ全体が反応している感覚をつくる(青=構造の差し色) */
   .cursor-glow {
     position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
     background: radial-gradient(
-      22rem 22rem at var(--mx, 50%) var(--my, 30%),
-      color-mix(in srgb, var(--color-accent) 9%, transparent),
+      var(--size-glow) var(--size-glow) at var(--mx, 50%) var(--my, 30%),
+      var(--color-accent-glow),
       transparent 65%
     );
   }
@@ -63,28 +64,27 @@ const marqueeWords = [
     position: relative;
     z-index: 2;
     background: var(--color-scene);
-    box-shadow: 0 -30px 80px color-mix(in srgb, var(--color-bg) 70%, black);
+    box-shadow: var(--shadow-scene);
   }
   .marquee {
     overflow: clip;
     white-space: nowrap;
-    border-block: 1px solid
-      color-mix(in srgb, var(--color-accent) 22%, transparent);
-    padding: 0.7rem 0;
-    background: color-mix(in srgb, var(--color-bg) 60%, transparent);
+    border-block: var(--stroke-ghost) solid var(--color-accent-border);
+    padding: var(--spacing-strip) 0;
+    background: var(--color-bg-veil);
   }
   .track {
     display: inline-block;
-    animation: slide 22s linear infinite;
+    animation: slide var(--duration-marquee) linear infinite;
     color: var(--color-dim);
-    letter-spacing: 0.3em;
-    font-size: 0.78rem;
+    letter-spacing: var(--tracking-marquee);
+    font-size: var(--text-meta);
     text-transform: uppercase;
   }
   .track b {
     color: var(--color-accent);
     font-weight: 600;
-    margin: 0 1.2rem;
+    margin: 0 var(--spacing-word);
   }
   @keyframes slide {
     to {
@@ -92,16 +92,16 @@ const marqueeWords = [
     }
   }
   .wrap {
-    max-width: 68rem;
+    max-width: var(--container-page);
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 var(--spacing-gutter);
   }
   footer {
-    padding: 3.5rem 0;
+    padding: var(--spacing-footer) 0;
     text-align: center;
     color: var(--color-dim);
-    font-size: 0.78rem;
-    letter-spacing: 0.25em;
+    font-size: var(--text-meta);
+    letter-spacing: var(--tracking-caption);
     text-transform: uppercase;
   }
   @media (prefers-reduced-motion: reduce) {

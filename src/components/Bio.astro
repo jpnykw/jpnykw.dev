@@ -32,22 +32,23 @@ import icon from '../assets/images/jpnykw.webp';
 </section>
 
 <style>
+  /* 見た目の値はすべてglobal.cssのトークン参照。位置・グリッドの
+     構造指定(position/grid-template等)はレイアウトの成立要件なので対象外 */
   .bio {
     position: relative;
-    padding: 6.5rem 0;
+    padding: var(--spacing-section) 0;
   }
   /* 背景に沈む輪郭だけの章文字。飾りなので読み上げ対象から外す */
   .ghost-title {
     position: absolute;
-    top: 1.2rem;
-    left: -0.5rem;
-    font-size: clamp(4rem, 13vw, 9rem);
+    top: var(--spacing-ghost-y);
+    left: var(--spacing-ghost-x);
+    font-size: var(--text-ghost);
     font-weight: 900;
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 1px
-      color-mix(in srgb, var(--color-accent) 14%, transparent);
-    letter-spacing: 0.02em;
+    -webkit-text-stroke: var(--stroke-ghost) var(--color-accent-ghost);
+    letter-spacing: var(--tracking-ghost);
     pointer-events: none;
     user-select: none;
     white-space: nowrap;
@@ -55,13 +56,13 @@ import icon from '../assets/images/jpnykw.webp';
   .grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: 3rem;
+    gap: var(--spacing-block);
     align-items: center;
   }
   .name {
-    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-size: var(--text-display);
     font-weight: 900;
-    line-height: 1.15;
+    line-height: var(--leading-display);
   }
   .name em {
     font-style: normal;
@@ -69,13 +70,13 @@ import icon from '../assets/images/jpnykw.webp';
   }
   .motto {
     color: var(--color-dim);
-    margin-top: 1rem;
-    letter-spacing: 0.06em;
+    margin-top: var(--spacing-lead);
+    letter-spacing: var(--tracking-motto);
   }
   .sns {
     display: flex;
-    gap: 1.6rem;
-    margin-top: 1.6rem;
+    gap: var(--spacing-stack);
+    margin-top: var(--spacing-stack);
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
@@ -83,8 +84,8 @@ import icon from '../assets/images/jpnykw.webp';
   .sns a {
     color: var(--color-ink);
     text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.15em;
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
     position: relative;
   }
@@ -93,13 +94,13 @@ import icon from '../assets/images/jpnykw.webp';
     content: '';
     position: absolute;
     left: 0;
-    bottom: -4px;
-    height: 2px;
+    bottom: calc(-1 * var(--spacing-underline));
+    height: var(--stroke-underline);
     width: 100%;
     background: var(--color-accent-alt);
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform var(--duration-hover) var(--ease-glide);
   }
   .sns a:hover::after,
   .sns a:focus-visible::after {
@@ -107,21 +108,19 @@ import icon from '../assets/images/jpnykw.webp';
     transform-origin: left;
   }
   img {
-    width: 150px;
-    height: 150px;
-    border-radius: 24% 76% 66% 34% / 39% 33% 67% 61%;
-    border: 2px solid color-mix(in srgb, var(--color-accent) 50%, transparent);
+    width: var(--size-avatar);
+    height: var(--size-avatar);
+    border-radius: var(--radius-avatar);
+    border: var(--stroke-avatar) solid var(--color-accent-frame);
     rotate: -6deg;
-    box-shadow:
-      0 0 0 10px color-mix(in srgb, var(--color-accent) 6%, transparent),
-      0 18px 44px color-mix(in srgb, var(--color-bg) 70%, transparent);
+    box-shadow: var(--shadow-avatar);
     transition:
-      rotate 0.4s cubic-bezier(0.3, 1.4, 0.4, 1),
-      border-radius 0.6s;
+      rotate var(--duration-hover) var(--ease-spring),
+      border-radius var(--duration-morph);
   }
   img:hover {
     rotate: 4deg;
-    border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+    border-radius: var(--radius-avatar-hover);
   }
   @media (max-width: 40rem) {
     .grid {

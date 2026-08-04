@@ -32,7 +32,9 @@ const lines = [
 
 <style>
   /* ヒーローはsticky固定し、後続の場面が上に乗り上げる(正典§6の場面転換)。
-     reduced-motion時はstickyを解いて通常フローの静的表示に落とす */
+     reduced-motion時はstickyを解いて通常フローの静的表示に落とす。
+     100vh等の全面表示・配置指定は見た目の値ではなく構造の成立要件なので
+     トークン化しない(見た目の値はすべてglobal.cssのトークン参照) */
   .hero {
     position: sticky;
     top: 0;
@@ -45,7 +47,7 @@ const lines = [
     position: absolute;
     inset: 0;
     margin: auto;
-    width: min(70vw, 56rem);
+    width: var(--size-hero-lottie);
     height: auto;
     aspect-ratio: 16 / 9;
     opacity: 0.35;
@@ -61,27 +63,26 @@ const lines = [
   .line {
     display: flex;
     font-weight: 900;
-    font-size: clamp(4rem, 16vw, 12rem);
-    line-height: 0.94;
-    letter-spacing: -0.02em;
+    font-size: var(--text-hero);
+    line-height: var(--leading-hero);
+    letter-spacing: var(--tracking-hero);
   }
   .line.ghost {
     color: transparent;
-    -webkit-text-stroke: 1.5px
-      color-mix(in srgb, var(--color-accent) 40%, transparent);
-    margin-left: 8vw;
+    -webkit-text-stroke: var(--stroke-hero) var(--color-accent-stroke);
+    margin-left: var(--spacing-hero-shift-ghost);
   }
   .line.solid {
     color: var(--color-ink);
-    margin-left: -4vw;
+    margin-left: var(--spacing-hero-shift-solid);
   }
   .line.alt {
     color: var(--color-accent-alt);
-    margin-left: 14vw;
+    margin-left: var(--spacing-hero-shift-alt);
   }
   .line span {
     display: inline-block;
-    animation: slam 0.7s cubic-bezier(0.15, 0.9, 0.2, 1.15) both;
+    animation: slam var(--duration-slam) var(--ease-slam) both;
     animation-delay: calc(var(--i) * 70ms);
   }
   @keyframes slam {
@@ -96,19 +97,19 @@ const lines = [
   }
   .caption {
     position: absolute;
-    bottom: 8vh;
-    right: 6vw;
+    bottom: var(--spacing-caption-y);
+    right: var(--spacing-caption-x);
     color: var(--color-dim);
-    letter-spacing: 0.25em;
-    font-size: 0.75rem;
+    letter-spacing: var(--tracking-caption);
+    font-size: var(--text-caption);
     text-transform: uppercase;
-    animation: slam 0.8s 0.9s both;
+    animation: slam var(--duration-reveal) 0.9s both;
   }
   @media (prefers-reduced-motion: reduce) {
     .hero {
       position: relative;
       height: auto;
-      padding: 22vh 0;
+      padding: var(--spacing-hero-pad) 0;
     }
     .lottie {
       display: none;
