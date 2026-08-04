@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'jpnykw.dev' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- OGPなどの共有用メタデータは、ページ構成が固まるM8で一括して追加する。 -->
+    <meta
+      name="description"
+      content="jpnykw.dev — Hirakawa Harutoのポートフォリオ"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-surface text-ink">
+    <slot />
+  </body>
+</html>
