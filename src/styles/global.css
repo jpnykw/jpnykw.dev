@@ -1,10 +1,22 @@
 @import 'tailwindcss';
 
 /*
- * 最終的なデザイン方向性は正典で未決のため、M1では差し替えやすい最小トークンだけを仮置きする。
+ * デザイントークン(正典§6で確定した配色の実体)。
+ * 差し色は2色のビビッドで役割を分ける:
+ *   accent(青)   = 構造(罫線、ゴースト文字の輪郭、グロー、年号)
+ *   accent-alt(ピンク) = 反応と頂点(ホバー、選択、強調、ヒートマップ最高階級)
+ * 全面に塗らず点で打つのが原則。ライトテーマは意図的に持たない(§6)。
  */
 @theme {
-  --color-surface: #242939;
+  --color-bg: #0e111a;
+  --color-scene: #141826;
   --color-ink: #f5f7fa;
-  --color-accent: #aab8ff;
+  --color-dim: #7e88a6;
+  --color-accent: #3d6bff;
+  --color-accent-alt: #ff3d8f;
+}
+
+::selection {
+  background: var(--color-accent-alt);
+  color: var(--color-bg);
 }
