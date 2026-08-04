@@ -1,0 +1,141 @@
+---
+import { profile } from '../lib/profile';
+import icon from '../assets/images/jpnykw.webp';
+---
+
+<section class="bio" aria-label="プロフィール">
+  <div class="ghost-title" aria-hidden="true">WHOAMI</div>
+  <div class="grid">
+    <div>
+      <h2 class="name">
+        {profile.handle}<br /><em>{profile.name}</em>
+      </h2>
+      <p class="motto">{profile.motto}</p>
+      <ul class="sns">
+        {
+          profile.sns.map((s) => (
+            <li>
+              <a href={s.href}>{s.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <img
+      src={icon.src}
+      alt={`${profile.handle}のアイコン`}
+      width={icon.width}
+      height={icon.height}
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<style>
+  .bio {
+    position: relative;
+    padding: 6.5rem 0;
+  }
+  /* 背景に沈む輪郭だけの章文字。飾りなので読み上げ対象から外す */
+  .ghost-title {
+    position: absolute;
+    top: 1.2rem;
+    left: -0.5rem;
+    font-size: clamp(4rem, 13vw, 9rem);
+    font-weight: 900;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px
+      color-mix(in srgb, var(--color-accent) 14%, transparent);
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3rem;
+    align-items: center;
+  }
+  .name {
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.15;
+  }
+  .name em {
+    font-style: normal;
+    color: var(--color-accent-alt);
+  }
+  .motto {
+    color: var(--color-dim);
+    margin-top: 1rem;
+    letter-spacing: 0.06em;
+  }
+  .sns {
+    display: flex;
+    gap: 1.6rem;
+    margin-top: 1.6rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+  .sns a {
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    position: relative;
+  }
+  /* 下線が右から消え左から現れる。ピンク=反応の差し色(正典§6) */
+  .sns a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background: var(--color-accent-alt);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .sns a:hover::after,
+  .sns a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 24% 76% 66% 34% / 39% 33% 67% 61%;
+    border: 2px solid color-mix(in srgb, var(--color-accent) 50%, transparent);
+    rotate: -6deg;
+    box-shadow:
+      0 0 0 10px color-mix(in srgb, var(--color-accent) 6%, transparent),
+      0 18px 44px color-mix(in srgb, var(--color-bg) 70%, transparent);
+    transition:
+      rotate 0.4s cubic-bezier(0.3, 1.4, 0.4, 1),
+      border-radius 0.6s;
+  }
+  img:hover {
+    rotate: 4deg;
+    border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+  }
+  @media (max-width: 40rem) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    img {
+      justify-self: start;
+      order: -1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sns a::after,
+    img {
+      transition: none;
+    }
+  }
+</style>

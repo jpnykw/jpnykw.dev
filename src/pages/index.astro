@@ -1,12 +1,131 @@
 ---
 import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Bio from '../components/Bio.astro';
+import { profile } from '../lib/profile';
 
-const siteName = 'jpnykw.dev';
+// マーキーは意匠(正典§6)。作品タグの語彙から拾った飾り文字列で、データ契約は持たない
+const marqueeWords = [
+  ['GLSL', 'shader arts'],
+  ['Rust', 'compiler'],
+  ['VJ', 'visuals'],
+  ['Web', 'experiments'],
+  ['Music', 'soundcloud'],
+] as const;
 ---
 
-<Base title={siteName}>
-  <main>
-    <h1>{siteName}</h1>
-    <p>Hirakawa Harutoのポートフォリオサイトを準備中だよ。</p>
-  </main>
+<Base>
+  <div class="cursor-glow" data-cursor-glow aria-hidden="true"></div>
+
+  <Hero />
+
+  <!-- ヒーローの上に乗り上げてくる場面(正典§6の場面転換) -->
+  <div class="scene">
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        {
+          [0, 1].map(() => (
+            <span>
+              {marqueeWords.map(([word, sub]) => (
+                <>
+                  <b>{word}</b> {sub}
+                </>
+              ))}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+
+    <main class="wrap">
+      <Bio />
+      <!-- 作品ハイライトはM4、経歴はM5、ヒートマップはM6/M7でこの場面に追加する -->
+    </main>
+
+    <footer>© {profile.handle} — {profile.name}</footer>
+  </div>
 </Base>
+
+<style>
+  /* カーソル追従の発光。ページ全体が反応している感覚をつくる(青=構造の差し色) */
+  .cursor-glow {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      22rem 22rem at var(--mx, 50%) var(--my, 30%),
+      color-mix(in srgb, var(--color-accent) 9%, transparent),
+      transparent 65%
+    );
+  }
+  .scene {
+    position: relative;
+    z-index: 2;
+    background: var(--color-scene);
+    box-shadow: 0 -30px 80px color-mix(in srgb, var(--color-bg) 70%, black);
+  }
+  .marquee {
+    overflow: clip;
+    white-space: nowrap;
+    border-block: 1px solid
+      color-mix(in srgb, var(--color-accent) 22%, transparent);
+    padding: 0.7rem 0;
+    background: color-mix(in srgb, var(--color-bg) 60%, transparent);
+  }
+  .track {
+    display: inline-block;
+    animation: slide 22s linear infinite;
+    color: var(--color-dim);
+    letter-spacing: 0.3em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+  .track b {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin: 0 1.2rem;
+  }
+  @keyframes slide {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .wrap {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  footer {
+    padding: 3.5rem 0;
+    text-align: center;
+    color: var(--color-dim);
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-glow {
+      display: none;
+    }
+    .track {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // カーソル追従グロー。演出専用なのでreduced-motion時は動かさない
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const glow = document.querySelector<HTMLElement>('[data-cursor-glow]');
+  if (glow && !reduced) {
+    addEventListener(
+      'pointermove',
+      (e) => {
+        glow.style.setProperty('--mx', (e.clientX / innerWidth) * 100 + '%');
+        glow.style.setProperty('--my', (e.clientY / innerHeight) * 100 + '%');
+      },
+      { passive: true },
+    );
+  }
+</script>
